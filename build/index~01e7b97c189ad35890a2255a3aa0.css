@@ -828,6 +828,7 @@ body {
   color: #d5d5d7;
   border: 0;
   padding: 0.3rem;
+  outline: none;
 }
 .SearchInput form {
   display: inline;
