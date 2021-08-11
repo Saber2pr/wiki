@@ -1,6 +1,7 @@
 ```ts
 name: Github Pages
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
