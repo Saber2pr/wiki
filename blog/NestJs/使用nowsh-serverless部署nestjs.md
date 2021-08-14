@@ -1,4 +1,5 @@
-now.sh（vercel）是一个免费的网站应用托管平台，支持serverless functions功能，可以运行nodejs服务器，可以部署静态网站、服务端ssr渲染的网站，也支持文件存储（/tmp目录）。下面示例将nestjs部署到vercel：
+now.sh（vercel）是一个免费的网站应用托管平台，支持serverless functions功能，可以运行nodejs服务器，可以部署静态网站、服务端ssr渲染的网站，也支持文件存储（/tmp目录）。
+下面示例将nestjs部署到vercel：
 
 ### 安装now.sh
 
@@ -49,3 +50,32 @@ yarn build && now
 ### 注意
 
 vercel环境的文件系统只有/tmp目录是可读可写的，其他都是只读的。
+
+### 使用Github Action自动化部署
+
+需要配置一个vercelToken: ZEIT_TOKEN
+
+```yml
+name: Deploy-Server
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*.*.*'
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: Install Deps
+        run: yarn add now
+      
+      - name: Deploy
+        run: yarn build && now -c --token ${{secrets.ZEIT_TOKEN}}
+```
+
+### 可以用来做什么
+
+1. 部署自己的nestjs server，提供各种微服务接口
