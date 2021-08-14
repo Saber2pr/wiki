@@ -45,3 +45,7 @@ yarn build && now
 示例：
 
 [nest-api-analyse-imports](https://github.com/Saber2pr/nest-api-analyse-imports)
+
+### 注意
+
+vercel环境的文件系统只有/tmp目录是可读可写的，其他都是只读的。
