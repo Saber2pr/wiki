@@ -41,3 +41,7 @@ yarn build && now
 ```
 
 提示Inspect链接就是vercel上当前项目的状态，部署成功后输出一个Preview链接就是应用访问入口。
+
+示例：
+
+[nest-api-analyse-imports](https://github.com/Saber2pr/nest-api-analyse-imports)
