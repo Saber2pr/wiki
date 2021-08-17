@@ -5,7 +5,10 @@
  * @Last Modified time: 2020-04-06 18:32:37
  */
 const staticAssets = [
-  /** CODE START **/"/build/index~01e7b97c189ad35890a2255a3aa0.css","/build/index~01e7b97c189ad35890a2255a3aa0.min.js","/build/style.1189ad35890a2255a3aa0.css","/build/vendor~index~253ae210189ad35890a2255a3aa0.min.js"/** CODE END **/,
+  /** CODE START **/ '/build/index~01e7b97c189ad35890a2255a3aa0.css',
+  '/build/index~01e7b97c189ad35890a2255a3aa0.min.js',
+  '/build/style.1189ad35890a2255a3aa0.css',
+  '/build/vendor~index~253ae210189ad35890a2255a3aa0.min.js' /** CODE END **/,
   '/',
   // icon
   '/static/icon/saber2pr-144x144.png',
@@ -26,7 +29,8 @@ self.addEventListener('install', event =>
 )
 
 const filterUrl = url =>
-  !url.startsWith('https://saber2pr.top/blog/')
+  !url.startsWith('https://saber2pr.top/blog/') ||
+  !url.startsWith('https://saber2pr.top/static/')
 
 self.addEventListener('fetch', event => {
   const url = event.request.url
