@@ -29,8 +29,7 @@ self.addEventListener('install', event =>
 )
 
 const filterUrl = url =>
-  !url.startsWith('https://saber2pr.top/blog/') ||
-  !url.startsWith('https://saber2pr.top/static/')
+  !(url.startsWith('https://saber2pr.top/blog/') || url.startsWith('https://saber2pr.top/static/'))
 
 self.addEventListener('fetch', event => {
   const url = event.request.url
