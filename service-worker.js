@@ -35,7 +35,10 @@ self.addEventListener('fetch', event => {
   const url = event.request.url
   // only https
   if (!url.startsWith('https:')) return
+  // cache list
   if (filterUrl(url)) return
+  // version control
+  if(url.startsWith('https://saber2pr.top/static/data/version.json')) return
 
   if (staticAssets.find(path => path !== '/' && url.includes(path))) {
     event.respondWith(caches.match(event.request))
