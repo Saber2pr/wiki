@@ -1,1 +1,4 @@
-export const getHash = () => decodeURIComponent(location.hash).slice(1);
+export const getHash = () =>
+  typeof location !== 'undefined'
+    ? decodeURIComponent(location.hash).slice(1)
+    : ''

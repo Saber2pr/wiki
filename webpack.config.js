@@ -4,6 +4,7 @@ const path = require('path')
 const webpack = require('webpack')
 const inlinejs = require('./inlinejs.json')
 const config = require('./app.json')
+const WebpackBar = require('webpackbar');
 
 const { WebpackConfig, templateContent } = require('@saber2pr/webpack-configer')
 const version = () => `var version="${new Date().toLocaleString()}"`
@@ -92,6 +93,7 @@ module.exports = WebpackConfig({
       filename: '[name][hash].css',
       chunkFilename: 'style.[id][hash].css',
     }),
+    new WebpackBar()
   ],
   watchOptions: {
     aggregateTimeout: 1000,

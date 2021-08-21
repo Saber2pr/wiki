@@ -5,6 +5,8 @@ import { twoslasher } from '@typescript/twoslash'
 
 import { sys } from '../sys'
 
+const rootPath = resolve(join(__dirname, '../../'))
+
 const matchPattern = (pattern: RegExp, str: string) => {
   const scan = new RegExp(pattern.source, 'g')
   let next = scan.exec(str)
@@ -38,7 +40,10 @@ export const twoslasheTypes = async () => {
     .filter(file => file.codes.length > 0)
 
   const map = demoFiles.reduce((acc, item, i) => {
-    const path = item.path.match(/(\/blog\/[\s\S]*?\.md)/)[1]
+    const path = item.path
+      .replace(rootPath, '')
+      .replace(/\\/g, '/')
+      .replace(/\.md$/, '')
     console.log(
       `[TypeGen(${Math.round((i * 100) / demoFiles.length)}%)] ${path}`
     )
@@ -57,6 +62,6 @@ export const twoslasheTypes = async () => {
     }
   }, {})
 
-  const dest = resolve(__dirname, '../../public/types-assets.json')
+  const dest = resolve(__dirname, '../../static/data/typesdef.json')
   await sys.writeFile(dest, JSON.stringify(map))
 }
