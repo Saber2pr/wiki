@@ -1,6 +1,6 @@
 import './style.less'
 
-import React, { useLayoutEffect, useRef } from 'react'
+import React, { useEffect, useLayoutEffect, useRef } from 'react'
 
 import Tree from '@saber2pr/rc-tree'
 import { Link, NavLink, Route, Switch } from '@saber2pr/react-router'
@@ -34,6 +34,7 @@ import {
   timeDeltaFromNow,
 } from '../../utils'
 import { NotFound } from '../not-found'
+import { useTwoSlash } from '../../hooks/useTwoSlash'
 
 const BLink = (props: Link) => (
   <NavLink activeClassName="Blog-A-Active" className="Blog-A" {...props} />
@@ -102,7 +103,10 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                     await={requestContent(href + '.md')}
                     errorBack={<ErrorBack />}
                   >
-                    {content => <Md2jsx theme={md_theme}>{content}</Md2jsx>}
+                    {content => {
+                      useTwoSlash()
+                      return <Md2jsx theme={md_theme}>{content}</Md2jsx>
+                    }}
                   </LazyCom>
                   <div className="Blog-Main-Content-Edit">
                     <a
