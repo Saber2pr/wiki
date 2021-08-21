@@ -11,7 +11,8 @@
     "update": "ts-node scripts/generate",
     "update:static": "ts-node scripts/updateVersion-static",
     "push:blog": "sh scripts/push-blog.sh",
-    "push:build": "sh scripts/push-build.sh"
+    "push:build": "sh scripts/push-build.sh",
+    "job": "ts-node actions/main"
   },
   "dependencies": {
     "@saber2pr/md2jsx": "^0.1.5",
@@ -36,7 +37,9 @@
   "devDependencies": {
     "@saber2pr/git": "^0.0.2",
     "@saber2pr/node": "^0.3.0",
+    "@saber2pr/ts-compiler": "^0.1.8",
     "@saber2pr/webpack-configer": "0.0.9",
+    "@typescript/twoslash": "^3.0.0",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
     "html-webpack-plugin": "^3.2.0",
