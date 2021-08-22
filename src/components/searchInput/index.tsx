@@ -2,7 +2,7 @@ import './style.less'
 
 import React, { useEffect, useImperativeHandle, useRef, useState } from 'react'
 
-import { Link, usePush } from '@saber2pr/react-router'
+import { getHash, Link, usePush } from '@saber2pr/react-router'
 
 import { pushIV } from '../../api/pushIV'
 import { Routes } from '../../config'
@@ -227,6 +227,16 @@ export const SearchInput = ({ blog }: SearchInput) => {
   useEffect(() => {
     setIsMob(checkIsMob())
   }, [])
+
+  useEffect(() => {
+    const keyword = getHash().match(/\?q=([\s\S]*)$/)?.[1]
+    if (keyword) {
+      search(keyword)
+      if (result.length) {
+        onSubmit()
+      }
+    }
+  }, [result])
 
   return (
     <span className="SearchInput">
