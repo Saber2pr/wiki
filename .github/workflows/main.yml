@@ -27,3 +27,6 @@ jobs:
 
       - name: Push Data
         run: yarn push:blog
+
+      - name: Update CDN
+        run: curl https://purge.jsdelivr.net/gh/saber2pr/saber2pr.github.io@master/static/data/typesdef.json
