@@ -53,7 +53,7 @@ export const twoslasheTypes = async () => {
           noErrors: true,
         },
       })
-      return res.staticQuickInfos
+      return res.staticQuickInfos.filter(item => item.text !== 'any');
     })
 
     return {
