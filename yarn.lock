@@ -49,10 +49,10 @@
   dependencies:
     "@types/node" "^10.12.18"
 
-"@saber2pr/ts-compiler@^0.1.14":
-  version "0.1.14"
-  resolved "https://registry.yarnpkg.com/@saber2pr/ts-compiler/-/ts-compiler-0.1.14.tgz#5f7b07086dd8e636eafce9e20ac5c49fec97e286"
-  integrity sha512-/nCPL3d572FF4VYIKi3BMV24AQQ7JLE5tda49brK9XhyDYCS3/Vpid3nGyXwSJdt5DrXZYZxvtBb38fjlFqang==
+"@saber2pr/ts-compiler@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@saber2pr/ts-compiler/-/ts-compiler-0.2.1.tgz#331f169740fd69e4db0bda17ef62f183c7b422b0"
+  integrity sha512-xho/MBxawREk6qZHgMoOR6K4ADmiQdNP1Zx6lqAf3awQcjybxVx9XX88BwYEthHPBVnQSGCCTmCL4pEx8QRvPQ==
   dependencies:
     "@nodelib/fs.walk" "^1.2.8"
     "@types/graceful-fs" "^4.1.5"
@@ -97,10 +97,10 @@
   resolved "https://r.cnpmjs.org/@types/node/download/@types/node-10.14.15.tgz#e8f7729b631be1b02ae130ff0b61f3e018000640"
   integrity sha1-6Pdym2Mb4bAq4TD/C2Hz4BgABkA=
 
-"@types/node@^16.7.6":
-  version "16.7.6"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.7.6.tgz#8666478db8095aa66e25b7e469f3e7b53ea2855e"
-  integrity sha512-VESVNFoa/ahYA62xnLBjo5ur6gPsgEE5cNRy8SrdnkZ2nwJSW0kJ4ufbFr2zuU9ALtHM8juY53VcRoTA7htXSg==
+"@types/node@^16.7.10":
+  version "16.7.10"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.7.10.tgz#7aa732cc47341c12a16b7d562f519c2383b6d4fc"
+  integrity sha512-S63Dlv4zIPb8x6MMTgDq5WWRJQe56iBEY0O3SOFA9JrRienkOVDXSXBjjJw6HTNQYSE2JI6GMCR6LVbIMHJVvA==
 
 "@typescript/twoslash@^3.0.0":
   version "3.0.0"
