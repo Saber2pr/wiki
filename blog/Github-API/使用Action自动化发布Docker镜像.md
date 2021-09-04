@@ -14,10 +14,25 @@ jobs:
         # secrets: DOCKER_USER, DOCKER_TOKEN
       - name: Build & Publish
         run: |
-          repo=${GITHUB_REPOSITORY#*/}
-          tag=${GITHUB_REF#refs/*/}
+          image=${GITHUB_REPOSITORY#*/}:${GITHUB_REF#refs/*/}
           docker login -u ${{secrets.DOCKER_USER}} -p ${{secrets.DOCKER_TOKEN}}
-          docker image build -t $repo:$tag .
-          docker tag $repo:$tag ${{secrets.DOCKER_USER}}/$repo:$tag
-          docker push ${{secrets.DOCKER_USER}}/$repo:$tag
+          docker image build -t $image .
+          docker tag $image ${{secrets.DOCKER_USER}}/$image
+          docker push ${{secrets.DOCKER_USER}}/$image
+```
+
+上传容器静态资源示例：
+
+```yml
+- name: Copy Assets
+  run: |
+    image=${GITHUB_REPOSITORY#*/}:${GITHUB_REF#refs/*/}
+    mkdir ./app
+    docker cp $(docker create --rm ${{secrets.DOCKER_USER}}/$image):/app/.next ./app/_next
+    
+- name: Upload CDN
+  uses: peaceiris/actions-gh-pages@v3
+  with:
+    github_token: ${{ secrets.GITHUB_TOKEN }}
+    publish_dir: ./app
 ```
