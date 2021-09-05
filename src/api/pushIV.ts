@@ -21,5 +21,15 @@ export const pushIV = (action: IV['action']) => {
     axios.post(ApiUrls.v, {
       params: data,
     })
+    if(action.type === '页面访问'){
+      axios.post(ApiUrls.pv, {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        params: {
+          pagePath: action.payload
+        }
+      })
+    }
   }
 }

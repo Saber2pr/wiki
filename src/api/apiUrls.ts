@@ -1,9 +1,13 @@
+const api = 'https://nest-api-blog-saber2pr.vercel.app/v1'
+
 const apis = {
   development: {
     v: '/api/v',
+    pv: `${api}/visit/pv`
   },
   production: {
     v: 'https://blog.saber2pr.top/api/v',
+    pv: `${api}/visit/pv`
   },
 }[process.env.NODE_ENV]
 
