@@ -1,6 +1,6 @@
 import './style.less'
 
-import React, { useEffect, useLayoutEffect, useRef } from 'react'
+import React, { useLayoutEffect, useRef } from 'react'
 
 import Tree from '@saber2pr/rc-tree'
 import { Link, NavLink, Route, Switch } from '@saber2pr/react-router'

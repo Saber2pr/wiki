@@ -11,6 +11,7 @@ export const origin = {
     blog: '/static/data/blog.json',
     learn: '/static/data/learn.json',
     about: '/static/data/about.json',
+    aboutmd: '/static/data/about.md',
     links: '/static/data/links.json',
     version: '/static/data/version.json',
     musicList: '/static/data/musicList.json',

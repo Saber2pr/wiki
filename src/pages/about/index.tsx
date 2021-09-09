@@ -2,22 +2,23 @@ import './style.less'
 
 import React, { memo } from 'react'
 
-import { LazyCom, Loading, TwoSide, useOption } from '../../components'
-import { request } from '../../request'
+import {
+  ErrorBack,
+  LazyCom,
+  Loading,
+  TwoSide,
+  useOption,
+} from '../../components'
+import { request, requestContent } from '../../request'
+import { Md2jsx, origin } from '../../config'
 
-const Main = ({ contents }: { contents: string[] }) => {
+const Main = ({ content }: { content: string }) => {
   const [model, show] = useOption()
   return (
     <>
       <h1 className="About-Main-Title">About Me</h1>
       <div className="About-Main-Content">
-        <ul>
-          {contents.map(a => (
-            <li key={a}>
-              <p>{a}</p>
-            </li>
-          ))}
-        </ul>
+        <Md2jsx theme={null}>{content}</Md2jsx>
         <hr className="About-Hr" />
         <div>
           {model}
@@ -31,15 +32,20 @@ const Main = ({ contents }: { contents: string[] }) => {
 }
 
 export interface About {
-  contents: string[]
   projects: Array<{ name: string; href: string; content: string }>
 }
 
-export const About = ({ contents, projects }: About) => (
+export const About = ({ projects }: About) => (
   <div className="About">
     <TwoSide>
       <section className="About-Main">
-        <Main contents={contents} />
+        <LazyCom
+          fallback={<Loading type="line" />}
+          await={requestContent(origin.data.aboutmd)}
+          errorBack={<ErrorBack />}
+        >
+          {content => <Main content={content} />}
+        </LazyCom>
       </section>
       <aside className="About-Aside">
         <h2 className="About-Aside-Title">Projects</h2>

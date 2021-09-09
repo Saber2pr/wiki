@@ -5,7 +5,7 @@
  * @Last Modified time: 2020-04-06 18:32:37
  */
 const staticAssets = [
-  /** CODE START **/"\\build\\index~493df0b3592700f604b0383b66a3.css","\\build\\index~493df0b3592700f604b0383b66a3.min.js","\\build\\style.1592700f604b0383b66a3.css","\\build\\vendor~index~493df0b3592700f604b0383b66a3.min.js"/** CODE END **/,
+  /** CODE START **/"/build/index~01e7b97c4ca9bfd7c9c4692e0634.css","/build/index~01e7b97c4ca9bfd7c9c4692e0634.min.js","/build/style.14ca9bfd7c9c4692e0634.css","/build/vendor~index~253ae2104ca9bfd7c9c4692e0634.min.js"/** CODE END **/,
   '/',
   // icon
   '/static/icon/saber2pr-144x144.png',
