@@ -11,14 +11,14 @@
       "content": "a web editor powered by monaco-editor."
     },
     {
-      "name": "next-tpl",
-      "href": "https://github.com/Saber2pr/next-tpl",
-      "content": "next.js + antd + axios + docker."
+      "name": "next-ssr-blog",
+      "href": "https://github.com/Saber2pr/next-ssr-blog",
+      "content": "📘 Blog SSR. Next.js + Docker + Nginx + JsDelivr + Github Action"
     },
     {
-      "name": "@saber2pr/ptbk",
-      "href": "https://github.com/Saber2pr/ptbk",
-      "content": "encode & decode"
+      "name": "nest-api-blog",
+      "href": "https://github.com/Saber2pr/nest-api-blog",
+      "content": "📘 Blog API. Nest.js + Docker + Vercel + MySQL + Github Action"
     },
     {
       "name": "@saber2pr/react",
