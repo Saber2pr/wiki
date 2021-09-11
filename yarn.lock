@@ -49,10 +49,10 @@
   dependencies:
     "@types/node" "^10.12.18"
 
-"@saber2pr/ts-compiler@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@saber2pr/ts-compiler/-/ts-compiler-0.2.1.tgz#331f169740fd69e4db0bda17ef62f183c7b422b0"
-  integrity sha512-xho/MBxawREk6qZHgMoOR6K4ADmiQdNP1Zx6lqAf3awQcjybxVx9XX88BwYEthHPBVnQSGCCTmCL4pEx8QRvPQ==
+"@saber2pr/ts-compiler@^0.2.4":
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@saber2pr/ts-compiler/-/ts-compiler-0.2.4.tgz#e1248be9a6a643462b8a6d284c7f65b6945ddc3f"
+  integrity sha512-CL+jooy6IIAM9Zebzzj60pnjzha1NSOvD16cuAWbcQCwF+4CSlIOiyxgg646yuhrG2xrbaqUsCTakADjIpar+Q==
   dependencies:
     "@nodelib/fs.walk" "^1.2.8"
     "@types/graceful-fs" "^4.1.5"
@@ -217,10 +217,10 @@ typescript@^4.3.5:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.3.5.tgz#4d1c37cc16e893973c45a06886b7113234f119f4"
   integrity sha512-DqQgihaQ9cUrskJo9kIyW/+g0Vxsk8cDtZ52a3NGh0YNTfpUSArXSohyUGnvbPazEPLu398C0UxmKSOrPumUzA==
 
-typescript@^4.4.2:
-  version "4.4.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.4.2.tgz#6d618640d430e3569a1dfb44f7d7e600ced3ee86"
-  integrity sha512-gzP+t5W4hdy4c+68bfcv0t400HVJMMd2+H9B7gae1nQlBzCqvrXX+6GL/b3GAgyTH966pzrZ70/fRjwAtZksSQ==
+typescript@^4.4.3:
+  version "4.4.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.4.3.tgz#bdc5407caa2b109efd4f82fe130656f977a29324"
+  integrity sha512-4xfscpisVgqqDfPaJo5vkd+Qd/ItkoagnHpufr+i2QCHBsNYp+G7UAoyFl8aPtx879u38wPV65rZ8qbGZijalA==
 
 yn@3.1.1:
   version "3.1.1"
