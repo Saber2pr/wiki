@@ -1,3 +1,5 @@
+## 基础篇
+
 ### echo 打印输出
 
 ```bash
@@ -65,3 +67,28 @@ mv name1 name2
 ```bash
 sudo chmod -R 777 .
 ```
+
+## 应用篇
+
+### 一键清理<none>镜像
+  
+```bash
+docker rmi $(docker images | grep "<none>" | grep -oE "[0-9a-z]{12}" | tr '\n' ' ')
+```
+  
+说明：docker images列出镜像，grep none过滤出none镜像的行，然后正则提取镜像id，用tr命令将每一行组合到一行上空格分隔，最后使用rmi命令删除过滤好的none镜像id
+  
+### 实时查看文件日志
+  
+```bash
+tail -f -n 10 logs/nest:09-16.log
+```
+
+### 查看yarn.lock中某个库的版本
+
+```bash
+cat yarn.lock | grep -oE -A1 "^react@\S+"  
+```
+  
+说明：cat <file> 可以将文件内容输出到终端，grep可以对终端内容的每一行进行筛选，-o表示只输出匹配到的内容，-E表示使用扩展正则，-A表示输出内容包含往后几行例如A1将包含往后1行。
+
