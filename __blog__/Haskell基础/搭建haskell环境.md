@@ -13,10 +13,17 @@ RUN apt update
 RUN apt install curl
 RUN apt install git
 
+# git config
+git config --global http.sslBackend gnutls
+# disable git ssl
+ENV GIT_SSL_NO_VERIFY true
+
 # proxy
-ENV http_proxy "host.docker.internal:10809"
-ENV https_proxy "host.docker.internal:10809"
+ENV http_proxy "http://host.docker.internal:10809"
+ENV https_proxy "http://host.docker.internal:10809"
 ```
+
+[github仓库自动发布](https://github.com/Saber2pr/haskell)
 
 > 注意这里使用了v2ray代理
 
