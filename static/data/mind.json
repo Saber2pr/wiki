@@ -81,7 +81,7 @@
         "data": {
           "id": "ccp39pr0peo0",
           "created": 1625882570965,
-          "text": "核心库开发",
+          "text": "编译器",
           "layout_mind_offset": {
             "x": 637,
             "y": 303
@@ -92,8 +92,8 @@
             "data": {
               "id": "ccp3ynfnrug0",
               "created": 1625884525028,
-              "text": "React Like",
-              "hyperlink": "https://github.com/Saber2pr/react"
+              "text": "Parsec",
+              "hyperlink": "https://github.com/Saber2pr/jsx-ast-parser"
             },
             "children": []
           }
@@ -158,7 +158,7 @@
             "data": {
               "id": "ce1ry61od3k0",
               "created": 1630827071735,
-              "text": "Docker+Nginx+Gitlab运维CI/CD"
+              "text": "Docker+Nginx+Gitlab CI/CD"
             },
             "children": []
           }
