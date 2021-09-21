@@ -14,7 +14,7 @@ RUN apt install curl
 RUN apt install git
 
 # git config
-git config --global http.sslBackend gnutls
+RUN git config --global http.sslBackend gnutls
 # disable git ssl
 ENV GIT_SSL_NO_VERIFY true
 
