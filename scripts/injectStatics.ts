@@ -13,6 +13,7 @@ const injectStatics = async () => {
 
   let statics = await ReadDir(paths.publicPath)
   statics = statics.reduce((acc, src) => {
+    if (src === 'index.html') return acc
     return acc.concat(join(paths.publicBase, src))
   }, [])
 
