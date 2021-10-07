@@ -24,28 +24,32 @@
 }
 
 .bagua {
-    --width: 50px;
+    --width: 18px;
     --height: var(--width);
     --radius: calc(var(--width) / 2);
     --radius2: calc(var(--width) / 4);
     --radius3: calc(var(--width) / 6);
+    --color1: white;
+    --color2: black;
     display: flex;
     width: var(--width);
     height: var(--height);
     border-radius: 50%;
-    /* animation: circle 1s linear infinite; */
+    animation: circle 1s linear infinite;
+    position: fixed;
+    box-shadow: 0px 0px 5px var(--color2);
 }
 
 .bagua .left {
     width: var(--width);
     height: var(--height);
-    background-color: white;
+    background-color: var(--color1);
     border-top-left-radius: var(--radius);
     border-bottom-left-radius: var(--radius);
 }
 
 .bagua .left .left-1 {
-    background-color: white;
+    background-color: var(--color1);
     width: var(--radius);
     height: var(--radius);
     border-radius: 50%;
@@ -54,7 +58,7 @@
 }
 
 .bagua .left-1 .left-1-1 {
-    background-color: black;
+    background-color: var(--color2);
     width: var(--radius3);
     height: var(--radius3);
     border-radius: 50%;
@@ -67,13 +71,13 @@
 .bagua .right {
     width: var(--width);
     height: var(--height);
-    background-color: black;
+    background-color: var(--color2);
     border-top-right-radius: var(--radius);
     border-bottom-right-radius: var(--radius);
 }
 
 .bagua .right .right-1 {
-    background-color: black;
+    background-color: var(--color2);
     width: var(--radius);
     height: var(--radius);
     border-radius: 50%;
@@ -83,7 +87,7 @@
 }
 
 .bagua .right-1 .right-1-1 {
-    background-color: white;
+    background-color: var(--color1);
     width: var(--radius3);
     height: var(--radius3);
     border-radius: 50%;
