@@ -1,4 +1,5 @@
 export * from './ani-btn';
+export * from './bagua';
 export * from './check-update';
 export * from './close-btn';
 export * from './error-back';

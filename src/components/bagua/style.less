@@ -1,0 +1,87 @@
+@keyframes circle {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.bagua {
+  --width: 1rem;
+  --height: var(--width);
+  --radius: calc(var(--width) / 2);
+  --radius2: calc(var(--width) / 4);
+  --radius3: calc(var(--width) / 6);
+  --color1: white;
+  --color2: red;
+  display: flex;
+  width: var(--width);
+  height: var(--height);
+  border-radius: 50%;
+  animation: circle 1.6s linear infinite;
+  position: fixed;
+  box-shadow: 0px 0px 1rem var(--color2);
+  z-index: 1000;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  transition: all 0.016s ease;
+  cursor: pointer;
+}
+
+.bagua .left {
+  width: var(--width);
+  height: var(--height);
+  background-color: var(--color1);
+  border-top-left-radius: var(--radius);
+  border-bottom-left-radius: var(--radius);
+}
+
+.bagua .left .left-1 {
+  background-color: var(--color1);
+  width: var(--radius);
+  height: var(--radius);
+  border-radius: 50%;
+  position: relative;
+  left: var(--radius2);
+}
+
+.bagua .left-1 .left-1-1 {
+  background-color: var(--color2);
+  width: var(--radius3);
+  height: var(--radius3);
+  border-radius: 50%;
+  position: relative;
+  left: var(--radius2);
+  top: var(--radius2);
+  transform: translate(-50%, -50%);
+}
+
+.bagua .right {
+  width: var(--width);
+  height: var(--height);
+  background-color: var(--color2);
+  border-top-right-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
+}
+
+.bagua .right .right-1 {
+  background-color: var(--color2);
+  width: var(--radius);
+  height: var(--radius);
+  border-radius: 50%;
+  position: relative;
+  right: var(--radius2);
+  top: var(--radius);
+}
+
+.bagua .right-1 .right-1-1 {
+  background-color: var(--color1);
+  width: var(--radius3);
+  height: var(--radius3);
+  border-radius: 50%;
+  position: relative;
+  left: var(--radius2);
+  top: var(--radius2);
+  transform: translate(-50%, -50%);
+}

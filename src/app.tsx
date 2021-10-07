@@ -11,8 +11,7 @@ import {
 } from '@saber2pr/react-router'
 
 import { pushIV } from './api/pushIV'
-import { createMusicBox, PreImg, SearchInput, Themer, Uv } from './components'
-import { HeaderMessage } from './components/header-message'
+import { createMusicBox, PreImg, SearchInput, Themer, Uv, HeaderMessage, Bagua } from './components'
 import { origin, Routes as RS } from './config'
 import { useBlogMenu, useEvent, useFullWindow, useIsMob } from './hooks'
 import { useShowMusic } from './hooks/useShowMusic'
@@ -136,6 +135,7 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
       </header>
       <main ref={main_ref} className="main">
         <picture className="main-bg" />
+        {isMob || <Bagua />}
         {showMusic && (
           <i
             className="iconfont icon-musicBox"
