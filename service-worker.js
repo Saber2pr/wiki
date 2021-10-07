@@ -2,10 +2,10 @@
  * @Author: saber2pr
  * @Date: 2019-11-21 22:13:28
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-07 17:52:39
+ * @Last Modified time: 2021-10-07 18:09:02
  */
 const staticAssets = [
-  /** CODE START **/"/build/index~493df0b3a3cac26903f92205cf5c.css","/build/index~493df0b3a3cac26903f92205cf5c.min.js","/build/style.1a3cac26903f92205cf5c.css","/build/vendor~index~493df0b3a3cac26903f92205cf5c.min.js"/** CODE END **/,
+  /** CODE START **/"/build/index~493df0b3a3cac26903f92205cf5c.css", "/build/index~493df0b3a3cac26903f92205cf5c.min.js", "/build/style.1a3cac26903f92205cf5c.css", "/build/vendor~index~493df0b3a3cac26903f92205cf5c.min.js"/** CODE END **/,
   '/',
   // icon
   '/static/icon/saber2pr-144x144.png',
@@ -29,16 +29,17 @@ const filterUrl = url => !(url.startsWith('https://saber2pr.top/blog/') || url.s
 
 self.addEventListener('fetch', event => {
   const url = event.request.url
+  // match statics
+  const staticTarget = staticAssets.find(path => path !== '/' && url.includes(path))
+  if (staticTarget) {
+    return event.respondWith(caches.match(staticTarget))
+  }
+
   // only https
   if (!url.startsWith('https:')) return
 
   // version control
   if (url.startsWith('https://saber2pr.top/static/data/version.json')) return
-
-  // match statics
-  if (staticAssets.find(path => path !== '/' && url.includes(path))) {
-    return event.respondWith(caches.match(event.request))
-  }
 
   // cache list
   if (filterUrl(url)) return
