@@ -1,6 +1,7 @@
-import { paths } from "./paths"
-import { ReadFile, ReadDir, WriteFile } from "./node"
-import { join } from "path"
+import { paths } from './paths'
+import { ReadFile, ReadDir, WriteFile } from './node'
+import { posix } from 'path'
+const { join } = posix
 
 const CODE_START = `/** CODE START **/`
 const CODE_END = `/** CODE END **/`
@@ -12,7 +13,6 @@ const injectStatics = async () => {
 
   let statics = await ReadDir(paths.publicPath)
   statics = statics.reduce((acc, src) => {
-    if (src === "index.html") return acc
     return acc.concat(join(paths.publicBase, src))
   }, [])
 
