@@ -45,3 +45,7 @@ certbot --server https://acme-v02.api.letsencrypt.org/directory -d "blog.saber2p
 
 1. 这个证书是会过期的（3 个月有效期），需要执行 certbot renew 重新生成
 2. 不要对生成的证书文件进行移动、复制等操作！！（以绝对路径去读取使用）
+
+### renew刷新证书
+
+因为是域名解析配置的txt记录，所以不能直接renew，需要手动重新记录一次。重新执行【4. 生成 HTTPS 证书】，然后重启nginx，执行nginx -s reload
