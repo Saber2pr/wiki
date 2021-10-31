@@ -445,3 +445,12 @@ console.log(ast)
 1. 在编写 BNF 的时候，可以更好的理解编程语言语法设计理念。有助于写出能够被编译器优化的语法。
 2. 可以设计自己的语法，然后利用 parser 解析为 ast，再翻译到 JavaScript 或其他语言。例如实现 DSL 语法。
 3. 静态文本处理，对于一些有语法规则的文本，可以编写一个 parser 来处理它，如文本搜索，代码重构等。
+
+### 6. 附录
+
+- 1. 上述代码仓库链接：https://github.com/Saber2pr/html-parser-demos
+
+### 参考
+
+- [1]. Compilers: Principles, Techniques, and Tools - 2.4 Parsing
+- [2]. ts-parsec https://github.com/microsoft/ts-parsec
