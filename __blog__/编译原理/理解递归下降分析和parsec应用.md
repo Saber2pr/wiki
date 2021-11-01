@@ -436,6 +436,33 @@ console.log(ast)
 }
 ```
 
+---
+
+除了上面用到的seq、opt、kleft、kmid，还有一些其他的操作符例如list_sc、alt、rep
+
+list_sc用来表示被一个符号分隔的一组符号，例如描述一个数组：
+
+```ts
+// [1,2,3] 
+seq(str('['), list_sec(EXPRESSION, str(',')), str(']'))
+// [1,2,3,] 后面加一个可选的逗号 
+seq(str('['), list_sec(EXPRESSION, str(',')), opt(str',') str(']'))
+```
+
+alt用来表示bnf中的竖杠｜符号，例如描述表达式EXPRESSION：
+
+```ts
+// EXPRESSION ::= NUMBER | STRING | BOOLEAN | FUNCTION
+const EXPRESSION = alt(NUMBER, STRING, BOOLEAN, FUNCTION)
+```
+
+rep用来描述一个重复的符号，对应bnf中的(A)*，例如描述一个程序，程序由多个语句组成：
+
+```ts
+// PROGRAM ::= (STATEMENT)*
+const PROGRAM = req(STATEMENT)
+```
+
 ### 5. 最后
 
 使用 BNF 描述语法，然后按照 BNF 编写 语法单元 parser，最后将 parser 组合起来成为完整的 parser，这就是 Parser Combinators。
