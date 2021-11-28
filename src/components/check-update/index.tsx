@@ -36,7 +36,8 @@ const updateCache = async (mode: CacheType, version: string) => {
   await freeCache(mode)
   await updateVersion(version, mode)
   setUpdateOmit("false")
-  location.reload()
+  // 下一次进入更新
+  // location.reload() 
 }
 
 export const CheckUpdate = ({ version, close, option, mode }: CheckUpdate) => {
