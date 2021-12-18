@@ -181,8 +181,7 @@
     {
       "name": "Blood Pressure",
       "href": "https://saber2pr.top/blood-pressure-chart/",
-      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/blood-pressure-icon.webp",
-      "frame": true
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/blood-pressure-icon.webp"
     }
   ],
   "服务端": [
