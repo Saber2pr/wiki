@@ -7,24 +7,24 @@
     },
     {
       "name": "Less",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/ico-less.png",
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/ico-less.png",
       "href": "http://lesscss.cn/"
     },
     {
       "name": "C/C++",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/cpp.webp",
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/cpp.webp",
       "href": "http://www.cplusplus.com/reference/"
     },
     {
       "name": "Haskell",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/haskell.webp",
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/haskell.webp",
       "href": "https://downloads.haskell.org/ghc/6.12.2/docs/html/libraries/index.html"
     }
   ],
   "前端UI库": [
     {
       "name": "Ant Design",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/antd.svg",
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/antd.svg",
       "href": "https://ant-design.gitee.io/components/overview-cn/"
     },
     {
@@ -44,59 +44,59 @@
     },
     {
       "name": "React-Router",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/react-router.webp",
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/react-router.webp",
       "href": "https://reacttraining.com/react-router/web/guides/quick-start"
     },
     {
       "name": "微信小程序",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/wxmini.webp",
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/wxmini.webp",
       "href": "https://developers.weixin.qq.com/miniprogram/dev/component/"
     },
     {
       "name": "Taro",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/taro.webp",
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/taro.webp",
       "href": "https://taro-docs.jd.com/taro/docs/GETTING-STARTED.html"
     }
   ],
   "工具库": [
     {
       "name": "Axios",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/ico-axios.svg",
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/ico-axios.svg",
       "href": "http://www.axios-js.com/zh-cn/docs/"
     },
     {
       "name": "Moment",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/moment-favicon.png",
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/moment-favicon.png",
       "href": "http://momentjs.cn/docs/"
     },
     {
       "name": "ECharts",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/echarts.webp",
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/echarts.webp",
       "href": "https://echarts.apache.org/zh/option.html"
     },
     {
       "name": "Lodash",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/lodash.webp",
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/lodash.webp",
       "href": "https://lodash.com/docs/"
     },
     {
       "name": "Immer",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/immerjs.webp",
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/immerjs.webp",
       "href": "https://immerjs.github.io/immer/docs/introduction"
     },
     {
       "name": "Immutable.js",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/immutable.webp",
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/immutable.webp",
       "href": "https://immutable-js.github.io/immutable-js/"
     },
     {
       "name": "RxJS",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/rxjs.webp",
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/rxjs.webp",
       "href": "https://rxjs-cn.github.io/learn-rxjs-operators/"
     },
     {
       "name": "Jquery",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/jquery.webp",
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/jquery.webp",
       "href": "https://www.jquery123.com/"
     }
   ],
@@ -104,7 +104,7 @@
     {
       "name": "Webpack",
       "href": "https://www.webpackjs.com/concepts/",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/webpack.webp"
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/webpack.webp"
     },
     {
       "name": "Rollup",
@@ -123,7 +123,7 @@
     },
     {
       "name": "Git",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/0111git.webp",
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/0111git.webp",
       "href": "https://git-scm.com/book/zh/v2"
     }
   ],
@@ -131,7 +131,7 @@
     {
       "name": "稿定设计",
       "href": "https://ps.gaoding.com/",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/gaodingsheji.svg"
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/gaodingsheji.svg"
     },
     {
       "name": "Logo设计",
@@ -141,29 +141,29 @@
     {
       "name": "代码编辑器",
       "href": "https://editor-saber2pr.vercel.app/",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/vscode.webp"
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/vscode.webp"
     },
     {
       "name": "Json类型",
       "href": "https://saber2pr.top/json-type-app/",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/json-icon.webp"
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/json-icon.webp"
     },
     {
       "name": "思维导图",
       "href": "https://fronted-tsx-developer.github.io/demos/mind.html",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/minder.webp",
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/minder.webp",
       "frame": true
     },
     {
       "name": "时薪计算",
       "href": "https://fronted-tsx-developer.github.io/demos/xinzi.html",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/icon-qianbao.webp",
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/icon-qianbao.webp",
       "frame": true
     },
     {
       "name": "二维码",
       "href": "https://fronted-tsx-developer.github.io/demos/qrcode.html",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/qrcode.png",
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/qrcode.png",
       "frame": true
     },
     {
@@ -177,33 +177,39 @@
       "href": "https://fronted-tsx-developer.github.io/demos/",
       "icon": "https://avatars.githubusercontent.com/u/64789593?s=200&v=4",
       "frame": true
+    },
+    {
+      "name": "Blood Pressure",
+      "href": "https://saber2pr.top/blood-pressure-chart/",
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/blood-pressure-icon.webp",
+      "frame": true
     }
   ],
   "服务端": [
     {
       "name": "MongoDB",
       "href": "http://www.mongoing.com/docs/crud.html",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/mongodb.webp"
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/mongodb.webp"
     },
     {
       "name": "Nodejs",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/ico-node.png",
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/ico-node.png",
       "href": "http://nodejs.cn/api/"
     },
     {
       "name": "Nestjs",
       "href": "https://docs.nestjs.com/",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/nestjs.webp"
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/nestjs.webp"
     },
     {
       "name": "Koa",
       "href": "https://koa.bootcss.com/",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/koajs.webp"
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/koajs.webp"
     },
     {
       "name": "Express",
       "href": "http://www.expressjs.com.cn/starter/hello-world.html",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/express.webp"
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/express.webp"
     },
     {
       "name": "Next.js",
@@ -212,7 +218,7 @@
     },
     {
       "name": "Docker",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/docker.png",
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/docker.png",
       "href": "https://hub.docker.com/_/node"
     }
   ]
