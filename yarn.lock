@@ -49,10 +49,10 @@
   dependencies:
     "@types/node" "^10.12.18"
 
-"@saber2pr/ts-compiler@^0.3.5":
-  version "0.3.5"
-  resolved "https://registry.yarnpkg.com/@saber2pr/ts-compiler/-/ts-compiler-0.3.5.tgz#f725a15c4be5644a54cf9f9936327e97951f7bd1"
-  integrity sha512-RIMK+67H6o8F4000xFOrGZMHxrG2FsPl1O01dUEiiNaQ2Y8P3G3xHOtqO7tbHZcqkPLRNuvX4VJMoxOYE4YV1A==
+"@saber2pr/ts-compiler@^0.3.6":
+  version "0.3.6"
+  resolved "https://registry.yarnpkg.com/@saber2pr/ts-compiler/-/ts-compiler-0.3.6.tgz#c266be4ec13e34c6b9ae1634e5396f4b3b1839ab"
+  integrity sha512-oh66zYBqCP6n7Y+Ln0FRyAfj9Xt3J2eobyWIZTw3nJ0aDSAWp4O3As35SME2Q4P1oe3Wei8xua4v1TfNHmeFwQ==
   dependencies:
     "@nodelib/fs.walk" "^1.2.8"
     "@types/graceful-fs" "^4.1.5"
