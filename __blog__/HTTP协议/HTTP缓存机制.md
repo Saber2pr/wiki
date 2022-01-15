@@ -117,7 +117,7 @@ Cache-Control: no-cache, no-store, must-revalidate
 
 ### 其他
 
-强缓存存在两种形式：from memory cache 与 from disk cache。
+缓存存在两种形式：from memory cache 与 from disk cache。
 
 ![loading](https://saber2pr.top/MyWeb/resource/image/http-cache-code.webp)
 
