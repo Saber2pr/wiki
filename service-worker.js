@@ -5,7 +5,7 @@
  * @Last Modified time: 2021-10-07 18:09:02
  */
 const staticAssets = [
-  /** CODE START **/"/build/index~01e7b97c954b69689e54b2ed36aa.css","/build/index~01e7b97c954b69689e54b2ed36aa.min.js","/build/style.1954b69689e54b2ed36aa.css","/build/vendor~index~253ae210954b69689e54b2ed36aa.min.js"/** CODE END **/,
+  /** CODE START **/"/build/index~01e7b97c3a92b0998b0b7173ef0e.css","/build/index~01e7b97c3a92b0998b0b7173ef0e.min.js","/build/style.13a92b0998b0b7173ef0e.css","/build/vendor~index~253ae2103a92b0998b0b7173ef0e.min.js"/** CODE END **/,
   '/',
   // icon
   '/static/icon/saber2pr-144x144.png',
