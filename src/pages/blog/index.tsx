@@ -158,9 +158,14 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
 
     const search = getQuery()
     useEffect(() => {
-      if (search.includes('plainblog')) {
+      if (search.includes('plain-blog')) {
         if (!isFullWin.current) {
           selectFullWin()
+        }
+      }
+      if (search.includes('plain-menu-blog')) {
+        if (!isFullWin.current) {
+          select()
         }
       }
     }, [search])
