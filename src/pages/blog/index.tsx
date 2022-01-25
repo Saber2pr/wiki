@@ -109,27 +109,29 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                       return <Md2jsx theme={md_theme}>{content}</Md2jsx>
                     }}
                   </LazyCom>
-                  <div className="Blog-Main-Content-Edit">
-                    <a
-                      className="Blog-Main-Content-Edit-A"
-                      href={createOriginHref(href)}
-                    >
-                      编辑本页面
-                    </a>
-                    {firstBlog?.path === href || (
+                  {isPlain || (
+                    <div className="Blog-Main-Content-Edit">
                       <a
                         className="Blog-Main-Content-Edit-A"
-                        target="_blank"
-                        href={API.createNewHref(
-                          origin.userId,
-                          origin.repo,
-                          getParentPath(href)
-                        )}
+                        href={createOriginHref(href)}
                       >
-                        新建文章
+                        编辑本页面
                       </a>
-                    )}
-                  </div>
+                      {firstBlog?.path === href || (
+                        <a
+                          className="Blog-Main-Content-Edit-A"
+                          target="_blank"
+                          href={API.createNewHref(
+                            origin.userId,
+                            origin.repo,
+                            getParentPath(href)
+                          )}
+                        >
+                          新建文章
+                        </a>
+                      )}
+                    </div>
+                  )}
                   {showOp.latest && (
                     <p className="Blog-Main-Content-Date">
                       最近更新 {timeDeltaFromNow(getLastModified(href))}
@@ -157,13 +159,16 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
     }
 
     const search = getQuery()
+    const isPlainBlog = search.includes('plain-blog')
+    const isPlainMenuBlog = search.includes('plain-menu-blog')
+    const isPlain = isPlainBlog || isPlainMenuBlog
     useEffect(() => {
-      if (search.includes('plain-blog')) {
+      if (isPlainBlog) {
         if (!isFullWin.current) {
           selectFullWin()
         }
       }
-      if (search.includes('plain-menu-blog')) {
+      if (isPlainMenuBlog) {
         if (!isFullWin.current) {
           select()
         }
