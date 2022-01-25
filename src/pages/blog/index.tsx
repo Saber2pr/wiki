@@ -1,6 +1,6 @@
 import './style.less'
 
-import React, { useLayoutEffect, useRef } from 'react'
+import React, { useEffect, useLayoutEffect, useRef } from 'react'
 
 import Tree from '@saber2pr/rc-tree'
 import { Link, NavLink, Route, Switch } from '@saber2pr/react-router'
@@ -35,6 +35,7 @@ import {
 } from '../../utils'
 import { NotFound } from '../not-found'
 import { useTwoSlash } from '../../hooks/useTwoSlash'
+import { getQuery } from '../../utils/getQuery'
 
 const BLink = (props: Link) => (
   <NavLink activeClassName="Blog-A-Active" className="Blog-A" {...props} />
@@ -145,6 +146,25 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
     }, [] as JSX.Element[])
 
     const [main_ref, btn_ref, switchIsHide, isShow] = useAsideHidable(ref)
+
+    const selectFullWin = () => {
+      select()
+      if (isFullWin.current) {
+        switchIsHide(true)
+      } else {
+        switchIsHide(false)
+      }
+    }
+
+    const search = getQuery()
+    useEffect(() => {
+      if (search.includes('plainblog')) {
+        if (!isFullWin.current) {
+          selectFullWin()
+        }
+      }
+    }, [search])
+
     return (
       <div className="Blog">
         <TwoSide>
@@ -206,20 +226,7 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
             title="音乐盒子"
           />
         )}
-        {
-          <i
-            {...selectProps()}
-            ref={fullwinBtn_ref}
-            onClick={() => {
-              select()
-              if (isFullWin.current) {
-                switchIsHide(true)
-              } else {
-                switchIsHide(false)
-              }
-            }}
-          />
-        }
+        {<i {...selectProps()} ref={fullwinBtn_ref} onClick={selectFullWin} />}
       </div>
     )
   }
