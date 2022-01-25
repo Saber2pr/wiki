@@ -24,8 +24,14 @@ export const request = async (type: keyof typeof origin.data): Promise<any> => {
   return res.data
 }
 
-export const requestContent = async (href: string) => {
-  const res = await memoGet<string>(href)
+export const requestContent = async (url: string) => {
+  let res: ResponseConfig<any>
+  if (origin.isWiki) {
+    res = await memoGet<string>('/' + origin.repo + url)
+  } else {
+    // memo get
+    res = await memoGet<string>(url)
+  }
   if (!res) throw new Error('错误：请求的资源未找到！')
   return res.data
 }
