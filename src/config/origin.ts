@@ -4,6 +4,7 @@ export const origin = {
   title: config.title,
   userId: config.userId,
   repo: config.repo,
+  isWiki: false,
   md: '/blog',
   data: {
     home: '/static/data/home.json',
@@ -17,7 +18,7 @@ export const origin = {
     musicList: '/static/data/musicList.json',
     acglist: '/static/data/acglist.json',
     mind: '/static/data/mind.json',
-    wiki: "/wiki"
+    wiki: '/wiki',
   },
   theme: {
     light: '',

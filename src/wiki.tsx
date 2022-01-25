@@ -1,13 +1,13 @@
-import React, { useMemo, useEffect } from "react"
-import ReactDOM from "react-dom"
+import React, { useMemo, useEffect } from 'react'
+import ReactDOM from 'react-dom'
 
-import "normalize.css"
+import 'normalize.css'
 
-import "animate.css/source/flippers/flipInX.css"
+import 'animate.css/source/flippers/flipInX.css'
 
-import "./style/animation.less"
-import "./style/shadow.less"
-import "./style/components.less"
+import './style/animation.less'
+import './style/shadow.less'
+import './style/components.less'
 
 // /
 
@@ -16,31 +16,31 @@ import {
   Route,
   HashHistory,
   Switch,
-  NavLink
-} from "@saber2pr/react-router"
+  NavLink,
+} from '@saber2pr/react-router'
 
-import "./app.less"
-import { Blog, NotFound, SearchResult } from "./pages"
-import { SearchInput, Themer, Uv, ErrorBoundary, Loading } from "./components"
+import './app.less'
+import { Blog, NotFound, SearchResult } from './pages'
+import { SearchInput, Themer, Uv, ErrorBoundary, Loading } from './components'
 
 import {
   getHash,
   queryRootFirstChildMemo,
   welcome,
   parseTree,
-  whenInDEV
-} from "./utils"
-import { useEvent, useBlogMenu, useFullWindow } from "./hooks"
-import { Routes as RS, origin } from "./config"
-import { request } from "./request"
+  whenInDEV,
+} from './utils'
+import { useEvent, useBlogMenu, useFullWindow } from './hooks'
+import { Routes as RS, origin } from './config'
+import { request } from './request'
 
 export interface App {
-  blogTree: Blog["tree"]
+  blogTree: Blog['tree']
 }
 
 const AppNavLink = ({
-  className = "nav-a",
-  activeClassName = "nav-a-active",
+  className = 'nav-a',
+  activeClassName = 'nav-a-active',
   ...props
 }: NavLink) => (
   <NavLink className={className} activeClassName={activeClassName} {...props} />
@@ -55,30 +55,21 @@ export const App = ({ blogTree }: App) => {
   const setTitle = () => {
     const hash = getHash()
 
-    if (hash === "/") {
-      location.hash = "#" + firstBlog.path
+    if (hash === '/') {
+      location.hash = '#' + firstBlog.path
     }
 
     hash.startsWith(blogTree.path) && expand(hash)
-    document.title =
-      hash
-        .split("/")
-        .pop()
-        .split("?")[0] || title
+    document.title = hash.split('/').pop().split('?')[0] || title
   }
-  useEvent("hashchange", setTitle)
+  useEvent('hashchange', setTitle)
   useEffect(setTitle, [])
 
-  const [
-    header_ref,
-    main_ref,
-    footer_ref,
-    btn_ref,
-    fullWinBtnAPI
-  ] = useFullWindow({
-    enableClassName: "FullWinBtn iconfont icon-fullwin-enable",
-    disableClassName: "FullWinBtn iconfont icon-fullwin-disable"
-  })
+  const [header_ref, main_ref, footer_ref, btn_ref, fullWinBtnAPI] =
+    useFullWindow({
+      enableClassName: 'FullWinBtn iconfont icon-fullwin-enable',
+      disableClassName: 'FullWinBtn iconfont icon-fullwin-disable',
+    })
 
   return (
     <Router history={HashHistory}>
@@ -111,7 +102,7 @@ export const App = ({ blogTree }: App) => {
                 fullWinBtnAPI={fullWinBtnAPI}
                 tree={blogTree}
                 showOp={{
-                  latest: false
+                  latest: false,
                 }}
               />
             )}
@@ -134,27 +125,28 @@ declare const LOADING: { destroy: Function }
 
 const Wiki = React.lazy(async () => {
   welcome()
-  const blogTree = parseTree(await request("wiki"))
+  const blogTree = parseTree(await request('wiki'))
   LOADING.destroy()
   return {
-    default: () => <App blogTree={blogTree} />
+    default: () => <App blogTree={blogTree} />,
   }
 })
 
 const createWiki = (repo: string) => {
   origin.repo = repo
+  origin.isWiki = true
   ReactDOM.render(
     <ErrorBoundary>
       <React.Suspense fallback={<Loading />}>
         <Wiki />
       </React.Suspense>
     </ErrorBoundary>,
-    document.getElementById("root")
+    document.getElementById('root')
   )
 }
 
 if (whenInDEV()) {
-  createWiki("./")
+  createWiki('./')
 } else {
-  createWiki(location.pathname.replace(/\//g, ""))
+  createWiki(location.pathname.replace(/\//g, ''))
 }

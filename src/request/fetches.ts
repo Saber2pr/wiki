@@ -8,13 +8,17 @@ export const request = async (type: keyof typeof origin.data): Promise<any> => {
   let res: ResponseConfig<any>
 
   // version no-cache
-  if (type === "version") {
+  if (type === 'version') {
     // no memo
     url += `?t=${Date.now()}`
     res = await axios.get(url)
   } else {
-    // memo get
-    res = await memoGet<string>(url)
+    if (origin.isWiki) {
+      res = await memoGet<string>('/' + origin.repo + url)
+    } else {
+      // memo get
+      res = await memoGet<string>(url)
+    }
   }
 
   return res.data
@@ -22,6 +26,6 @@ export const request = async (type: keyof typeof origin.data): Promise<any> => {
 
 export const requestContent = async (href: string) => {
   const res = await memoGet<string>(href)
-  if (!res) throw new Error("错误：请求的资源未找到！")
+  if (!res) throw new Error('错误：请求的资源未找到！')
   return res.data
 }
