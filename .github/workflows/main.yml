@@ -22,11 +22,11 @@ jobs:
       - name: Login
         run: git config --global user.email "saber2pr@gmail.com" && git config --global user.name "saber2pr"
 
-      - name: Compiling Types
-        run: yarn job
+      # - name: Compiling Types
+      #   run: yarn job
 
       - name: Push Data
         run: yarn push:blog
 
-      - name: Update CDN
-        run: curl https://purge.jsdelivr.net/gh/saber2pr/saber2pr.github.io@master/static/data/typesdef.json
+      # - name: Update CDN
+      #   run: curl https://purge.jsdelivr.net/gh/saber2pr/saber2pr.github.io@master/static/data/typesdef.json

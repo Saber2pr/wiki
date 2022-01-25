@@ -1,8 +1,12 @@
-const config = require("./webpack.config")
-const path = require("path")
+const config = require('./app.json')
 
-config.entry.index = "./src/wiki.tsx"
-config.output.publicPath = "/release"
-config.output.path = path.join(__dirname, "release")
+const webpackConfig = require('./webpack.config')
+const path = require('path')
 
-module.exports = config
+const cdnhost = `//cdn.jsdelivr.net/gh/${config.userId}`
+
+webpackConfig.entry.index = './src/wiki.tsx'
+webpackConfig.output.publicPath = `${cdnhost}/${config.repo}@master/release/`
+webpackConfig.output.path = path.join(__dirname, 'release')
+
+module.exports = webpackConfig
