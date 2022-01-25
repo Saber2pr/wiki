@@ -17,6 +17,7 @@ export const origin = {
     musicList: '/static/data/musicList.json',
     acglist: '/static/data/acglist.json',
     mind: '/static/data/mind.json',
+    wiki: "/wiki"
   },
   theme: {
     light: '',
