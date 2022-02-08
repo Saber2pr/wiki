@@ -2,7 +2,7 @@
 
 ```dockerfile
 # node
-FROM node:15.5.1-alpine3.10
+FROM node:14.18-alpine
 
 # mirror
 RUN echo 'http://mirrors.aliyun.com/alpine/v3.5/main' > /etc/apk/repositories
