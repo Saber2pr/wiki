@@ -92,3 +92,37 @@ cat yarn.lock | grep -oE -A1 "^react@\S+"
   
 说明：cat <file> 可以将文件内容输出到终端，grep可以对终端内容的每一行进行筛选，-o表示只输出匹配到的内容，-E表示使用扩展正则，-A表示输出内容包含往后几行例如A1将包含往后1行。
 
+### 校验参数
+
+```sh
+function verify_arg {
+  if [ "$2" = "" ]; then
+    echo "$1 is required: $2"
+    exit
+  else
+    echo $2
+  fi
+}
+  
+verify_arg "entry" $entry
+```
+
+### 条件语句
+
+多行：
+  
+```sh
+if [[ "$entry" = "123" ]]; then
+  echo $entry
+else
+  echo "test"
+  exit
+fi
+```
+
+单行：
+
+```sh
+# exit 0 正常退出，exit 1 异常退出
+[[ {{ .beta }} == true ]] && echo "skip register entry in beta." && exit 0
+```
