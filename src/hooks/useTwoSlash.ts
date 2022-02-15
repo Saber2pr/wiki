@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { origin } from '../config'
 
 import { getArray } from '../utils/array'
 import { getHash } from '../utils/getHash'
@@ -20,6 +21,7 @@ const defaultSrc = whenInDEV()
 export const useTwoSlash = (dataSrc = defaultSrc) => {
   const key = getHash()
   useEffect(() => {
+    if(origin.isWiki) return
     if (dataSrc) {
       fetch(dataSrc)
         .then(res => res.json())
