@@ -126,3 +126,44 @@ fi
 # exit 0 正常退出，exit 1 异常退出
 [[ {{ .beta }} == true ]] && echo "skip register entry in beta." && exit 0
 ```
+  
+### 列出文件夹
+  
+```sh
+ls -d */
+```
+  
+### grep过滤行
+
+-v 反选
+  
+```sh
+ls -d */ | grep -v "blog" # 排除含有blog的
+```
+  
+### 管道cp
+  
+```sh
+ls -d */ | grep -v "blog" | xargs -I {} cp -r ./{} ./blog/{} 
+```
+
+`xargs -I {}`声明一个占位符号{}接收前面的值，后面的命令替换符号
+  
+### 删除非某个类型的文件
+  
+```sh
+find ./blog -type f -not -name "*.md" | xargs -I {} rm -rf {}
+```
+  
+### 删除空目录
+  
+```sh
+find ./blog -type d -empty | xargs -n 1 rm -rf
+```
+  
+### 取每行的几个字符
+  
+```sh
+find . | awk '{print substr($0, 3)}' # 取每行第3个字符后的
+```
+  
