@@ -135,6 +135,11 @@ const Wiki = React.lazy(async () => {
 const createWiki = (repo: string) => {
   origin.repo = repo
   origin.isWiki = true
+  const host = location.host || ''
+  const result = host.match(/^([\s\S]*?)\.github\.io$/)
+  if(result && result[1]){
+    origin.userId = result[1]
+  }
   ReactDOM.render(
     <ErrorBoundary>
       <React.Suspense fallback={<Loading />}>
