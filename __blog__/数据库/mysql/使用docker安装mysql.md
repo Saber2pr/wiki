@@ -38,10 +38,18 @@ update user set host='%' where user='root';
 flush privileges;
 ```
 
+### 登录数据库
+
+```sh
+mysql -u root -p
+```
+
 ### 创建数据库
 
 ```sql
-CREATE DATABASE your_db_name
+CREATE DATABASE your_db_name;
 ```
+
+> 注意结尾有分号
 
 然后剩下的就直接用typeorm连接建表了。
