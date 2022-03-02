@@ -27,7 +27,7 @@ docker exec -it mysql1 mysql -uroot -p
 ### 修改密码
 
 ```bash
-alter user 'root'@'localhost' identified by 'root';
+alter user 'root'@'localhost' identified by '密码';
 ```
 
 ### 修改权限
