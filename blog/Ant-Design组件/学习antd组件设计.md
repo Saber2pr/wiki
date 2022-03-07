@@ -104,3 +104,36 @@ vscode 代码片段：
   }
 }
 ```
+
+---
+
+组件设计2
+
+```tsx
+import { Empty, Skeleton } from 'antd';
+import React, { CSSProperties } from 'react';
+
+export interface ListViewProps {
+  loading?: boolean;
+  data: any;
+  className?: string;
+  style?: CSSProperties;
+}
+
+export const ListView = ({ loading, data, className, style }: ListViewProps) => {
+  let children = <></>;
+  if (loading) {
+    children = <Skeleton active title paragraph />;
+  } else if (data) {
+    children = <span>{data}</span>;
+  } else {
+    children = <Empty description="无法加载" />;
+  }
+
+  return (
+    <div className={getPrefixCls('listView', className)} style={style}>
+      {children}
+    </div>
+  );
+};
+```
