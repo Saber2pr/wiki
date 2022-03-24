@@ -4,6 +4,10 @@
 
 [minikube](https://github.com/kubernetes/minikube/releases)
 
+或直接使用vscode插件自动配置环境：
+
+[vscode-kubernetes-tools](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools)
+
 ### 编写部署实例配置
 
 示例：
