@@ -4,7 +4,19 @@
 
 [minikube](https://github.com/kubernetes/minikube/releases)
 
-或直接使用vscode插件自动配置环境：
+macos:
+
+```sh
+brew install minikube
+```
+
+初始化k8s环境
+
+```sh
+minikube start
+```
+
+安装vscode插件：
 
 [vscode-kubernetes-tools](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools)
 
