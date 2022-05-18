@@ -36,6 +36,7 @@ export function useAsync<A extends any[], T = any>(
 
   const main = async (...args: any) => {
     try {
+      setLoading(true)
       const result = await run(...args)
       if (ops?.onSuccess) {
         await ops?.onSuccess(result)
