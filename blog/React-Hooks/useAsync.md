@@ -52,7 +52,7 @@ export function useAsync<A extends any[], T = any>(
   }
 
   useEffect(() => {
-    if (ops?.manual) {
+    if (!ops?.manual) {
       main()
     }
   }, [ops?.manual, ...deps])
