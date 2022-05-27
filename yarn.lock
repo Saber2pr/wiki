@@ -49,10 +49,10 @@
   dependencies:
     "@types/node" "^10.12.18"
 
-"@saber2pr/ts-compiler@^0.3.6":
-  version "0.3.6"
-  resolved "https://registry.yarnpkg.com/@saber2pr/ts-compiler/-/ts-compiler-0.3.6.tgz#c266be4ec13e34c6b9ae1634e5396f4b3b1839ab"
-  integrity sha512-oh66zYBqCP6n7Y+Ln0FRyAfj9Xt3J2eobyWIZTw3nJ0aDSAWp4O3As35SME2Q4P1oe3Wei8xua4v1TfNHmeFwQ==
+"@saber2pr/ts-compiler@^0.3.7":
+  version "0.3.7"
+  resolved "https://registry.yarnpkg.com/@saber2pr/ts-compiler/-/ts-compiler-0.3.7.tgz#66a22533a63bb18c9cd91ad498f1da3a9625dcde"
+  integrity sha512-Gg1Qe1flDSXHgC8arLzAd+wmEX/gjmj6GSFBmRpsSbB2YtSR+nectS/vL8HBY8tbckaS6Dcgvb4UtgaDiTKr0A==
   dependencies:
     "@nodelib/fs.walk" "^1.2.8"
     "@types/graceful-fs" "^4.1.5"
@@ -97,10 +97,10 @@
   resolved "https://r.cnpmjs.org/@types/node/download/@types/node-10.14.15.tgz#e8f7729b631be1b02ae130ff0b61f3e018000640"
   integrity sha1-6Pdym2Mb4bAq4TD/C2Hz4BgABkA=
 
-"@types/node@^17.0.23":
-  version "17.0.23"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.23.tgz#3b41a6e643589ac6442bdbd7a4a3ded62f33f7da"
-  integrity sha512-UxDxWn7dl97rKVeVS61vErvw086aCYhDLyvRQZ5Rk65rZKepaFdm53GeqXaKBuOhED4e9uWq34IC3TdSdJJ2Gw==
+"@types/node@^17.0.34":
+  version "17.0.34"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.34.tgz#3b0b6a50ff797280b8d000c6281d229f9c538cef"
+  integrity sha512-XImEz7XwTvDBtzlTnm8YvMqGW/ErMWBsKZ+hMTvnDIjGCKxwK5Xpc+c/oQjOauwq8M4OS11hEkpjX8rrI/eEgA==
 
 "@typescript/twoslash@^3.1.0":
   version "3.1.0"
@@ -218,10 +218,10 @@ typescript@^4.3.5:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.3.5.tgz#4d1c37cc16e893973c45a06886b7113234f119f4"
   integrity sha512-DqQgihaQ9cUrskJo9kIyW/+g0Vxsk8cDtZ52a3NGh0YNTfpUSArXSohyUGnvbPazEPLu398C0UxmKSOrPumUzA==
 
-typescript@^4.6.3:
-  version "4.6.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.6.3.tgz#eefeafa6afdd31d725584c67a0eaba80f6fc6c6c"
-  integrity sha512-yNIatDa5iaofVozS/uQJEl3JRWLKKGJKh6Yaiv0GLGSuhpFJe7P3SbHZ8/yjAHRQwKRoA6YZqlfjXWmVzoVSMw==
+typescript@^4.6.4:
+  version "4.6.4"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.6.4.tgz#caa78bbc3a59e6a5c510d35703f6a09877ce45e9"
+  integrity sha512-9ia/jWHIEbo49HfjrLGfKbZSuWo9iTMwXO+Ca3pRsSpbsMbc7/IU8NKdCZVRRBafVPGnoJeFL76ZOAA84I9fEg==
 
 v8-compile-cache-lib@^3.0.0:
   version "3.0.0"
