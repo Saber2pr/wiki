@@ -10,6 +10,7 @@ export type UseAsyncOps<T> = {
 export type UseAsyncResult<A extends any[], T> = {
   data: T
   loading: boolean
+  setData(data: T): void
   run: (...args: A) => Promise<T>
 }
 
@@ -62,6 +63,7 @@ export function useAsync<A extends any[], T = any>(
     data,
     loading,
     run: main,
+    setData,
   }
 }
 ```
