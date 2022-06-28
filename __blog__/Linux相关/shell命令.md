@@ -167,3 +167,8 @@ find ./blog -type d -empty | xargs -n 1 rm -rf
 find . | awk '{print substr($0, 3)}' # 取每行第3个字符后的
 ```
   
+### 判断文件内是否有指定内容
+  
+```sh
+[[ $(grep -c build ./package.json) == 1 ]] && yarn run build
+```
