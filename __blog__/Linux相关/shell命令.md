@@ -172,3 +172,8 @@ find . | awk '{print substr($0, 3)}' # 取每行第3个字符后的
 ```sh
 [[ $(grep -c build ./package.json) == 1 ]] && yarn run build
 ```
+  
+### 删除目录下所有文件（包括隐藏文件）
+```sh
+ls -A1 | xargs rm -rf
+```
