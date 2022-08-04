@@ -170,7 +170,7 @@ find . | awk '{print substr($0, 3)}' # 取每行第3个字符后的
 ### 判断文件内是否有指定内容
   
 ```sh
-[[ $(grep -c build ./package.json) == 1 ]] && yarn run build
+[[ $(grep -c build ./package.json) != 0 ]] && yarn run build
 ```
   
 ### 删除目录下所有文件（包括隐藏文件）
