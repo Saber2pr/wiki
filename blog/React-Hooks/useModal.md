@@ -5,9 +5,17 @@ import React, { ReactNode, useState } from 'react';
 export interface UseModalOptions extends ModalProps {
   content?: ReactNode;
   onOk?: () => Promise<any>;
+  onCancel?: () => Promise<any>;
+  autoClose?: boolean;
 }
 
-export const useModal = ({ content, onOk, ...modalProps }: UseModalOptions) => {
+export const useModal = ({
+  content,
+  onOk,
+  onCancel,
+  autoClose = true,
+  ...modalProps
+}: UseModalOptions) => {
   const [visible, setVisible] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -17,12 +25,31 @@ export const useModal = ({ content, onOk, ...modalProps }: UseModalOptions) => {
       onOk={async () => {
         if (onOk) {
           setLoading(true);
-          await onOk();
-          setLoading(false);
+          try {
+            await onOk();
+            setLoading(false);
+            autoClose && setVisible(false);
+          } catch (error) {
+            console.log(error);
+          }
+        } else {
+          autoClose && setVisible(false);
         }
-        setVisible(false);
       }}
-      onCancel={() => setVisible(false)}
+      onCancel={async () => {
+        if (onCancel) {
+          setLoading(true);
+          try {
+            await onCancel();
+            setLoading(false);
+            autoClose && setVisible(false);
+          } catch (error) {
+            console.log(error);
+          }
+        } else {
+          autoClose && setVisible(false);
+        }
+      }}
       confirmLoading={loading}
       {...modalProps}
     >
@@ -36,4 +63,5 @@ export const useModal = ({ content, onOk, ...modalProps }: UseModalOptions) => {
     modal,
   };
 };
+
 ```
