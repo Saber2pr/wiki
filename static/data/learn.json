@@ -157,8 +157,7 @@
     {
       "name": "IncomeCalc",
       "href": "https://saber2pr.top/income-calc/",
-      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/icon-qianbao.webp",
-      "frame": true
+      "icon": "https://cdn.jsdelivr.net/gh/Saber2pr/MyWeb@master/resource/image/icon-qianbao.webp"
     },
     {
       "name": "二维码",
