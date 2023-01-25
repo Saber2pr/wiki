@@ -6,7 +6,7 @@ const inlinejs = require('./inlinejs.json')
 const config = require('./app.json')
 const WebpackBar = require('webpackbar')
 
-const { WebpackConfig, templateContent } = require('@saber2pr/webpack-configer')
+const { templateContent } = require('@saber2pr/webpack-configer')
 const version = () => `var version="${new Date().toLocaleString()}"`
 
 const publicPath = (resourcePath, context) =>
@@ -17,7 +17,7 @@ const cdnhost = `//cdn.jsdelivr.net/gh/${config.userId}`
 const createConfig = ops => {
   const options = ops || {}
   const isApp = options.isApp
-  return WebpackConfig({
+  return ({
     entry: {
       index: './src/index.tsx',
     },
@@ -34,9 +34,10 @@ const createConfig = ops => {
     },
     module: {
       rules: [
+        // 使用babel编译js、jsx、ts、tsx
         {
-          test: /\.(ts|tsx)$/,
-          use: ['ts-loader'],
+          test: /\.(js|jsx|ts|tsx)$/,
+          use: ['babel-loader'],
         },
         {
           test: /\.(woff|svg|eot|ttf|png)$/,
@@ -64,6 +65,9 @@ const createConfig = ops => {
           ],
         },
       ],
+    },
+    devServer: {
+      static: './',
     },
     plugins: [
       new HtmlWebpackPlugin({
@@ -111,7 +115,7 @@ const createConfig = ops => {
         maxAsyncRequests: 5,
         maxInitialRequests: 3,
         automaticNameDelimiter: '~',
-        name: true,
+        name: '[name]',
         cacheGroups: {
           vendor: {
             test: /[\\/]node_modules[\\/]/,
