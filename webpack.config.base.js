@@ -12,7 +12,7 @@ const version = () => `var version="${new Date().toLocaleString()}"`
 const publicPath = (resourcePath, context) =>
   path.relative(path.dirname(resourcePath), context) + '/'
 
-const cdnhost = `//cdn.jsdelivr.net/gh/${config.userId}`
+const cdnhost = `//fastly.jsdelivr.net/gh/${config.userId}`
 
 const createConfig = ops => {
   const options = ops || {}
