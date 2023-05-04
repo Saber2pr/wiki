@@ -77,8 +77,8 @@ const createConfig = ops => {
           <meta name="keywords" content="react,antd,typescript,javascript,css,html,前端学习,前端进阶,个人博客">
           <meta name="description" content="长期更新前端技术文章,分享前端技术经验">
           ${isApp ? '<link rel="manifest" href="./manifest.json" />' : ''}
-          <script async src="//cdn.jsdelivr.net/gh/saber2pr/click-mask@master/click-mask.min.js"></script>
-          <script async src="//cdn.jsdelivr.net/gh/saber2pr/test@master/tools/debug.min.js"></script>
+          <script async src="//fastly.jsdelivr.net/gh/saber2pr/click-mask@master/click-mask.min.js"></script>
+          <script async src="//fastly.jsdelivr.net/gh/saber2pr/test@master/tools/debug.min.js"></script>
           <script async src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
           ${Object.keys(inlinejs).map(
             key =>
