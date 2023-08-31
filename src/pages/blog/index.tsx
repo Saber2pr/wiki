@@ -110,7 +110,7 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                       return <Md2jsx theme={md_theme}>{content}</Md2jsx>
                     }}
                   </LazyCom>
-                  {isPlain || (
+                  {(isPlain || origin.isWiki) || (
                     <div className="Blog-Main-Content-Edit">
                       <a
                         className="Blog-Main-Content-Edit-A"
