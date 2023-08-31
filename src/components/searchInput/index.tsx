@@ -140,7 +140,7 @@ const Input = React.forwardRef<
           onblur && onblur()
           setTimeout(() => update(styles.close), 500)
         }}
-        placeholder="输入关键词"
+        placeholder={i18n.format('inputKw')}
       />
     </>
   )

@@ -84,9 +84,9 @@ export const App = ({ blogTree }: App) => {
             <li>
               <SearchInput blog={blogTree} />
             </li>
-            <li className="nav-last">
+            {/* <li className="nav-last">
               <a href="https://github.com/Saber2pr">GitHub</a>
-            </li>
+            </li> */}
             <li className="nav-tool">
               <Themer />
             </li>
