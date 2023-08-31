@@ -1,3 +1,4 @@
+import { i18n } from '../../i18n'
 import './style.less'
 
 import React, { useEffect, useState } from 'react'
@@ -26,7 +27,7 @@ export const Loading = ({ type = "unset" }: Loading) => {
     const handle = setTimeout(() => {
       setMessage(
         <div className="Message">
-          努力加载中qwq，请稍等...
+          {i18n.format('loading')}
         </div>
       )
     }, 1000)

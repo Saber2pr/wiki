@@ -16,6 +16,7 @@ export default {
     newPage: '新建文章',
     lastPage: '上一篇',
     nextPage: '下一篇',
+    loading: '努力加载中qwq，请稍等...',
   },
   en: {
     searchOnGithub: 'Search on github',
@@ -34,5 +35,6 @@ export default {
     newPage: 'New article',
     lastPage: 'Previous',
     nextPage: 'Next',
+    loading: 'Work hard to load qwq, please wait a little...',
   },
 }

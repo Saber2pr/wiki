@@ -17,7 +17,7 @@ const cdnhost = `//fastly.jsdelivr.net/gh/${config.userId}`
 const createConfig = ops => {
   const options = ops || {}
   const isApp = options.isApp
-  return ({
+  return {
     entry: {
       index: './src/index.tsx',
     },
@@ -87,7 +87,7 @@ const createConfig = ops => {
           `,
           injectBody:
             `<div id="root"></div><script>LOADING.init(` +
-            `"努力加载中qwq，请稍等..."` +
+            `"Loading..."` +
             ', 1000);</script>',
         }),
       }),
@@ -129,7 +129,7 @@ const createConfig = ops => {
         },
       },
     },
-  })
+  }
 }
 
 module.exports = {
