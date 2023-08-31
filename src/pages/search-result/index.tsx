@@ -8,6 +8,7 @@ import { HighLightHTML, ScrollToTop } from '../../components'
 import { Routes } from '../../config'
 import { useOnScrollBottom } from '../../hooks'
 import { store } from '../../store'
+import { i18n } from '../../i18n'
 
 export interface SearchResult {}
 
@@ -29,9 +30,9 @@ export const SearchResult = ({}: SearchResult) => {
   if (result.length === 2) {
     return (
       <div className="SearchResult">
-        <h1>共找到{result.length - 2}个结果</h1>
+        <h1>{i18n.format('searchRes', { count: `${result.length - 2}` })}</h1>
         <dl>
-          <dt>尝试以下方式：</dt>
+          <dt>{i18n.format('try')}</dt>
           {result.map(({ path, title }) => (
             <dd key={path}>
               <a className="SearchResult-Link AnchorHigh" href={path}>
@@ -76,7 +77,7 @@ export const SearchResult = ({}: SearchResult) => {
 
   return (
     <div className="SearchResult">
-      <h1>共找到{result.length - 2}个结果</h1>
+      <h1>{i18n.format('searchRes', { count: `${result.length - 2}` })}</h1>
       <ul>
         {result
           .slice(2, 2 + length)
@@ -119,7 +120,7 @@ export const SearchResult = ({}: SearchResult) => {
             }}
             onClick={() => setLength(length + 5)}
           >
-            更多
+            {i18n.format('more')}
           </span>
         )}
       </div>

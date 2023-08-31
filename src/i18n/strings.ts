@@ -17,6 +17,9 @@ export default {
     lastPage: '上一篇',
     nextPage: '下一篇',
     loading: '努力加载中qwq，请稍等...',
+    searchRes: '共找到 {count} 个结果',
+    try: '尝试以下方式：',
+    more: '更多',
   },
   en: {
     searchOnGithub: 'Search on github',
@@ -36,5 +39,8 @@ export default {
     lastPage: 'Previous',
     nextPage: 'Next',
     loading: 'Work hard to load qwq, please wait a little...',
+    searchRes: 'Find {count} result',
+    try: 'Try the following methods:',
+    more: 'More',
   },
 }
