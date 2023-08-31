@@ -47,6 +47,16 @@ const AppNavLink = ({
   <NavLink className={className} activeClassName={activeClassName} {...props} />
 )
 
+const getDocTitle = () => {
+  const pathname = window?.location?.pathname
+  if(pathname) {
+    const ret = pathname.split('/').filter(i => !!i)[0]
+    if(ret) {
+      return ret.toUpperCase()
+    }
+  }
+}
+
 export const App = ({ blogTree }: App) => {
   const firstBlog = queryRootFirstChildMemo(blogTree)
   const expand = useBlogMenu(blogTree)
@@ -61,7 +71,13 @@ export const App = ({ blogTree }: App) => {
     }
 
     hash.startsWith(blogTree.path) && expand(hash)
-    document.title = hash.split('/').pop().split('?')[0] || title
+    const docTitle = hash.split('/').pop().split('?')[0] || title
+
+    if(docTitle === 'README') {
+      document.title = getDocTitle()
+    } else {
+      document.title = docTitle
+    }
   }
   useEvent('hashchange', setTitle)
   useEffect(setTitle, [])
