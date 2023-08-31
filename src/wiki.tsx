@@ -33,6 +33,7 @@ import {
 import { useEvent, useBlogMenu, useFullWindow } from './hooks'
 import { Routes as RS, origin } from './config'
 import { request } from './request'
+import { i18n } from './i18n'
 
 export interface App {
   blogTree: Blog['tree']
@@ -135,6 +136,7 @@ const Wiki = React.lazy(async () => {
 const createWiki = (repo: string) => {
   origin.repo = repo
   origin.isWiki = true
+  i18n.setLocal('en')
   const host = location.host || ''
   const result = host.match(/^([\s\S]*?)\.github\.io$/)
   if(result && result[1]){

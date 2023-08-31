@@ -36,6 +36,7 @@ import {
 import { NotFound } from '../not-found'
 import { useTwoSlash } from '../../hooks/useTwoSlash'
 import { getQuery } from '../../utils/getQuery'
+import { i18n } from '../../i18n'
 
 const BLink = (props: Link) => (
   <NavLink activeClassName="Blog-A-Active" className="Blog-A" {...props} />
@@ -115,7 +116,7 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                         className="Blog-Main-Content-Edit-A"
                         href={createOriginHref(href)}
                       >
-                        编辑本页面
+                        {i18n.format('editPage')}
                       </a>
                       {firstBlog?.path === href || (
                         <a
@@ -127,7 +128,7 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                             getParentPath(href)
                           )}
                         >
-                          新建文章
+                          {i18n.format('newPage')}
                         </a>
                       )}
                     </div>

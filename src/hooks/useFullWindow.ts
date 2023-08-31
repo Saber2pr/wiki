@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { i18n } from '../i18n'
 
 const isFullWinBtnEnabled_ref = { current: false }
 
@@ -61,11 +62,11 @@ export const useFullWindow = ({
     isFullWinBtnEnabled_ref.current
       ? {
           className: disableClassName,
-          title: '退出全屏',
+          title: i18n.format('exitFull'),
         }
       : {
           className: enableClassName,
-          title: '进入全屏',
+          title: i18n.format('entryFull'),
         }
 
   return [

@@ -19,6 +19,7 @@ import {
   welcome,
   whenInDEV,
 } from './utils'
+import { i18n } from './i18n'
 
 const { DATA_LOADED } = origin.constants
 
@@ -27,6 +28,7 @@ const App = React.lazy(async () => {
   const homeInfo = await request('home')
   const aboutInfo = await request('about')
   const blogTree = await request('blog')
+  i18n.setLocal('zh')
 
   if (!localStorage.getItem(DATA_LOADED)) {
     // for cache backend

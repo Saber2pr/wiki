@@ -15,6 +15,7 @@ import { checkIsMob, collect, debounce } from '../../utils'
 import { handleKeyInput } from '../../utils/handleKeyInput'
 import { HighLightHTML } from '../highLight-html'
 import { Loading } from '../loading'
+import { i18n } from '../../i18n'
 
 type Item = {
   path: string
@@ -27,13 +28,13 @@ type Item = {
 type Search = (value: string) => void
 
 const SearchGit = (value: string): Item => ({
-  title: `在Github上搜索: "${value}"`,
+  title: `${i18n.format('searchOnGithub')}: "${value}"`,
   path: `https://github.com/search?q=${value}`,
   isBlank: true,
 })
 
 const SearchMDN = (value: string): Item => ({
-  title: `在MDN上搜索: "${value}"`,
+  title: `${i18n.format('searchOnMdn')}: "${value}"`,
   path: `https://developer.mozilla.org/zh-CN/search?q=${value}`,
   isBlank: true,
 })
@@ -110,10 +111,10 @@ const Input = React.forwardRef<
       <span
         className="SearchInput-Icon"
         onClick={() => inputRef.current.focus()}
-        title="搜索笔记"
+        title={i18n.format('searchNote')}
       >
         <Icon.Sousuo />
-        <span className="SearchInput-Icon-Name">搜索</span>
+        <span className="SearchInput-Icon-Name">{i18n.format('search')}</span>
       </span>
       <input
         className="SearchInput-Input"
@@ -175,7 +176,7 @@ const renderResult = (result: Item[], enable: boolean, onSubmit: Function) => {
                 `<span class="SearchInput-List-Key">${str}</span>`
               }
             />
-            ...<span className="SearchInput-List-Btn">查看内容</span>
+            ...<span className="SearchInput-List-Btn">{i18n.format('viewContent')}</span>
           </Link>
         </li>
       )
@@ -188,13 +189,13 @@ const renderResult = (result: Item[], enable: boolean, onSubmit: Function) => {
       {blanks[0] && (
         <li>
           <span className="SearchInput-List-Head" />
-          <div className="SearchInput-List-Name">在Internet上搜索</div>
+          <div className="SearchInput-List-Name">{i18n.format('searchOnNet')}</div>
         </li>
       )}
       {blanks}
       {items}
       <li className="SearchInput-List-More">
-        <a onClick={() => onSubmit()}>更多结果</a>
+        <a onClick={() => onSubmit()}>{i18n.format('moreResult')}</a>
       </li>
     </>
   )
