@@ -32,12 +32,13 @@ const App = React.lazy(async () => {
 
   if (!localStorage.getItem(DATA_LOADED)) {
     // for cache backend
-    requestLongListTask(
-      collect(blogTree),
-      item => requestContent(item.path + '.md'),
-      item => !item.children,
-      5
-    ).then(() => localStorage.setItem(DATA_LOADED, 'true'))
+    // requestLongListTask(
+    //   collect(blogTree),
+    //   item => requestContent(item.path + '.md'),
+    //   item => !item.children,
+    //   5
+    // ).then(() => localStorage.setItem(DATA_LOADED, 'true'))
+    localStorage.setItem(DATA_LOADED, 'true')
   }
 
   return {
