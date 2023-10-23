@@ -29,7 +29,7 @@ const createConfig = ops => {
       path: path.join(__dirname, 'build'),
       publicPath:
         process.env.NODE_ENV === 'production'
-          ? `${cdnhost}/${config.repo}@master/build/`
+          ? `/build/`
           : '/',
     },
     module: {
