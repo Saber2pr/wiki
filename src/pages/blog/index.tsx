@@ -187,16 +187,20 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
       <div className="Blog">
         <TwoSide>
           <main className="Blog-Main" ref={main_ref}>
-            <Switch>
-              {[
-                ...Routes,
-                <Route
-                  key="not-found"
-                  path="*"
-                  component={() => <NotFound />}
-                />,
-              ]}
-            </Switch>
+            {origin.isWiki ? (
+              <Md2jsx theme={md_theme}>{window.__blog}</Md2jsx>
+            ) : (
+              <Switch>
+                {[
+                  ...Routes,
+                  <Route
+                    key="not-found"
+                    path="*"
+                    component={() => <NotFound />}
+                  />,
+                ]}
+              </Switch>
+            )}
           </main>
           <aside className="Blog-Aside" ref={ref}>
             <div
