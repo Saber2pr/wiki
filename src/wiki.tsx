@@ -15,7 +15,7 @@ import { NavLink } from '@saber2pr/react-router'
 
 import './app.less'
 import { Blog } from './pages'
-import { SearchInput, Themer, Uv, ErrorBoundary, Loading } from './components'
+import { Themer, Uv, ErrorBoundary, Loading } from './components'
 
 import {
   getHash,

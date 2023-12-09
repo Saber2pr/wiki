@@ -213,6 +213,7 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
             <section className="Blog-Aside-Content">
               <Tree
                 from={tree}
+                useBrowserHistory
                 selectBtn={Icon.TreeBtn}
                 map={({ path: href, title, children }) => {
                   if (href === firstBlog.path) return <></>
