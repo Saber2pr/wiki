@@ -38,9 +38,16 @@ import { useTwoSlash } from '../../hooks/useTwoSlash'
 import { getQuery } from '../../utils/getQuery'
 import { i18n } from '../../i18n'
 
-const BLink = (props: Link) => (
-  <NavLink activeClassName="Blog-A-Active" className="Blog-A" {...props} />
-)
+const BLink = (props: Link) => {
+  return (
+    <NavLink
+      activeClassName="Blog-A-Active"
+      className="Blog-A"
+      {...props}
+      useBrowserLink={origin.isWiki}
+    />
+  )
+}
 
 export interface Blog {
   tree: TextTree
@@ -110,7 +117,7 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                       return <Md2jsx theme={md_theme}>{content}</Md2jsx>
                     }}
                   </LazyCom>
-                  {(isPlain || origin.isWiki) || (
+                  {isPlain || origin.isWiki || (
                     <div className="Blog-Main-Content-Edit">
                       <a
                         className="Blog-Main-Content-Edit-A"
