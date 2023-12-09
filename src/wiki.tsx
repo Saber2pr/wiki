@@ -14,7 +14,7 @@ import './style/components.less'
 import {
   Router,
   Route,
-  HashHistory,
+  createHashHistory,
   Switch,
   NavLink,
 } from '@saber2pr/react-router'
@@ -95,7 +95,7 @@ export const App = ({ blogTree }: App) => {
     })
 
   return (
-    <Router history={HashHistory}>
+    <Router history={createHashHistory({ init: false })}>
       <header ref={header_ref}>
         <nav className="nav">
           <ul className="nav-ul">
