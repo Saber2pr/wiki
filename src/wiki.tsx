@@ -46,16 +46,6 @@ const AppNavLink = ({
   />
 )
 
-const getDocTitle = () => {
-  const pathname = window?.location?.pathname
-  if (pathname) {
-    const ret = pathname.split('/').filter(i => !!i)[0]
-    if (ret) {
-      return ret.toUpperCase()
-    }
-  }
-}
-
 export const App = ({ blogTree }: App) => {
   const firstBlog = queryRootFirstChildMemo(blogTree)
   const expand = useBlogMenu(blogTree)
