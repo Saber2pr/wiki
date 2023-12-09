@@ -11,16 +11,10 @@ import './style/components.less'
 
 // /
 
-import {
-  Router,
-  Route,
-  createHashHistory,
-  Switch,
-  NavLink,
-} from '@saber2pr/react-router'
+import { NavLink } from '@saber2pr/react-router'
 
 import './app.less'
-import { Blog, NotFound, SearchResult } from './pages'
+import { Blog } from './pages'
 import { SearchInput, Themer, Uv, ErrorBoundary, Loading } from './components'
 
 import {
@@ -31,7 +25,7 @@ import {
   whenInDEV,
 } from './utils'
 import { useEvent, useBlogMenu, useFullWindow } from './hooks'
-import { Routes as RS, origin } from './config'
+import { origin } from './config'
 import { request } from './request'
 import { i18n } from './i18n'
 
