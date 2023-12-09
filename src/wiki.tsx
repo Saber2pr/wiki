@@ -95,7 +95,7 @@ export const App = ({ blogTree }: App) => {
     })
 
   return (
-    <Router history={createHashHistory({ init: false })}>
+    <>
       <header ref={header_ref}>
         <nav className="nav">
           <ul className="nav-ul">
@@ -116,23 +116,14 @@ export const App = ({ blogTree }: App) => {
         </nav>
       </header>
       <main ref={main_ref} className="main">
-        <Switch>
-          <Route
-            path={RS.blog.href}
-            component={() => (
-              <Blog
-                ref={btn_ref}
-                fullWinBtnAPI={fullWinBtnAPI}
-                tree={blogTree}
-                showOp={{
-                  latest: false,
-                }}
-              />
-            )}
-          />
-          <Route path={RS.search.href} component={() => <SearchResult />} />
-          <Route path={RS.notFound.href} component={() => <NotFound />} />
-        </Switch>
+        <Blog
+          ref={btn_ref}
+          fullWinBtnAPI={fullWinBtnAPI}
+          tree={blogTree}
+          showOp={{
+            latest: false,
+          }}
+        />
       </main>
       <footer ref={footer_ref} className="footer">
         <span className="footer-info">
@@ -140,7 +131,7 @@ export const App = ({ blogTree }: App) => {
           <Uv />
         </span>
       </footer>
-    </Router>
+    </>
   )
 }
 
