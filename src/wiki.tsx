@@ -87,9 +87,7 @@ export const App = ({ blogTree }: App) => {
               <AppNavLink to={firstBlog.path}>{firstBlog.title}</AppNavLink>
             </li>
             <li className="nav-block" />
-            <li>
-              <SearchInput blog={blogTree} />
-            </li>
+            <li></li>
             {/* <li className="nav-last">
               <a href="https://github.com/Saber2pr">GitHub</a>
             </li> */}
