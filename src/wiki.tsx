@@ -44,7 +44,12 @@ const AppNavLink = ({
   activeClassName = 'nav-a-active',
   ...props
 }: NavLink) => (
-  <NavLink className={className} activeClassName={activeClassName} {...props} />
+  <NavLink
+    className={className}
+    activeClassName={activeClassName}
+    {...props}
+    useBrowserLink={origin.isWiki}
+  />
 )
 
 const getDocTitle = () => {
@@ -76,7 +81,12 @@ export const App = ({ blogTree }: App) => {
     document.title = docTitle
   }
   useEvent('hashchange', setTitle)
-  useEffect(setTitle, [])
+  useEffect(() => {
+    if (origin.isWiki) {
+    } else {
+      setTitle()
+    }
+  }, [])
 
   const [header_ref, main_ref, footer_ref, btn_ref, fullWinBtnAPI] =
     useFullWindow({
