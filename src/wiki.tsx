@@ -67,6 +67,8 @@ export const App = ({ blogTree }: App) => {
   useEvent('hashchange', setTitle)
   useEffect(() => {
     if (origin.isWiki) {
+      const pathname = window.location.pathname
+      pathname.startsWith(blogTree.path) && expand(pathname)
     } else {
       setTitle()
     }
@@ -84,7 +86,7 @@ export const App = ({ blogTree }: App) => {
         <nav className="nav">
           <ul className="nav-ul">
             <li>
-              <AppNavLink to={firstBlog.path}>{firstBlog.title}</AppNavLink>
+              <AppNavLink to={firstBlog.path}>{document.title}</AppNavLink>
             </li>
             <li className="nav-block" />
             <li></li>
