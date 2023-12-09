@@ -86,7 +86,9 @@ export const App = ({ blogTree }: App) => {
         <nav className="nav">
           <ul className="nav-ul">
             <li>
-              <AppNavLink to={firstBlog.path}>{document.title}</AppNavLink>
+              <AppNavLink to={window.__basename + firstBlog.path}>
+                {document.title}
+              </AppNavLink>
             </li>
             <li className="nav-block" />
             <li></li>
@@ -125,6 +127,7 @@ declare global {
   interface Window {
     __wiki
     __blog
+    __basename
   }
 }
 

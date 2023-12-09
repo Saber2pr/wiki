@@ -220,7 +220,7 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                   if (children) return <span>{title}</span>
                   return (
                     <BLink
-                      to={origin.isWiki ? `.${href}` : href}
+                      to={origin.isWiki ? `${window.__basename}${href}` : href}
                       onClick={() => {
                         if (!isMobile()) return
                         isOpen.current = close(false)
