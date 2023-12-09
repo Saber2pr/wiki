@@ -49,9 +49,9 @@ const AppNavLink = ({
 
 const getDocTitle = () => {
   const pathname = window?.location?.pathname
-  if(pathname) {
+  if (pathname) {
     const ret = pathname.split('/').filter(i => !!i)[0]
-    if(ret) {
+    if (ret) {
       return ret.toUpperCase()
     }
   }
@@ -73,11 +73,7 @@ export const App = ({ blogTree }: App) => {
     hash.startsWith(blogTree.path) && expand(hash)
     const docTitle = hash.split('/').pop().split('?')[0] || title
 
-    if(docTitle === 'README') {
-      document.title = getDocTitle()
-    } else {
-      document.title = docTitle
-    }
+    document.title = docTitle
   }
   useEvent('hashchange', setTitle)
   useEffect(setTitle, [])
@@ -140,9 +136,16 @@ export const App = ({ blogTree }: App) => {
 
 declare const LOADING: { destroy: Function }
 
+declare global {
+  interface Window {
+    __wiki
+    __blogs
+  }
+}
+
 const Wiki = React.lazy(async () => {
   welcome()
-  const blogTree = parseTree(await request('wiki'))
+  let blogTree = parseTree(await request('wiki'))
   LOADING.destroy()
   return {
     default: () => <App blogTree={blogTree} />,
@@ -155,7 +158,7 @@ const createWiki = (repo: string) => {
   i18n.setLocal('en')
   const host = location.host || ''
   const result = host.match(/^([\s\S]*?)\.github\.io$/)
-  if(result && result[1]){
+  if (result && result[1]) {
     origin.userId = result[1]
   }
   ReactDOM.render(

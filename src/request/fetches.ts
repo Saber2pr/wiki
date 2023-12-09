@@ -4,6 +4,12 @@ import { origin } from '../config'
 import { axios, memoGet } from './axios'
 
 export const request = async (type: keyof typeof origin.data): Promise<any> => {
+  if(type === 'wiki') {
+    if(window.__wiki) {
+      return window.__wiki
+    }
+  }
+
   let url = origin.data[type]
   let res: ResponseConfig<any>
 
@@ -25,6 +31,11 @@ export const request = async (type: keyof typeof origin.data): Promise<any> => {
 }
 
 export const requestContent = async (url: string) => {
+  if(window.__blogs) {
+    if(window.__blogs[url]) {
+      return window.__blogs[url]
+    }
+  }
   let res: ResponseConfig<any>
   if (origin.isWiki) {
     res = await memoGet<string>('/' + origin.repo + url)
