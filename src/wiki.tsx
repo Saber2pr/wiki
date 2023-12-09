@@ -68,7 +68,7 @@ export const App = ({ blogTree }: App) => {
   useEffect(() => {
     if (origin.isWiki) {
       const pathname = window.location.pathname
-      pathname.startsWith(blogTree.path) && expand(pathname)
+      expand(pathname)
     } else {
       setTitle()
     }
