@@ -139,7 +139,7 @@ declare const LOADING: { destroy: Function }
 declare global {
   interface Window {
     __wiki
-    __blogs
+    __blog
   }
 }
 
@@ -162,6 +162,7 @@ const createWiki = (repo: string) => {
     origin.userId = result[1]
   }
   ReactDOM.render(
+    // @ts-ignore
     <ErrorBoundary>
       <React.Suspense fallback={<Loading />}>
         <Wiki />
