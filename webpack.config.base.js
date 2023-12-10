@@ -76,14 +76,13 @@ const createConfig = ops => {
           ${isApp ? '<link rel="manifest" href="./manifest.json" />' : ''}
           <script async src="/click-mask/click-mask.min.js"></script>
           <script async src="/test/tools/debug.min.js"></script>
-          <script async src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
-          ${Object.keys(inlinejs).map(
+          ${isApp ? '' : Object.keys(inlinejs).map(
             key =>
               `<script type="text/javascript" id="${key}">${inlinejs[key]}</script>`
           )}
           `,
           injectBody:
-            `<div id="root"></div><script>LOADING.init(` +
+          isApp ? `<div id="root"></div>` : `<div id="root"></div><script>LOADING.init(` +
             `"Loading..."` +
             ', 1000);</script>',
         }),

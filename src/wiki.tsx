@@ -121,8 +121,6 @@ export const App = ({ blogTree }: App) => {
   )
 }
 
-declare const LOADING: { destroy: Function }
-
 declare global {
   interface Window {
     __wiki
@@ -134,7 +132,6 @@ declare global {
 const Wiki = React.lazy(async () => {
   welcome()
   let blogTree = parseTree(await request('wiki'))
-  LOADING.destroy()
   return {
     default: () => <App blogTree={blogTree} />,
   }
