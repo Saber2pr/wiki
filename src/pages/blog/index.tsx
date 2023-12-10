@@ -41,6 +41,17 @@ import { i18n } from '../../i18n'
 const BLink = (props: Link) => {
   return (
     <NavLink
+      isActive={(to, path) => {
+        if (origin.isWiki) {
+          if (to && path) {
+            const pathname = decodeURIComponent(path.replace(/^\//, ''))
+            const curPath = decodeURIComponent(to.replace(/^\//, ''))
+            return pathname === curPath
+          }
+        } else {
+          return to === path
+        }
+      }}
       activeClassName="Blog-A-Active"
       className="Blog-A"
       {...props}
