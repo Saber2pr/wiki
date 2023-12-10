@@ -22,7 +22,7 @@ export const origin = {
   },
   theme: {
     light: '',
-    dark: 'https://saber2pr.top/static/style/dark.css',
+    dark: 'https://saber2pr.top/wiki/static/style/dark.css',
   },
   workers: {
     pwa: '/service-worker.js',
