@@ -42,6 +42,7 @@ const BLink = (props: Link) => {
   return (
     <NavLink
       isActive={(to, path) => {
+        console.log('🚀 ~ file: index.tsx:45 ~ BLink ~ to, path:', to, path)
         if (origin.isWiki) {
           if (to && path) {
             const pathname = decodeURIComponent(path.replace(/^\//, ''))
