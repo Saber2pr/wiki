@@ -192,7 +192,7 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                 <h1 className="Blog-Main-Title">{document.title}</h1>
                 <div className="Blog-Main-Content">
                   <Md2jsx basename={window.__basename || ''} theme={md_theme}>
-                    {window.__blog}
+                    {decodeURIComponent(window.__blog)}
                   </Md2jsx>
                 </div>
               </>
