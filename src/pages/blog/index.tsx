@@ -2,7 +2,7 @@ import './style.less'
 
 import React, { useEffect, useLayoutEffect, useRef } from 'react'
 
-import Tree from '@saber2pr/rc-tree'
+import { Tree } from '@saber2pr/rc-tree'
 import { Link, NavLink, Route, Switch } from '@saber2pr/react-router'
 
 import {
@@ -219,8 +219,8 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
             </div>
             <section className="Blog-Aside-Content">
               <Tree
-                from={tree}
                 useBrowserHistory
+                from={tree}
                 selectBtn={Icon.TreeBtn}
                 map={({ path: href, title, children }) => {
                   if (href === firstBlog.path) return <></>
