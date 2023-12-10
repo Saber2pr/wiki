@@ -76,15 +76,15 @@ const createConfig = ops => {
           ${isApp ? '<link rel="manifest" href="./manifest.json" />' : ''}
           <script async src="/click-mask/click-mask.min.js"></script>
           <script async src="/test/tools/debug.min.js"></script>
-          ${isApp ? '' : Object.keys(inlinejs).map(
+          ${isApp ? Object.keys(inlinejs).map(
             key =>
               `<script type="text/javascript" id="${key}">${inlinejs[key]}</script>`
-          )}
+          ): ''}
           `,
           injectBody:
-          isApp ? `<div id="root"></div>` : `<div id="root"></div><script>LOADING.init(` +
+          isApp ?  `<div id="root"></div><script>LOADING.init(` +
             `"Loading..."` +
-            ', 1000);</script>',
+            ', 1000);</script>' : `<div id="root"></div>`,
         }),
       }),
       new webpack.BannerPlugin({
