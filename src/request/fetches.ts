@@ -32,7 +32,7 @@ export const request = async (type: keyof typeof origin.data): Promise<any> => {
 
 export const requestContent = async (url: string) => {
   if(window.__blog) {
-    return window.__blog
+    return decodeURIComponent(window.__blog)
   }
   let res: ResponseConfig<any>
   if (origin.isWiki) {
