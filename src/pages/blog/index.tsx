@@ -234,6 +234,7 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
             </div>
             <section className="Blog-Aside-Content">
               <Tree
+                basename={window.__basename || ''}
                 useBrowserHistory
                 from={tree}
                 selectBtn={Icon.TreeBtn}
