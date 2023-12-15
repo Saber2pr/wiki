@@ -5,7 +5,7 @@
  * @Last Modified time: 2021-10-07 18:09:02
  */
 const staticAssets = [
-  /** CODE START **/"/build/[name]060420faf845531ad5b7.min.js","/build/[name]060420faf845531ad5b7.min.js.LICENSE.txt","/build/index~31743c5a060420faf845531ad5b7.css","/build/index~31743c5a060420faf845531ad5b7.min.js","/build/index~bde52cb3060420faf845531ad5b7.min.js","/build/index~bde52cb3060420faf845531ad5b7.min.js.LICENSE.txt","/build/index~e96e9bea060420faf845531ad5b7.css"/** CODE END **/,
+  /** CODE START **/"/build/[name]0b59221690201916e326.min.js","/build/[name]0b59221690201916e326.min.js.LICENSE.txt","/build/index~31743c5a0b59221690201916e326.css","/build/index~31743c5a0b59221690201916e326.min.js","/build/index~bde52cb30b59221690201916e326.min.js","/build/index~bde52cb30b59221690201916e326.min.js.LICENSE.txt","/build/index~e96e9bea0b59221690201916e326.css"/** CODE END **/,
   '/',
   // icon
   '/static/icon/saber2pr-144x144.png',
