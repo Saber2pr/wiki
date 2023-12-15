@@ -86,7 +86,7 @@ export const App = ({ blogTree }: App) => {
         <nav className="nav">
           <ul className="nav-ul">
             <li>
-              <AppNavLink to={window.__basename + firstBlog.path}>
+              <AppNavLink to={window.__basename + '/'}>
                 {firstBlog.title}
               </AppNavLink>
             </li>
