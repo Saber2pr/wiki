@@ -27,7 +27,7 @@ const createConfig = ops => {
     output: {
       filename: '[name][hash].min.js',
       path: path.join(__dirname, 'build'),
-      publicPath: process.env.NODE_ENV === 'production' ? `/build/` : '/',
+      publicPath: process.env.NODE_ENV === 'production' ? `/wiki/build/` : '/',
     },
     module: {
       rules: [
