@@ -241,9 +241,24 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                 map={({ path: href, title, children }) => {
                   if (href === firstBlog.path) return <></>
                   if (children) return <span>{title}</span>
+                  if (origin.isWiki) {
+                    const [name, path] = href.split(':')
+                    return (
+                      <BLink
+                        to={`${window.__basename}/${path}`}
+                        onClick={() => {
+                          if (!isMobile()) return
+                          isOpen.current = close(false)
+                          aniBtnRef.current.close()
+                        }}
+                      >
+                        {name}
+                      </BLink>
+                    )
+                  }
                   return (
                     <BLink
-                      to={origin.isWiki ? `${window.__basename}${href}` : href}
+                      to={href}
                       onClick={() => {
                         if (!isMobile()) return
                         isOpen.current = close(false)
