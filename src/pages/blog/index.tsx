@@ -245,7 +245,7 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                     if (children) return <span>{name}</span>
                     return (
                       <BLink
-                        to={`${window.__basename}/${href}`}
+                        to={`${window.__basename}/posts/${href}`}
                         onClick={() => {
                           if (!isMobile()) return
                           isOpen.current = close(false)
