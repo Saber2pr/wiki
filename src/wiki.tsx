@@ -125,6 +125,7 @@ declare global {
   interface Window {
     __wiki
     __blog
+    __title
     __basename
   }
 }

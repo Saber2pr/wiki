@@ -204,7 +204,7 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
           <main className="Blog-Main" ref={main_ref}>
             {origin.isWiki ? (
               <>
-                <h1 className="Blog-Main-Title">{document.title}</h1>
+                <h1 className="Blog-Main-Title">{window.__title}</h1>
                 <div className="Blog-Main-Content">
                   <Md2jsx basename={window.__basename || ''} theme={md_theme}>
                     {decodeURIComponent(window.__blog)}
