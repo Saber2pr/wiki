@@ -240,12 +240,12 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                 selectBtn={Icon.TreeBtn}
                 map={({ path: href, title, children }) => {
                   if (href === firstBlog.path) return <></>
-                  if (children) return <span>{title}</span>
                   if (origin.isWiki) {
-                    const [name, path] = href.split(':')
+                    const [name, href] = title.split(':')
+                    if (children) return <span>{name}</span>
                     return (
                       <BLink
-                        to={`${window.__basename}/${path}`}
+                        to={`${window.__basename}/${href}`}
                         onClick={() => {
                           if (!isMobile()) return
                           isOpen.current = close(false)
@@ -256,6 +256,7 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                       </BLink>
                     )
                   }
+                  if (children) return <span>{title}</span>
                   return (
                     <BLink
                       to={href}
