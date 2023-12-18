@@ -154,7 +154,11 @@ const createWiki = (repo: string) => {
         <Wiki />
       </React.Suspense>
     </ErrorBoundary>,
-    document.getElementById('root')
+    document.getElementById('root'),
+    () => {
+      const pre = document.getElementById('root-pre')
+      pre && pre.remove()
+    }
   )
 }
 
