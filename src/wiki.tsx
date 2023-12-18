@@ -157,7 +157,9 @@ const createWiki = (repo: string) => {
     document.getElementById('root'),
     () => {
       const pre = document.getElementById('root-pre')
-      pre && pre.remove()
+      if (pre) {
+        pre.style.display = 'none'
+      }
     }
   )
 }
