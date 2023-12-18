@@ -80,6 +80,13 @@ export const App = ({ blogTree }: App) => {
       disableClassName: 'FullWinBtn iconfont icon-fullwin-disable',
     })
 
+  useEffect(() => {
+    const pre = document.getElementById('root-pre')
+    if (pre) {
+      pre.remove()
+    }
+  }, [])
+
   return (
     <>
       <header ref={header_ref}>
@@ -154,13 +161,7 @@ const createWiki = (repo: string) => {
         <Wiki />
       </React.Suspense>
     </ErrorBoundary>,
-    document.getElementById('root'),
-    () => {
-      const pre = document.getElementById('root-pre')
-      if (pre) {
-        pre.style.display = 'none'
-      }
-    }
+    document.getElementById('root')
   )
 }
 
