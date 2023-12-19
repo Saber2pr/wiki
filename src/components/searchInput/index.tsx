@@ -146,8 +146,20 @@ const renderResult = (result: Item[], enable: boolean, onSubmit: Function) => {
       )
     }
   }
+
   if (!enable) return <></>
-  if (result.length === 0) return <div>No Results.</div>
+  if (result.length === 0) {
+    return (
+      <div
+        style={{
+          paddingLeft: '1rem',
+          paddingRight: '1rem',
+        }}
+      >
+        No Results.
+      </div>
+    )
+  }
   return (
     <>
       {blanks[0] && (
