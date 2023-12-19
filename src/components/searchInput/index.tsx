@@ -146,7 +146,8 @@ const renderResult = (result: Item[], enable: boolean, onSubmit: Function) => {
       )
     }
   }
-  if (!enable) return <div>No Results.</div>
+  if (!enable) return <></>
+  if (result.length === 0) return <div>No Results.</div>
   return (
     <>
       {blanks[0] && (
