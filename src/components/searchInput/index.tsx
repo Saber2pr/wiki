@@ -146,7 +146,7 @@ const renderResult = (result: Item[], enable: boolean, onSubmit: Function) => {
       )
     }
   }
-  if (!enable) return <></>
+  if (!enable) return <div>No Results.</div>
   return (
     <>
       {blanks[0] && (
@@ -159,7 +159,14 @@ const renderResult = (result: Item[], enable: boolean, onSubmit: Function) => {
       )}
       {blanks}
       {items}
-      <li className="SearchInput-List-More"></li>
+      <li className="SearchInput-List-More">
+        <a
+          target="_blank"
+          href="https://github.com/marketplace/actions/wiki-builder"
+        >
+          By WikiBuilder
+        </a>
+      </li>
     </>
   )
 }
