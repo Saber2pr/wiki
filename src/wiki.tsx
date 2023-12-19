@@ -122,7 +122,7 @@ export const App = ({ blogTree }: App) => {
       </main>
       <footer ref={footer_ref} className="footer">
         <span className="footer-info">
-          Copyright © {new Date().getFullYear()} saber2pr
+          Copyright © 2019 - {new Date().getFullYear()} Saber2pr
           <Uv />
         </span>
       </footer>
