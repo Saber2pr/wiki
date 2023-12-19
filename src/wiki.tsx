@@ -15,7 +15,7 @@ import { NavLink } from '@saber2pr/react-router'
 
 import './app.less'
 import { Blog } from './pages'
-import { Themer, Uv, ErrorBoundary, Loading } from './components'
+import { Themer, Uv, ErrorBoundary, Loading, SearchInput } from './components'
 
 import {
   getHash,
@@ -98,7 +98,9 @@ export const App = ({ blogTree }: App) => {
               </AppNavLink>
             </li>
             <li className="nav-block" />
-            <li></li>
+            <li>
+              <SearchInput blog={blogTree} />
+            </li>
             {/* <li className="nav-last">
               <a href="https://github.com/Saber2pr">GitHub</a>
             </li> */}

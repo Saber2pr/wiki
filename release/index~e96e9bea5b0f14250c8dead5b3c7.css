@@ -1607,7 +1607,7 @@ body {
 }
 .SearchInput-List-More {
   text-align: right;
-  line-height: 2rem;
+  height: 2rem;
 }
 .SearchInput-List-More a {
   cursor: pointer;
