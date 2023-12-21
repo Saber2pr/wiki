@@ -41,6 +41,8 @@ export const Content404: React.FC<Content404Props> = ({}) => {
     }
   }, [])
 
+  if (list.length === 0) return <></>
+
   return (
     <div className="Content404">
       <h3>The following are links similar to the content being accessed.</h3>
