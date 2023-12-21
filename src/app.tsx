@@ -3,7 +3,7 @@ import './app.less'
 import React, { useEffect, useMemo } from 'react'
 
 import {
-  HashHistory,
+  createHashHistory,
   NavLink,
   Route,
   Router,
@@ -11,7 +11,15 @@ import {
 } from '@saber2pr/react-router'
 
 import { pushIV } from './api/pushIV'
-import { createMusicBox, PreImg, SearchInput, Themer, Uv, HeaderMessage, Bagua } from './components'
+import {
+  createMusicBox,
+  PreImg,
+  SearchInput,
+  Themer,
+  Uv,
+  HeaderMessage,
+  Bagua,
+} from './components'
 import { origin, Routes as RS } from './config'
 import { useBlogMenu, useEvent, useFullWindow, useIsMob } from './hooks'
 import { useShowMusic } from './hooks/useShowMusic'
@@ -45,6 +53,8 @@ const AppNavLink = ({
 }: NavLink) => (
   <NavLink className={className} activeClassName={activeClassName} {...props} />
 )
+
+const HashHistory = createHashHistory()
 
 export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
   const firstBlog = queryRootFirstChildMemo(blogTree)

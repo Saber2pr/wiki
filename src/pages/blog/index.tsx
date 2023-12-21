@@ -37,6 +37,7 @@ import { NotFound } from '../not-found'
 import { useTwoSlash } from '../../hooks/useTwoSlash'
 import { getQuery } from '../../utils/getQuery'
 import { i18n } from '../../i18n'
+import { Content404, is404 } from '../../components/Content404'
 
 const BLink = (props: Link) => {
   return (
@@ -209,6 +210,7 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                   <Md2jsx basename={window.__basename || ''} theme={md_theme}>
                     {decodeURIComponent(window.__blog)}
                   </Md2jsx>
+                  {is404 && <Content404 />}
                 </div>
               </>
             ) : (
