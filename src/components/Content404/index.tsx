@@ -40,6 +40,7 @@ export const Content404: React.FC<Content404Props> = ({}) => {
 
   return (
     <div className="Content404">
+      <h3>The following are links similar to the content being accessed.</h3>
       <ul>
         {list.map(item => (
           <li>
