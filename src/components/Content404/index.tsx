@@ -10,7 +10,10 @@ export const Content404: React.FC<Content404Props> = ({}) => {
   useEffect(() => {
     if (is404) {
       const pathname = decodeURIComponent(window.location.pathname)
-      const targetName = pathname.split('/').pop()
+      const targetName = pathname
+        .split('/')
+        .filter(i => !!i)
+        .pop()
       if (targetName && window.__wiki) {
         const list = decodeURIComponent(window.__wiki)
           .split('\n')
