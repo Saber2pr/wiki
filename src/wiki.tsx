@@ -111,6 +111,14 @@ export const App = ({ blogTree }: App) => {
         </nav>
       </header>
       <main ref={main_ref} className="main">
+        {window.__backgroundImage && (
+          <picture
+            className="main-bg"
+            style={{
+              background: `url(${window.__backgroundImage})`,
+            }}
+          />
+        )}
         <Blog
           ref={btn_ref}
           fullWinBtnAPI={fullWinBtnAPI}
@@ -136,6 +144,7 @@ declare global {
     __blog
     __title
     __basename
+    __backgroundImage
   }
 }
 
