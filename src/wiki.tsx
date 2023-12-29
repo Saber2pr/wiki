@@ -129,10 +129,15 @@ export const App = ({ blogTree }: App) => {
         />
       </main>
       <footer ref={footer_ref} className="footer">
-        <span className="footer-info">
-          Copyright © 2019 - {new Date().getFullYear()} Saber2pr
-          <Uv />
-        </span>
+        <div>
+          <span className="footer-info">
+            Copyright © 2019 - {new Date().getFullYear()} Saber2pr
+            <Uv />
+          </span>
+        </div>
+        <div>
+          <a className="footer-link" href="https://ouxyi.chat/join/86653224">Join Okx - BTC Coin</a>
+        </div>
       </footer>
     </>
   )
