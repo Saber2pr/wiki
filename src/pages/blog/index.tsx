@@ -215,7 +215,9 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                       paddingTop: 0,
                       paddingBottom: 0,
                     }}
-                    dangerouslySetInnerHTML={{ __html: window.__adsSlotHtml }}
+                    dangerouslySetInnerHTML={{
+                      __html: decodeURIComponent(window.__adsSlotHtml),
+                    }}
                   ></div>
                 )}
                 <div className="Blog-Main-Content">
