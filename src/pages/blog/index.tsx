@@ -206,6 +206,18 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
             {origin.isWiki ? (
               <>
                 <h1 className="Blog-Main-Title">{window.__title}</h1>
+                {window.__adsSlotHtml && (
+                  <div
+                    className="Blog-Main-Content"
+                    style={{
+                      marginTop: 0,
+                      marginBottom: 0,
+                      paddingTop: 0,
+                      paddingBottom: 0,
+                    }}
+                    dangerouslySetInnerHTML={{ __html: window.__adsSlotHtml }}
+                  ></div>
+                )}
                 <div className="Blog-Main-Content">
                   <Md2jsx basename={window.__basename || ''} theme={md_theme}>
                     {decodeURIComponent(window.__blog)}
