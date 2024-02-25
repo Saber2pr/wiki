@@ -135,11 +135,6 @@ export const App = ({ blogTree }: App) => {
             <Uv />
           </span>
         </div>
-        <div>
-          <a className="footer-link" href="https://ouxyi.chat/join/86653224">
-            Join Okx - BTC Coin
-          </a>
-        </div>
       </footer>
     </>
   )
