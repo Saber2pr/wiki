@@ -20,9 +20,7 @@ export const I18nSelect: React.FC<I18nSelectProps> = ({}) => {
     },
   ]
 
-  const current = getArray(config).find(item =>
-    location.pathname.startsWith(item.key)
-  )
+  const current = getArray(config)[0]
 
   return (
     <div className="rn-i18n-select">
