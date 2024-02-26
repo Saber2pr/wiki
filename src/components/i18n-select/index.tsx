@@ -30,7 +30,7 @@ export const I18nSelect: React.FC<I18nSelectProps> = ({}) => {
           <li
             className="rn-i18n-select-list-item"
             onClick={() => {
-              window.location.href = `${item.key === '/' ? '' : `/${item.key}`}`
+              window.location.href = item.key
             }}
           >
             {item.name}
