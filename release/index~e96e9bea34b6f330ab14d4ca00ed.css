@@ -2707,3 +2707,43 @@ body {
   }
 }
 
+.rn-i18n-select {
+  position: relative;
+  color: #d5d5d7;
+}
+.rn-i18n-select-name {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.rn-i18n-select-list {
+  background-color: #f5f5f5;
+  box-shadow: 0px 1px 0px #d1d1d1;
+  position: absolute;
+  left: 0;
+  top: 40px;
+  display: none;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.rn-i18n-select-list-item {
+  cursor: pointer;
+  transition: none;
+  text-decoration: none;
+  text-align: left;
+  color: black;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: block;
+  overflow: hidden;
+  border-right: 2px transparent solid;
+}
+.rn-i18n-select-list-item:hover {
+  color: black;
+  background-color: #dedede;
+  border-right: 2px aqua solid;
+}
+.rn-i18n-select:hover .rn-i18n-select-list {
+  display: block;
+}
+

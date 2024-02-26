@@ -39,6 +39,7 @@ import {
   Secret,
 } from './pages'
 import { getHash, queryRootFirstChildMemo } from './utils'
+import { I18nSelect } from './components/i18n-select'
 
 export interface App {
   homeInfo: Home

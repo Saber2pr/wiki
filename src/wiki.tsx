@@ -28,6 +28,7 @@ import { useEvent, useBlogMenu, useFullWindow } from './hooks'
 import { origin } from './config'
 import { request } from './request'
 import { i18n } from './i18n'
+import { I18nSelect } from './components/i18n-select'
 
 export interface App {
   blogTree: Blog['tree']
@@ -104,6 +105,9 @@ export const App = ({ blogTree }: App) => {
             {/* <li className="nav-last">
               <a href="https://github.com/Saber2pr">GitHub</a>
             </li> */}
+            <li>
+              <I18nSelect />
+            </li>
             <li className="nav-tool">
               <Themer />
             </li>
@@ -148,6 +152,7 @@ declare global {
     __basename
     __adsSlotHtml
     __backgroundImage
+    __i18nConfig
   }
 }
 
