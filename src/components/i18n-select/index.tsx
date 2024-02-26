@@ -26,11 +26,15 @@ export const I18nSelect: React.FC<I18nSelectProps> = ({}) => {
     <div className="rn-i18n-select">
       <div className="rn-i18n-select-name">{current?.name}</div>
       <ul className="rn-i18n-select-list">
-        {getArray(config).map(item => (
+        {getArray(config).map((item, i) => (
           <li
             className="rn-i18n-select-list-item"
             onClick={() => {
-              window.location.href = item.key
+              if (i === 0) {
+                window.location.reload()
+              } else {
+                window.location.href = item.key
+              }
             }}
           >
             {item.name}
