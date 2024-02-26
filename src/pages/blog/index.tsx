@@ -221,7 +221,7 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                   ></div>
                 )}
                 <div className="Blog-Main-Content">
-                  <Md2jsx basename={window.__basename || ''} theme={md_theme}>
+                  <Md2jsx theme={md_theme}>
                     {decodeURIComponent(window.__blog)}
                   </Md2jsx>
                   {is404 && <Content404 />}
