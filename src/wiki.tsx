@@ -153,6 +153,7 @@ declare global {
     __adsSlotHtml
     __backgroundImage
     __i18nConfig
+    __expandAllMenu
   }
 }
 

@@ -250,6 +250,7 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
             </div>
             <section className="Blog-Aside-Content">
               <Tree
+                expandAll={window.__expandAllMenu === 'on'}
                 from={tree}
                 selectBtn={Icon.TreeBtn}
                 map={({ path: href, title, children }) => {
