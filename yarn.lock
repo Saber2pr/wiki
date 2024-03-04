@@ -1161,10 +1161,10 @@
     react "^16.8.6"
     react-dom "^16.8.6"
 
-"@saber2pr/rc-tree@^0.1.16":
-  version "0.1.16"
-  resolved "https://registry.npmmirror.com/@saber2pr/rc-tree/-/rc-tree-0.1.16.tgz#9afe438b9364a297c75d5f6e47789deea9ab7b03"
-  integrity sha512-ItwUs8/BRdVjh+62qSYhxNkCst6iH6PTN0LbsHUWRnJy/MLJT84IAdrsMXJYR9oWQd2AdKIKjs+adI7c96ay0Q==
+"@saber2pr/rc-tree@^0.1.17":
+  version "0.1.17"
+  resolved "https://registry.npmjs.org/@saber2pr/rc-tree/-/rc-tree-0.1.17.tgz#b2547d340b0721fbe74a14dee24000944afd7cd7"
+  integrity sha512-jwZofQE7mWARpJmk+e+C/GYoKhEqUi/Pwy/vfAG2ReT4hBk1tdXPE4cYcDB8FrTdo1iaKhQovhbXDfA8xeh3sA==
 
 "@saber2pr/react-router@^0.0.10":
   version "0.0.10"
