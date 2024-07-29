@@ -39,18 +39,18 @@ import { getQuery } from '../../utils/getQuery'
 import { i18n } from '../../i18n'
 import { Content404, is404 } from '../../components/Content404'
 
+const getDataLink = (to: string) => {
+  return decodeURIComponent(to.replace(/^\//, '').replace(/\/$/, ''))
+}
+
 const BLink = (props: Link) => {
   return (
     <NavLink
       isActive={(to, path) => {
         if (origin.isWiki) {
           if (to && path) {
-            const pathname = decodeURIComponent(
-              path.replace(/^\//, '').replace(/\/$/, '')
-            )
-            const curPath = decodeURIComponent(
-              to.replace(/^\//, '').replace(/\/$/, '')
-            )
+            const pathname = getDataLink(path)
+            const curPath = getDataLink(to)
             return pathname === curPath
           }
         } else {
@@ -60,6 +60,7 @@ const BLink = (props: Link) => {
       activeClassName="Blog-A-Active"
       className="Blog-A"
       {...props}
+      data-link={getDataLink(props.to)}
       useBrowserLink={origin.isWiki}
     />
   )
@@ -110,6 +111,24 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
       ref.current.scrollTop = store.getState().blogScrollTop
       return () => {
         store.getState().blogScrollTop = ref.current.scrollTop
+      }
+    }, [])
+
+    useEffect(() => {
+      const handle = () => {
+        if (origin.isWiki) {
+          const anchor = document.querySelector(
+            `[data-link="${getDataLink(window.location.pathname)}"]`
+          )
+          if(anchor && typeof anchor.scrollIntoView === 'function') {
+            anchor.scrollIntoView({ block: "center" })
+          }
+        }
+      }
+
+      document.addEventListener('load', handle)
+      return () => {
+        document.removeEventListener('load', handle)
       }
     }, [])
 
