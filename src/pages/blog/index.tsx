@@ -114,23 +114,16 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
       }
     }, [])
 
-    useEffect(() => {
-      const handle = () => {
-        if (origin.isWiki) {
-          const anchor = document.querySelector(
-            `[data-link="${getDataLink(window.location.pathname)}"]`
-          )
-          if(anchor && typeof anchor.scrollIntoView === 'function') {
-            anchor.scrollIntoView({ block: "center" })
-          }
+    const jumpMenu = () => {
+      if (origin.isWiki) {
+        const anchor = document.querySelector(
+          `[data-link="${getDataLink(window.location.pathname)}"]`
+        )
+        if (anchor && typeof anchor.scrollIntoView === 'function') {
+          anchor.scrollIntoView({ block: 'center' })
         }
       }
-
-      document.addEventListener('load', handle)
-      return () => {
-        document.removeEventListener('load', handle)
-      }
-    }, [])
+    }
 
     const Routes = links.reduce((acc, { title, path: href, children }, i) => {
       if (!children) {
@@ -323,6 +316,13 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
           />
         )}
         {<i {...selectProps()} ref={fullwinBtn_ref} onClick={selectFullWin} />}
+        <div
+          ref={el => {
+            if (el) {
+              jumpMenu()
+            }
+          }}
+        ></div>
       </div>
     )
   }
