@@ -7,10 +7,11 @@ const SyntaxHighlighter =
 import { useCopy } from '../../hooks/useCopy'
 import './index.less'
 
-import cpp from 'react-syntax-highlighter/dist/cjs/languages/prism//cpp'
-import hs from 'react-syntax-highlighter/dist/cjs/languages/prism//haskell'
-import tsx from 'react-syntax-highlighter/dist/cjs/languages/prism//tsx'
-import go from 'react-syntax-highlighter/dist/cjs/languages/prism//go'
+import cpp from 'react-syntax-highlighter/dist/cjs/languages/prism/cpp'
+import hs from 'react-syntax-highlighter/dist/cjs/languages/prism/haskell'
+import tsx from 'react-syntax-highlighter/dist/cjs/languages/prism/tsx'
+import go from 'react-syntax-highlighter/dist/cjs/languages/prism/go'
+import python from 'react-syntax-highlighter/dist/cjs/languages/prism/python'
 
 export const registerLanguage = (name: string, meta: any) =>
   SyntaxHighlighter.registerLanguage(name, meta)
@@ -19,6 +20,7 @@ registerLanguage('tsx', tsx)
 registerLanguage('hs', hs)
 registerLanguage('cpp', cpp)
 registerLanguage('go', go)
+registerLanguage('python', python)
 
 export interface CodeBlockProps {
   code: string
@@ -29,8 +31,11 @@ export interface CodeBlockProps {
 export const CodeBlock: React.FC<CodeBlockProps> = ({
   children,
   className,
+  ...props
 }) => {
-  const copyer = useCopy()
+  // @ts-ignore
+  const id = props?.node?.position?.start?.line
+  const copyer = useCopy(`${id}`)
 
   if (/^language-/.test(className) && children) {
     const lang = className.replace(/^language-/, '')

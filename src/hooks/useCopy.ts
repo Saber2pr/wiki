@@ -1,19 +1,21 @@
 import ClipboardJS from 'clipboard'
 import { DependencyList, useEffect, useRef } from 'react'
+import { getArray } from '../utils'
 
 export const useCopy = <
   Button extends HTMLElement = any,
   Target extends HTMLElement = any
 >(
+  id: string,
   init: (cp: ClipboardJS) => void | VoidFunction = cp => {
     cp.on('success', () => {})
   },
-  deps: DependencyList = []
+  deps: any[] = []
 ) => {
   const ref = useRef<Button>()
   const targetRef = useRef<Target>()
   useEffect(() => {
-    const targetId = `Clipboard-Target-${Date.now()}`
+    const targetId = `Clipboard-Target-${id || Date.now()}`
     if (ref.current) {
       ref.current.setAttribute('data-clipboard-target', `#${targetId}`)
     } else {
@@ -27,7 +29,7 @@ export const useCopy = <
     const cp = new ClipboardJS(ref.current)
     init && init(cp)
     return () => cp.destroy()
-  }, deps)
+  }, [...getArray(deps), id])
   return {
     button: ref,
     target: targetRef,
