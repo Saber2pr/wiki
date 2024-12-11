@@ -1870,6 +1870,30 @@ body {
 .Blog {
   margin: 0 4.5rem;
 }
+.Blog blockquote {
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  /* 使用优雅的衬线字体 */
+  font-size: 1.1em;
+  /* 字体稍微放大，突出引用内容 */
+  font-style: italic;
+  /* 斜体，常用于表示引用 */
+  color: #555;
+  /* 低调的灰色字体 */
+  border-left: 4px solid #ccc;
+  /* 左边框用于强调 */
+  margin: 1.5em 10px;
+  /* 上下留白，使其独立于其他内容 */
+  padding: 0.5em 10px;
+  /* 内边距，让内容更舒适 */
+  background-color: #f9f9f9;
+  /* 柔和的背景色 */
+  border-radius: 4px;
+  /* 圆角效果 */
+}
+.Blog blockquote p {
+  margin: 0;
+  /* 避免段落的额外边距 */
+}
 .Blog pre code::selection,
 .Blog pre span::selection {
   background-color: #46899b;

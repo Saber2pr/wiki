@@ -324,3 +324,9 @@ body {
 .PageV .list .list-item:hover {
   background: #dddddd2e;
 }
+
+.Blog blockquote {
+  color: #ddd; /* 柔和的浅灰色字体，与暗背景形成对比 */
+  border-left: 4px solid #555; /* 边框颜色加深 */
+  background-color: #222; /* 深灰色背景 */
+}
