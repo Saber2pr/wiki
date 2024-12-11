@@ -6,7 +6,7 @@
     "start": "webpack -w",
     "dev": "cross-env NODE_ENV=development webpack-dev-server",
     "build": "rm -rf ./build && cross-env NODE_ENV=production webpack && yarn inject:statics && cp ./build/index.html ./index.html",
-    "build:wiki": "rm -rf ./release && cross-env NODE_ENV=production webpack --config webpack.wiki.config.js && tar -zcvf ./build/wiki-release.tar.gz ./release",
+    "build:wiki": "rm -rf ./release && cross-env NODE_ENV=production webpack --config webpack.wiki.config.js && mkdir -p build && tar -zcvf ./build/wiki-release.tar.gz ./release",
     "inject:statics": "ts-node scripts/injectStatics",
     "inherit": "ts-node scripts/inherit",
     "update": "ts-node scripts/generate",
@@ -16,7 +16,6 @@
     "job": "ts-node actions/main"
   },
   "dependencies": {
-    "@saber2pr/md2jsx": "^0.2.2",
     "@saber2pr/memo": "^0.0.3",
     "@saber2pr/pv-count": "^0.0.1",
     "@saber2pr/rc-audio": "^0.1.1",
@@ -32,9 +31,18 @@
     "@types/react": "^16.8.19",
     "@types/react-dom": "^16.8.4",
     "animate.css": "^3.7.2",
+    "clipboard": "^2.0.11",
     "normalize.css": "^8.0.1",
+    "prism-react-renderer": "^2.4.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-markdown": "^9.0.1",
+    "react-syntax-highlighter": "^15.6.1",
+    "rehype-katex": "^7.0.1",
+    "rehype-raw": "^7.0.0",
+    "remark-gfm": "^4.0.0",
+    "remark-math": "^6.0.0",
+    "remark-remove-comments": "^1.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",

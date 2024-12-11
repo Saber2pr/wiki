@@ -10,7 +10,7 @@ import {
   useOption,
 } from '../../components'
 import { request, requestContent } from '../../request'
-import { Md2jsx, origin } from '../../config'
+import { origin } from '../../config'
 
 const Main = ({ content }: { content: string }) => {
   const [model, show] = useOption()
@@ -18,7 +18,7 @@ const Main = ({ content }: { content: string }) => {
     <>
       <h1 className="About-Main-Title">About Me</h1>
       <div className="About-Main-Content">
-        <Md2jsx theme={null}>{content}</Md2jsx>
+        <div>{content}</div>
         <hr className="About-Hr" />
         <div>
           {model}

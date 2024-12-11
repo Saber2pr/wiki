@@ -59,9 +59,7 @@ export const Home = ({ title, infor, pic, items }: Home) => {
           <img src={pic} alt={title} />
         </li>
       </ul>
-      <div className="Home-Comment">
-        <LiveComment />
-      </div>
+      <div className="Home-Comment">{/* <LiveComment /> */}</div>
       <div className="Home-Content">
         <section className="Home-Content-Item">
           <ul>

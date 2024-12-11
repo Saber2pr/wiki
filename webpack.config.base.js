@@ -12,8 +12,6 @@ const version = () => `var version="${new Date().toLocaleString()}"`
 const publicPath = (resourcePath, context) =>
   path.relative(path.dirname(resourcePath), context) + '/'
 
-const cdnhost = `//fastly.jsdelivr.net/gh/${config.userId}`
-
 const createConfig = ops => {
   const options = ops || {}
   const isApp = options.isApp
@@ -23,6 +21,9 @@ const createConfig = ops => {
     },
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      alias: {
+        'react/jsx-runtime': 'react/jsx-runtime.js',
+      },
     },
     output: {
       filename: '[name][hash].min.js',
@@ -37,7 +38,7 @@ const createConfig = ops => {
           use: ['babel-loader'],
         },
         {
-          test: /\.(woff|svg|eot|ttf|png)$/,
+          test: /\.(woff|woff2|svg|eot|ttf|png)$/,
           use: ['url-loader'],
         },
         {
@@ -76,15 +77,20 @@ const createConfig = ops => {
           ${isApp ? '<link rel="manifest" href="./manifest.json" />' : ''}
           <script async src="/click-mask/click-mask.min.js"></script>
           <script async src="/test/tools/debug.min.js"></script>
-          ${isApp ? Object.keys(inlinejs).map(
-            key =>
-              `<script type="text/javascript" id="${key}">${inlinejs[key]}</script>`
-          ): ''}
+          ${
+            isApp
+              ? Object.keys(inlinejs).map(
+                  key =>
+                    `<script type="text/javascript" id="${key}">${inlinejs[key]}</script>`
+                )
+              : ''
+          }
           `,
-          injectBody:
-          isApp ?  `<div id="root"></div><script>LOADING.init(` +
-            `"Loading..."` +
-            ', 1000);</script>' : `<div id="root"></div>`,
+          injectBody: isApp
+            ? `<div id="root"></div><script>LOADING.init(` +
+              `"Loading..."` +
+              ', 1000);</script>'
+            : `<div id="root"></div>`,
         }),
       }),
       new webpack.BannerPlugin({

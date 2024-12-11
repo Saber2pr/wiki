@@ -16,13 +16,17 @@ import {
   status,
   TwoSide,
 } from '../../components'
-import { Md2jsx, md_theme, origin } from '../../config'
+import { CodeBlock } from '../../components/codeblock'
+import { Content404, is404 } from '../../components/Content404'
+import { origin } from '../../config'
 import {
   fullWinBtnAPI,
   useAniLayout,
   useAsideHidable,
   useIsMobile,
 } from '../../hooks'
+import { useTwoSlash } from '../../hooks/useTwoSlash'
+import { i18n } from '../../i18n'
 import { Icon } from '../../iconfont'
 import { API, requestContent } from '../../request'
 import { store } from '../../store'
@@ -33,11 +37,9 @@ import {
   TextTree,
   timeDeltaFromNow,
 } from '../../utils'
-import { NotFound } from '../not-found'
-import { useTwoSlash } from '../../hooks/useTwoSlash'
 import { getQuery } from '../../utils/getQuery'
-import { i18n } from '../../i18n'
-import { Content404, is404 } from '../../components/Content404'
+import { NotFound } from '../not-found'
+import { Markdown } from '../../components/markdown'
 
 const getDataLink = (to: string) => {
   return decodeURIComponent(to.replace(/^\//, '').replace(/\/$/, ''))
@@ -142,7 +144,7 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                   >
                     {content => {
                       useTwoSlash()
-                      return <Md2jsx theme={md_theme}>{content}</Md2jsx>
+                      return <Markdown>{content}</Markdown>
                     }}
                   </LazyCom>
                   {isPlain || origin.isWiki || (
@@ -233,9 +235,7 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                   ></div>
                 )}
                 <div className="Blog-Main-Content">
-                  <Md2jsx theme={md_theme}>
-                    {decodeURIComponent(window.__blog)}
-                  </Md2jsx>
+                  <Markdown>{decodeURIComponent(window.__blog)}</Markdown>
                   {is404 && <Content404 />}
                 </div>
               </>
