@@ -72,7 +72,7 @@ body {
   background-color: black;
 }
 
-.Blog pre {
+.Blog pre[style] {
   border: 1px solid #ccb6ff !important;
   background-color: black !important;
 }
