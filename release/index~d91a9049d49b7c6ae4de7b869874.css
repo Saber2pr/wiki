@@ -97,11 +97,9 @@ html {
 }
 body {
   background-color: white;
-  transition: background-color 1s;
 }
 .Audio {
   background-color: white;
-  transition: background-color 1s;
 }
 .FullWinBtn {
   position: fixed;
@@ -202,7 +200,6 @@ body {
 .main {
   margin-top: 2.5rem;
   overflow: hidden;
-  transition: all 0.2s;
   min-height: calc(100vh - 19.5rem);
   font-size: 14px;
 }
@@ -1485,7 +1482,6 @@ body {
   border-bottom-style: solid;
   border-color: #ececec;
   color: #6d6d6d;
-  transition: all 0.2s ease;
   margin-top: 3rem;
 }
 .Blog-Main-Content-Edit-A:nth-child(n + 2) {
@@ -1519,7 +1515,6 @@ body {
 }
 .Blog-Aside {
   background-color: #f7f7f7;
-  transition: background-color 1s;
   border-left: 1px solid #ececec;
   position: fixed;
   right: -1rem;
@@ -1578,7 +1573,6 @@ body {
 }
 .Blog-Aside-Content .Ul-Name {
   display: inline-block;
-  transition: all 0.3s;
   padding: 0.2rem;
   user-select: none;
   color: #6d6d6d;
@@ -1768,7 +1762,6 @@ body {
 
 .Home {
   position: relative;
-  transition: background-color 1s;
 }
 .Home ul {
   list-style-type: none;
@@ -2238,7 +2231,6 @@ body {
   align-items: center;
   min-height: 1.5rem;
   margin-top: 0.5rem;
-  transition: background ease 0.3s;
 }
 .PageV .list-item:hover {
   background: rgba(221, 221, 221, 0.5);
