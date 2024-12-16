@@ -1,3 +1,3 @@
 import { createHashHistory } from '@saber2pr/react-router'
 
-export const history = createHashHistory()
+export const history = createHashHistory({ init: false })

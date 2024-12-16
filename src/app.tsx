@@ -55,7 +55,7 @@ const AppNavLink = ({
   <NavLink className={className} activeClassName={activeClassName} {...props} />
 )
 
-const HashHistory = createHashHistory()
+const HashHistory = createHashHistory({ init: false })
 
 export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
   const firstBlog = queryRootFirstChildMemo(blogTree)
