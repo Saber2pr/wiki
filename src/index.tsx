@@ -50,9 +50,7 @@ const App = React.lazy(async () => {
 
 ReactDOM.render(
   <ErrorBoundary>
-    <React.Suspense fallback={<Loading />}>
-      <App />
-    </React.Suspense>
+    <App />
   </ErrorBoundary>,
   document.getElementById('root')
 )
