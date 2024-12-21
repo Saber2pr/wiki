@@ -8,7 +8,6 @@ import 'animate.css/source/flippers/flipInX.css'
 import './style/animation.less'
 import './style/shadow.less'
 import './style/components.less'
-import 'katex/dist/katex.min.css'
 
 // /
 
