@@ -176,9 +176,7 @@ const createWiki = (repo: string) => {
   }
   ReactDOM.render(
     // @ts-ignore
-    <ErrorBoundary>
-      <Wiki />
-    </ErrorBoundary>,
+    <Wiki />,
     document.getElementById('root')
   )
 }
