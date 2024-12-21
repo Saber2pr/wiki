@@ -48,12 +48,7 @@ const App = React.lazy(async () => {
   }
 })
 
-ReactDOM.render(
-  <ErrorBoundary>
-    <App />
-  </ErrorBoundary>,
-  document.getElementById('root')
-)
+ReactDOM.render(<App />, document.getElementById('root'))
 
 window.addEventListener('load', async () => {
   if (whenInDEV()) {
