@@ -9,18 +9,15 @@ import ReactDOM from 'react-dom'
 
 // /
 import Pages from './app'
-import { checkUpdate } from './components'
 import { origin } from './config/origin'
 import { i18n } from './i18n'
 import { request } from './request'
-import { PWAInstaller, welcome, whenInDEV } from './utils'
+import { welcome } from './utils'
 
 const { DATA_LOADED } = origin.constants
 
 const App = React.lazy(async () => {
   welcome()
-  const homeInfo = await request('home')
-  const aboutInfo = await request('about')
   const blogTree = await request('blog')
   i18n.setLocal('zh')
 
@@ -41,17 +38,3 @@ const App = React.lazy(async () => {
 })
 
 ReactDOM.render(<App />, document.getElementById('root'))
-
-window.addEventListener('load', async () => {
-  if (whenInDEV()) {
-    LOADING.destroy()
-    return
-  }
-
-  if ('serviceWorker' in navigator) {
-    await PWAInstaller()
-    checkUpdate(null, true, true)
-  }
-
-  LOADING.destroy()
-})

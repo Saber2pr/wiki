@@ -175,8 +175,11 @@ const createWiki = (repo: string) => {
     origin.userId = result[1]
   }
   ReactDOM.render(
-    // @ts-ignore
-    <Wiki />,
+    <ErrorBoundary>
+      <React.Suspense fallback={<Loading />}>
+        <Wiki />
+      </React.Suspense>
+    </ErrorBoundary>,
     document.getElementById('root')
   )
 }
