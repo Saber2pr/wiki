@@ -3,21 +3,11 @@ import './style.less'
 import React, { useEffect, useLayoutEffect, useRef } from 'react'
 
 import { Tree } from '@saber2pr/rc-tree'
-import { Link, NavLink, Route, Switch } from '@saber2pr/react-router'
+import { Link, NavLink } from '@saber2pr/react-router'
 
-import {
-  AniBtn,
-  createMusicBox,
-  ErrorBack,
-  LazyCom,
-  Loading,
-  NextBefore,
-  ScrollToTop,
-  status,
-  TwoSide,
-} from '../../components'
-import { CodeBlock } from '../../components/codeblock'
+import { AniBtn, ScrollToTop, TwoSide } from '../../components'
 import { Content404, is404 } from '../../components/Content404'
+import { Markdown } from '../../components/markdown'
 import { origin } from '../../config'
 import {
   fullWinBtnAPI,
@@ -25,21 +15,16 @@ import {
   useAsideHidable,
   useIsMobile,
 } from '../../hooks'
-import { useTwoSlash } from '../../hooks/useTwoSlash'
-import { i18n } from '../../i18n'
 import { Icon } from '../../iconfont'
-import { API, requestContent } from '../../request'
+import { API } from '../../request'
 import { store } from '../../store'
 import {
   collect,
   findNodeByPath,
   queryRootFirstChildMemo,
   TextTree,
-  timeDeltaFromNow,
 } from '../../utils'
 import { getQuery } from '../../utils/getQuery'
-import { NotFound } from '../not-found'
-import { Markdown } from '../../components/markdown'
 
 const getDataLink = (to: string) => {
   return decodeURIComponent(to.replace(/^\//, '').replace(/\/$/, ''))
@@ -127,64 +112,6 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
       }
     }
 
-    const Routes = links.reduce((acc, { title, path: href, children }, i) => {
-      if (!children) {
-        acc.push(
-          <Route
-            key={href}
-            path={href}
-            component={() => (
-              <>
-                <h1 className="Blog-Main-Title">{title}</h1>
-                <div className="Blog-Main-Content">
-                  <LazyCom
-                    fallback={<Loading type="line" />}
-                    await={requestContent(href + '.md')}
-                    errorBack={<ErrorBack />}
-                  >
-                    {content => {
-                      useTwoSlash()
-                      return <Markdown>{content}</Markdown>
-                    }}
-                  </LazyCom>
-                  {isPlain || origin.isWiki || (
-                    <div className="Blog-Main-Content-Edit">
-                      <a
-                        className="Blog-Main-Content-Edit-A"
-                        href={createOriginHref(href)}
-                      >
-                        {i18n.format('editPage')}
-                      </a>
-                      {firstBlog?.path === href || (
-                        <a
-                          className="Blog-Main-Content-Edit-A"
-                          target="_blank"
-                          href={API.createNewHref(
-                            origin.userId,
-                            origin.repo,
-                            getParentPath(href)
-                          )}
-                        >
-                          {i18n.format('newPage')}
-                        </a>
-                      )}
-                    </div>
-                  )}
-                  {showOp.latest && (
-                    <p className="Blog-Main-Content-Date">
-                      最近更新 {timeDeltaFromNow(getLastModified(href))}
-                    </p>
-                  )}
-                  <NextBefore before={links[i - 1]} next={links[i + 1]} />
-                </div>
-              </>
-            )}
-          />
-        )
-      }
-      return acc
-    }, [] as JSX.Element[])
-
     const [main_ref, btn_ref, switchIsHide, isShow] = useAsideHidable(ref)
 
     const selectFullWin = () => {
@@ -217,40 +144,27 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
       <div className="Blog">
         <TwoSide>
           <main className="Blog-Main" ref={main_ref}>
-            {origin.isWiki ? (
-              <>
-                <h1 className="Blog-Main-Title">{window.__title}</h1>
-                {window.__adsSlotHtml && (
-                  <div
-                    className="Blog-Main-Content"
-                    style={{
-                      marginTop: 0,
-                      marginBottom: 0,
-                      paddingTop: 0,
-                      paddingBottom: 0,
-                    }}
-                    dangerouslySetInnerHTML={{
-                      __html: decodeURIComponent(window.__adsSlotHtml),
-                    }}
-                  ></div>
-                )}
-                <div className="Blog-Main-Content">
-                  <Markdown>{decodeURIComponent(window.__blog)}</Markdown>
-                  {is404 && <Content404 />}
-                </div>
-              </>
-            ) : (
-              <Switch>
-                {[
-                  ...Routes,
-                  <Route
-                    key="not-found"
-                    path="*"
-                    component={() => <NotFound />}
-                  />,
-                ]}
-              </Switch>
-            )}
+            <>
+              <h1 className="Blog-Main-Title">{window.__title}</h1>
+              {window.__adsSlotHtml && (
+                <div
+                  className="Blog-Main-Content"
+                  style={{
+                    marginTop: 0,
+                    marginBottom: 0,
+                    paddingTop: 0,
+                    paddingBottom: 0,
+                  }}
+                  dangerouslySetInnerHTML={{
+                    __html: decodeURIComponent(window.__adsSlotHtml),
+                  }}
+                ></div>
+              )}
+              <div className="Blog-Main-Content">
+                <Markdown>{decodeURIComponent(window.__blog)}</Markdown>
+                {is404 && <Content404 />}
+              </div>
+            </>
           </main>
           <aside className="Blog-Aside" ref={ref}>
             <div
@@ -308,13 +222,6 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
           }}
         />
         {isShow || <ScrollToTop />}
-        {!showOp.musicBox || !status.show || (
-          <i
-            className="iconfont icon-musicBox"
-            onClick={createMusicBox}
-            title="音乐盒子"
-          />
-        )}
         {<i {...selectProps()} ref={fullwinBtn_ref} onClick={selectFullWin} />}
         <div
           ref={el => {

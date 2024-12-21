@@ -9,17 +9,11 @@ import ReactDOM from 'react-dom'
 
 // /
 import Pages from './app'
-import { checkUpdate, ErrorBoundary, Loading } from './components'
+import { checkUpdate } from './components'
 import { origin } from './config/origin'
-import { request, requestContent } from './request'
-import {
-  collect,
-  PWAInstaller,
-  requestLongListTask,
-  welcome,
-  whenInDEV,
-} from './utils'
 import { i18n } from './i18n'
+import { request } from './request'
+import { PWAInstaller, welcome, whenInDEV } from './utils'
 
 const { DATA_LOADED } = origin.constants
 
@@ -42,9 +36,7 @@ const App = React.lazy(async () => {
   }
 
   return {
-    default: () => (
-      <Pages homeInfo={homeInfo} aboutInfo={aboutInfo} blogTree={blogTree} />
-    ),
+    default: () => <Pages blogTree={blogTree} />,
   }
 })
 

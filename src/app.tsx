@@ -12,39 +12,22 @@ import {
 
 import { pushIV } from './api/pushIV'
 import {
-  createMusicBox,
+  Bagua,
+  HeaderMessage,
   PreImg,
   SearchInput,
   Themer,
   Uv,
-  HeaderMessage,
-  Bagua,
 } from './components'
 import { origin, Routes as RS } from './config'
 import { useBlogMenu, useEvent, useFullWindow, useIsMob } from './hooks'
 import { useShowMusic } from './hooks/useShowMusic'
 import { Icon } from './iconfont'
-import {
-  About,
-  AcgLazy,
-  ActivityLazy,
-  Blog,
-  Datav,
-  Home,
-  LearnLazy,
-  LinksLazy,
-  NotFound,
-  PageV,
-  SearchResult,
-  Secret,
-} from './pages'
+import { Blog, Datav, NotFound, PageV, SearchResult, Secret } from './pages'
 import { getHash, queryRootFirstChildMemo } from './utils'
-import { I18nSelect } from './components/i18n-select'
 
 export interface App {
-  homeInfo: Home
   blogTree: Blog['tree']
-  aboutInfo: About
 }
 
 const AppNavLink = ({
@@ -57,7 +40,7 @@ const AppNavLink = ({
 
 const HashHistory = createHashHistory({ init: false })
 
-export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
+export const App = ({ blogTree }: App) => {
   const firstBlog = queryRootFirstChildMemo(blogTree)
   const expand = useBlogMenu(blogTree)
 
@@ -96,11 +79,6 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
           <ul className="nav-ul">
             <li>
               <AppNavLink className="nav-start" to="/">
-                <PreImg
-                  className="nav-start-img"
-                  fallback={<Icon.Head />}
-                  src={homeInfo.pic}
-                />
                 <span className="nav-start-name">{RS.home.name}</span>
               </AppNavLink>
             </li>
@@ -147,19 +125,7 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
       <main ref={main_ref} className="main">
         <picture className="main-bg" />
         {isMob || <Bagua />}
-        {showMusic && (
-          <i
-            className="iconfont icon-musicBox"
-            onClick={createMusicBox}
-            title="音乐盒子"
-          />
-        )}
         <Switch>
-          <Route
-            exact
-            path={RS.home.href}
-            component={() => <Home {...homeInfo} />}
-          />
           <Route
             path={RS.blog.href}
             component={() => (
@@ -174,17 +140,6 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
               />
             )}
           />
-          <Route
-            path={RS.about.href}
-            component={() => <About {...aboutInfo} />}
-          />
-          <Route path={RS.links.href} component={() => <LinksLazy />} />
-          <Route path={RS.secret.href} component={() => <Secret />} />
-          <Route path={RS.v.href} component={() => <PageV />} />
-          <Route path={RS.acts.href} component={() => <ActivityLazy />} />
-          <Route path={RS.learn.href} component={() => <LearnLazy />} />
-          <Route path={RS.search.href} component={() => <SearchResult />} />
-          <Route path={RS.acg.href} component={() => <AcgLazy />} />
           <Route
             path={RS.datav.href}
             component={() => <Datav data={blogTree} />}

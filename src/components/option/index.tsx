@@ -17,7 +17,6 @@ import {
 } from '../check-update'
 import { CloseBtn } from '../close-btn'
 import { useModel } from '../model'
-import { createMusicBox } from '../music-box'
 import { WordsInputing } from '../words-inputing'
 
 export interface Option {
@@ -80,17 +79,7 @@ export const Option = React.forwardRef<HTMLButtonElement, Option>(
                       清除缓存
                     </button>
                   </dd>
-                  <dd>
-                    <button
-                      className="ButtonHigh"
-                      onClick={() => {
-                        createMusicBox()
-                        close()
-                      }}
-                    >
-                      音乐盒子
-                    </button>
-                  </dd>
+                  <dd></dd>
                   <dd>
                     <button
                       className="ButtonHigh"
