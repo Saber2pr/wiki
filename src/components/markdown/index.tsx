@@ -4,8 +4,6 @@ import html from 'rehype-raw'
 import gfm from 'remark-gfm'
 import comment from 'remark-remove-comments'
 import { CodeBlock } from '../codeblock'
-import { Loading } from '../loading'
-
 export interface MarkdownProps {}
 
 function containsTwoDollarSigns(str) {
@@ -16,15 +14,7 @@ function containsTwoDollarSigns(str) {
 const LazyComponent = React.lazy(() => import('./katex-mark'))
 
 export const Markdown: React.FC<MarkdownProps> = ({ children }) => {
-  const str = String(children)
-  if (containsTwoDollarSigns(str)) {
-    return (
-      <Suspense fallback={<Loading />}>
-        <LazyComponent>{String(children).trim()}</LazyComponent>
-      </Suspense>
-    )
-  }
-  return (
+  const preview = (
     <ReactMarkdown
       remarkPlugins={[gfm, comment]}
       rehypePlugins={[html]}
@@ -35,4 +25,14 @@ export const Markdown: React.FC<MarkdownProps> = ({ children }) => {
       {String(children).trim()}
     </ReactMarkdown>
   )
+
+  const str = String(children)
+  if (containsTwoDollarSigns(str)) {
+    return (
+      <Suspense fallback={preview}>
+        <LazyComponent>{String(children).trim()}</LazyComponent>
+      </Suspense>
+    )
+  }
+  return preview
 }
