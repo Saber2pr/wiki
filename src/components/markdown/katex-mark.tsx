@@ -5,6 +5,7 @@ import html from 'rehype-raw'
 import gfm from 'remark-gfm'
 import math from 'remark-math'
 import comment from 'remark-remove-comments'
+import { Adsense } from '../adsense'
 
 import { CodeBlock } from '../codeblock'
 
@@ -23,6 +24,14 @@ export const KatexMarkdown: React.FC<KatexMarkdownProps> = ({ children }) => {
     document.head.appendChild(link)
   }, [])
 
+  const lines = String(children).split('\n')
+
+  let midPara = ''
+
+  if (lines.length > 10) {
+    midPara = lines[Math.floor(lines.length / 2)]
+  }
+
   return (
     <ReactMarkdown
       remarkPlugins={[gfm, comment, math]}
@@ -34,6 +43,20 @@ export const KatexMarkdown: React.FC<KatexMarkdownProps> = ({ children }) => {
             <table {...props} />
           </div>
         ),
+        p: props => {
+          const metaStr = props?.children
+          if (metaStr && midPara) {
+            if (String(metaStr).trim() === midPara.trim()) {
+              return (
+                <>
+                  <p {...props} />
+                  {window.__adsSlotHtml && <Adsense />}
+                </>
+              )
+            }
+          }
+          return <p {...props} />
+        },
       }}
     >
       {String(children).trim()}

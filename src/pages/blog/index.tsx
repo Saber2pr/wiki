@@ -218,19 +218,6 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
             {origin.isWiki ? (
               <>
                 <h1 className="Blog-Main-Title">{window.__title}</h1>
-                {window.__adsSlotHtml && (
-                  <div
-                    className="Blog-Main-Content"
-                    style={{
-                      marginTop: 0,
-                      marginBottom: 0,
-                      paddingTop: 0,
-                      paddingBottom: 0,
-                    }}
-                  >
-                    <Adsense />
-                  </div>
-                )}
                 <div className="Blog-Main-Content">
                   <Markdown>{decodeURIComponent(window.__blog)}</Markdown>
                   {is404 && <Content404 />}
