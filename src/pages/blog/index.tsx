@@ -37,6 +37,7 @@ import {
 import { getQuery } from '../../utils/getQuery'
 import { NotFound } from '../not-found'
 import { Markdown } from '../../components/markdown'
+import { Adsense } from '../../components/adsense'
 
 const getDataLink = (to: string) => {
   return decodeURIComponent(to.replace(/^\//, '').replace(/\/$/, ''))
@@ -226,10 +227,9 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                       paddingTop: 0,
                       paddingBottom: 0,
                     }}
-                    dangerouslySetInnerHTML={{
-                      __html: decodeURIComponent(window.__adsSlotHtml),
-                    }}
-                  ></div>
+                  >
+                    <Adsense />
+                  </div>
                 )}
                 <div className="Blog-Main-Content">
                   <Markdown>{decodeURIComponent(window.__blog)}</Markdown>
