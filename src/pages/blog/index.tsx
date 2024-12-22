@@ -227,7 +227,7 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                     className="Blog-Main-Content"
                     style={{
                       marginTop: 0,
-                      marginBottom: 0,
+                      marginBottom: '2rem',
                       paddingTop: 0,
                       paddingBottom: 0,
                     }}
