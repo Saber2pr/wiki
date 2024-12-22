@@ -890,14 +890,14 @@ body {
     overflow: hidden;
     margin: 0;
   }
-  .Blog .MD2JSX-Code .Paste {
-    right: 0;
-  }
   .Blog .Blog-Main-Content > pre {
     font-size: 0.9rem;
     margin-left: -1rem !important;
     margin-right: -1rem !important;
     border-radius: 0 !important;
+  }
+  .Blog .MD2JSX-Code > div > pre {
+    border-radius: 0px;
   }
   .Blog-Main {
     width: 100%;
