@@ -897,7 +897,7 @@ body {
     border-radius: 0 !important;
   }
   .Blog .MD2JSX-Code > div > pre {
-    border-radius: 0px;
+    border-radius: 0px !important;
   }
   .Blog-Main {
     width: 100%;
