@@ -29,6 +29,11 @@ export const KatexMarkdown: React.FC<KatexMarkdownProps> = ({ children }) => {
       rehypePlugins={[html, rehypeKatex]}
       components={{
         code: CodeBlock,
+        table: props => (
+          <div className="blog_table_wrap">
+            <table {...props} />
+          </div>
+        ),
       }}
     >
       {String(children).trim()}

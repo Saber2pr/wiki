@@ -16,6 +16,55 @@
     border-radius: 4px; /* 圆角效果 */
   }
 
+  .blog_table_wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* 提升触屏设备上的滚动体验 */
+  }
+
+  /* 表格样式 */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f5f9fc; /* 浅蓝色背景 */
+  }
+
+  /* 表头样式 */
+  th {
+    background-color: #f7f7f7; /* 浅蓝色表头 */
+    padding: 8px 10px;
+    text-align: left;
+    font-size: 14px;
+    border: 2px solid #e4e4e4; /* 加粗的边框 */
+    font-weight: 500;
+  }
+
+  /* 表格单元格样式 */
+  td {
+    background-color: white; /* 白色背景 */
+    padding: 4px 10px;
+    text-align: left;
+    font-size: 14px;
+    border: 1px solid #e4e4e4; /* 较清晰的单元格边框 */
+    min-width: 100px;
+  }
+
+  /* 鼠标悬停效果 */
+  tr:hover {
+    background-color: #e6f3ff; /* 浅蓝色悬停背景 */
+  }
+
+  /* 表格每行间隔（偶数行） */
+  tr:nth-child(even) {
+    background-color: #fafafa; /* 每行偶数背景色 */
+  }
+
+  /* 表格容器样式 */
+  .table-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow-x: auto;
+  }
+
   blockquote p {
     margin: 0; /* 避免段落的额外边距 */
   }

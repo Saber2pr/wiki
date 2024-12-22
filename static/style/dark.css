@@ -330,3 +330,30 @@ body {
   border-left: 4px solid #555; /* 边框颜色加深 */
   background-color: #222; /* 深灰色背景 */
 }
+
+.Blog table {
+  background-color: #333;
+  /* 表头样式 */
+  /* 表格单元格样式 */
+  /* 鼠标悬停效果 */
+  /* 表格每行间隔（偶数行） */
+}
+.Blog table th {
+  background-color: #444;
+  color: #fff;
+  border: 2px solid #555;
+}
+.Blog table td {
+  background-color: #555;
+  /* 深灰色单元格背景 */
+  color: #e0e0e0;
+  border: 1px solid #666;
+}
+.Blog table tr:hover {
+  background-color: #666;
+  /* 悬停时的背景色 */
+}
+.Blog table tr:nth-child(even) {
+  background-color: #444;
+  /* 偶数行背景色 */
+}
