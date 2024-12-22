@@ -1681,6 +1681,18 @@ body {
   visibility: visible;
 }
 
+.NotFound {
+  text-align: center;
+  margin-top: 4rem;
+  height: 50vh;
+}
+.NotFound ul {
+  list-style-type: none;
+}
+.NotFound ul li {
+  line-height: 3rem;
+}
+
 .MD2JSX-Code {
   position: relative;
 }
@@ -1784,18 +1796,6 @@ body {
 .ChartMind .container {
   height: 90vh;
   background: inherit !important;
-}
-
-.NotFound {
-  text-align: center;
-  margin-top: 4rem;
-  height: 50vh;
-}
-.NotFound ul {
-  list-style-type: none;
-}
-.NotFound ul li {
-  line-height: 3rem;
 }
 
 .SearchResult {
