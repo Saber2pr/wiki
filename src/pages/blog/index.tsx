@@ -221,20 +221,20 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                 <div className="Blog-Main-Content">
                   <Markdown>{decodeURIComponent(window.__blog)}</Markdown>
                   {is404 && <Content404 />}
-                  {window.__adsSlotHtml && (
-                    <div
-                      className="Blog-Main-Content"
-                      style={{
-                        marginTop: 0,
-                        marginBottom: 0,
-                        paddingTop: 0,
-                        paddingBottom: 0,
-                      }}
-                    >
-                      <Adsense />
-                    </div>
-                  )}
                 </div>
+                {window.__adsSlotHtml && (
+                  <div
+                    className="Blog-Main-Content"
+                    style={{
+                      marginTop: 0,
+                      marginBottom: 0,
+                      paddingTop: 0,
+                      paddingBottom: 0,
+                    }}
+                  >
+                    <Adsense />
+                  </div>
+                )}
               </>
             ) : (
               <Switch>
