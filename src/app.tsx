@@ -83,29 +83,12 @@ export const App = ({ blogTree }: App) => {
               </AppNavLink>
             </li>
             <li>
-              <AppNavLink to={RS.acts.href}>{RS.acts.name}</AppNavLink>
-            </li>
-            <li>
               <AppNavLink
                 to={firstBlog.path}
                 isActive={(_, ctxPath) => ctxPath.startsWith(blogTree.path)}
               >
                 {RS.blog.name}
               </AppNavLink>
-            </li>
-            <li>
-              <AppNavLink to={RS.learn.href}>{RS.learn.name}</AppNavLink>
-            </li>
-            {isMob || (
-              <li>
-                <AppNavLink to={RS.datav.href}>{RS.datav.name}</AppNavLink>
-              </li>
-            )}
-            <li>
-              <AppNavLink to={RS.about.href}>{RS.about.name}</AppNavLink>
-            </li>
-            <li>
-              <AppNavLink to={RS.links.href}>{RS.links.name}</AppNavLink>
             </li>
             <li className="nav-block">
               <HeaderMessage />

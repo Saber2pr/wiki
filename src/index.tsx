@@ -12,7 +12,8 @@ import Pages from './app'
 import { origin } from './config/origin'
 import { i18n } from './i18n'
 import { request } from './request'
-import { welcome } from './utils'
+import { welcome, whenInDEV } from './utils'
+import { ErrorBoundary, Loading } from './components'
 
 const { DATA_LOADED } = origin.constants
 
@@ -37,4 +38,20 @@ const App = React.lazy(async () => {
   }
 })
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(
+  <ErrorBoundary>
+    <React.Suspense fallback={<Loading />}>
+      <App />
+    </React.Suspense>
+  </ErrorBoundary>,
+  document.getElementById('root')
+)
+
+window.addEventListener('load', async () => {
+  if (whenInDEV()) {
+    LOADING.destroy()
+    return
+  }
+
+  LOADING.destroy()
+})
