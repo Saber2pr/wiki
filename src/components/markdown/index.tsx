@@ -22,11 +22,18 @@ export const Markdown: React.FC<MarkdownProps> = ({ children }) => {
       rehypePlugins={[html]}
       components={{
         code: CodeBlock,
-        table: props => (
-          <div className="blog_table_wrap">
-            <table {...props} />
-          </div>
-        ),
+        table: props => {
+          const { node, ...rest } = props
+          return (
+            <div className="blog_table_wrap">
+              <table {...rest} />
+            </div>
+          )
+        },
+        img: props => {
+          const { node, ...rest } = props
+          return <img loading="lazy" {...rest} />
+        },
       }}
     >
       {String(children).trim()}
