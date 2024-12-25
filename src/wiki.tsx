@@ -22,6 +22,10 @@ import { request } from './request'
 import { getHash, parseTree, queryRootFirstChildMemo, whenInDEV } from './utils'
 import nProgress from 'nprogress'
 
+nProgress.configure({
+  showSpinner: false,
+})
+
 export interface App {
   blogTree: Blog['tree']
 }
