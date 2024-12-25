@@ -1,34 +1,24 @@
-import React, { useMemo, useEffect } from 'react'
-import ReactDOM from 'react-dom'
-
 import 'normalize.css'
-
 import 'animate.css/source/flippers/flipInX.css'
-
 import './style/animation.less'
 import './style/shadow.less'
 import './style/components.less'
+import './app.less'
+
+import React, { useEffect, useMemo } from 'react'
+import ReactDOM from 'react-dom'
 
 // /
-
 import { NavLink } from '@saber2pr/react-router'
 
-import './app.less'
-import { Blog } from './pages'
-import { Themer, Uv, ErrorBoundary, Loading, SearchInput } from './components'
-
-import {
-  getHash,
-  queryRootFirstChildMemo,
-  welcome,
-  parseTree,
-  whenInDEV,
-} from './utils'
-import { useEvent, useBlogMenu, useFullWindow } from './hooks'
-import { origin } from './config'
-import { request } from './request'
-import { i18n } from './i18n'
+import { ErrorBoundary, SearchInput, Themer, Uv } from './components'
 import { I18nSelect } from './components/i18n-select'
+import { origin } from './config'
+import { useBlogMenu, useEvent, useFullWindow } from './hooks'
+import { i18n } from './i18n'
+import { Blog } from './pages'
+import { request } from './request'
+import { getHash, queryRootFirstChildMemo, whenInDEV } from './utils'
 
 export interface App {
   blogTree: Blog['tree']
@@ -157,14 +147,6 @@ declare global {
   }
 }
 
-const Wiki = React.lazy(async () => {
-  welcome()
-  let blogTree = parseTree(await request('wiki'))
-  return {
-    default: () => <App blogTree={blogTree} />,
-  }
-})
-
 const createWiki = (repo: string) => {
   origin.repo = repo
   origin.isWiki = true
@@ -174,14 +156,19 @@ const createWiki = (repo: string) => {
   if (result && result[1]) {
     origin.userId = result[1]
   }
-  ReactDOM.render(
-    <ErrorBoundary>
-      <React.Suspense fallback={<Loading />}>
-        <Wiki />
-      </React.Suspense>
-    </ErrorBoundary>,
-    document.getElementById('root')
-  )
+
+  request('wiki')
+    .then(blogTree => {
+      ReactDOM.render(
+        <ErrorBoundary>
+          <App blogTree={blogTree} />
+        </ErrorBoundary>,
+        document.getElementById('root')
+      )
+    })
+    .catch(err => {
+      console.log('request wiki fail', err)
+    })
 }
 
 if (whenInDEV()) {

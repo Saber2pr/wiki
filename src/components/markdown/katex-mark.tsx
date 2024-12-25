@@ -28,6 +28,7 @@ export const KatexMarkdown: React.FC<KatexMarkdownProps> = ({ children }) => {
       remarkPlugins={[gfm, comment, math]}
       rehypePlugins={[html, rehypeKatex]}
       components={{
+        code: CodeBlock,
         table: props => {
           const { node, ...rest } = props
           return (
