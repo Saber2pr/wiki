@@ -38,6 +38,7 @@ import { getQuery } from '../../utils/getQuery'
 import { NotFound } from '../not-found'
 import { Markdown } from '../../components/markdown'
 import { Adsense } from '../../components/adsense'
+import nprogress from 'nprogress'
 
 const getDataLink = (to: string) => {
   return decodeURIComponent(to.replace(/^\//, '').replace(/\/$/, ''))
@@ -271,6 +272,7 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                       <BLink
                         to={`${window.__basename}/posts/${href}/`}
                         onClick={() => {
+                          nprogress.start()
                           if (!isMobile()) return
                           isOpen.current = close(false)
                           aniBtnRef.current.close()

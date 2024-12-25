@@ -4,6 +4,7 @@ import './style/animation.less'
 import './style/shadow.less'
 import './style/components.less'
 import './app.less'
+import 'nprogress/nprogress.css'
 
 import React, { useEffect, useMemo } from 'react'
 import ReactDOM from 'react-dom'
@@ -19,6 +20,7 @@ import { i18n } from './i18n'
 import { Blog } from './pages'
 import { request } from './request'
 import { getHash, parseTree, queryRootFirstChildMemo, whenInDEV } from './utils'
+import nProgress from 'nprogress'
 
 export interface App {
   blogTree: Blog['tree']
@@ -34,6 +36,9 @@ const AppNavLink = ({
     activeClassName={activeClassName}
     {...props}
     useBrowserLink={origin.isWiki}
+    onClick={() => {
+      nProgress.start()
+    }}
   />
 )
 
