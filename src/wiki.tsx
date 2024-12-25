@@ -18,7 +18,7 @@ import { useBlogMenu, useEvent, useFullWindow } from './hooks'
 import { i18n } from './i18n'
 import { Blog } from './pages'
 import { request } from './request'
-import { getHash, queryRootFirstChildMemo, whenInDEV } from './utils'
+import { getHash, parseTree, queryRootFirstChildMemo, whenInDEV } from './utils'
 
 export interface App {
   blogTree: Blog['tree']
@@ -161,7 +161,7 @@ const createWiki = (repo: string) => {
     .then(blogTree => {
       ReactDOM.render(
         <ErrorBoundary>
-          <App blogTree={blogTree} />
+          <App blogTree={parseTree(blogTree)} />
         </ErrorBoundary>,
         document.getElementById('root')
       )
