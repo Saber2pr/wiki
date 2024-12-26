@@ -39,6 +39,7 @@ import { NotFound } from '../not-found'
 import { Markdown } from '../../components/markdown'
 import { Adsense } from '../../components/adsense'
 import nprogress from 'nprogress'
+import { parseTitle } from '../../utils/parseTitle'
 
 const getDataLink = (to: string) => {
   return decodeURIComponent(to.replace(/^\//, '').replace(/\/$/, ''))
@@ -278,7 +279,7 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                           aniBtnRef.current.close()
                         }}
                       >
-                        {name}
+                        {parseTitle(name)}
                       </BLink>
                     )
                   }
