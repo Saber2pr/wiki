@@ -268,7 +268,7 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                   if (href === firstBlog.path) return <></>
                   if (origin.isWiki) {
                     const [name, href] = title.split(':')
-                    if (children) return <span>{name}</span>
+                    if (children) return <span>{parseTitle(name)}</span>
                     return (
                       <BLink
                         to={`${window.__basename}/posts/${href}/`}
