@@ -2,7 +2,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
 const webpack = require('webpack')
-const inlinejs = require('./inlinejs.json')
 const config = require('./app.json')
 const WebpackBar = require('webpackbar')
 
@@ -13,8 +12,6 @@ const publicPath = (resourcePath, context) =>
   path.relative(path.dirname(resourcePath), context) + '/'
 
 const createConfig = ops => {
-  const options = ops || {}
-  const isApp = options.isApp
   return {
     entry: {
       index: './src/index.tsx',
@@ -72,24 +69,10 @@ const createConfig = ops => {
         templateContent: templateContent(config.title, {
           injectHead: `
           <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-          <meta name="keywords" content="react,antd,typescript,javascript,css,html,前端学习,前端进阶,个人博客">
+          <meta name="keywords" content="量化交易,freqtrade,web3,react,antd,typescript,javascript,css,html,前端学习,前端进阶,个人博客">
           <meta name="description" content="长期更新前端技术文章,分享前端技术经验">
-          ${isApp ? '<link rel="manifest" href="./manifest.json" />' : ''}
-          <script async src="/click-mask/click-mask.min.js"></script>
-          <script async src="/test/tools/debug.min.js"></script>
-          ${isApp
-              ? Object.keys(inlinejs).map(
-                key =>
-                  `<script type="text/javascript" id="${key}">${inlinejs[key]}</script>`
-              )
-              : ''
-            }
-          `,
-          injectBody: isApp
-            ? `<div id="root"></div><script>LOADING.init(` +
-            `"Loading..."` +
-            ', 1000);</script>'
-            : `<div id="root"></div>`,
+          <script async src="/click-mask/click-mask.min.js"></script>`,
+          injectBody: `<div id="root"></div>`,
         }),
       }),
       new webpack.BannerPlugin({
