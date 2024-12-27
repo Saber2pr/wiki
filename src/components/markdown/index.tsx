@@ -8,9 +8,22 @@ import { CodeBlock } from '../codeblock'
 
 export interface MarkdownProps {}
 
-function containsTwoDollarSigns(str) {
-  const regex = /\$\$(.*\$\$)/ // 匹配至少有两个$$
-  return regex.test(str)
+function hasTwoDollarSigns(str) {
+  try {
+    let count = 0
+    for (let i = 0; i < str.length - 1; i++) {
+      if (str[i] === '$' && str[i + 1] === '$') {
+        count++
+        i++ // 跳过下一个 '$'，避免重复计数
+      }
+      if (count >= 2) {
+        return true // 如果找到了至少两个 $$，直接返回 true
+      }
+    }
+    return false // 否则返回 false
+  } catch (error) {
+    return false
+  }
 }
 
 const LazyComponent = React.lazy(() => import('./katex-mark'))
@@ -41,7 +54,7 @@ export const Markdown: React.FC<MarkdownProps> = ({ children }) => {
   )
 
   const str = String(children)
-  if (containsTwoDollarSigns(str)) {
+  if (hasTwoDollarSigns(str)) {
     return (
       <Suspense fallback={preview}>
         <LazyComponent>{String(children).trim()}</LazyComponent>
