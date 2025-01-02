@@ -1,0 +1,74 @@
+.sitebottom-links {
+  width: 70%;
+  &-head {
+    width: calc(100% / 3);
+    color: #999;
+    order: 1;
+    text-align: center;
+    padding-right: 48px;
+  }
+}
+
+.sitebottom-block {
+  flex-grow: 1;
+  order: 2;
+  &-title {
+    color: #999;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: start;
+    letter-spacing: 0.08em;
+  }
+  &-list {
+    &-item {
+      &-link {
+        color: #fff;
+        line-height: 2;
+        text-decoration: none;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.sitebottom-links_content {
+  padding-right: 20px;
+  padding-left: 48px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2列布局 */
+    gap: 20px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 8px;
+  }
+
+  a:hover {
+    color: #61dafb;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .sitebottom-links_content {
+    flex-direction: column;
+  }
+  .sitebottom-links-head {
+    width: 100%;
+    order: 2;
+    text-align: center;
+    margin-top: 72px;
+  }
+  .sitebottom-block {
+    order: 1;
+  }
+  .sitebottom-links {
+    width: 100%;
+  }
+}

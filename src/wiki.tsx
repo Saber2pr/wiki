@@ -12,7 +12,7 @@ import ReactDOM from 'react-dom'
 // /
 import { NavLink } from '@saber2pr/react-router'
 
-import { ErrorBoundary, SearchInput, Themer, Uv } from './components'
+import { ErrorBoundary, SearchInput, Themer } from './components'
 import { I18nSelect } from './components/i18n-select'
 import { origin } from './config'
 import { useBlogMenu, useEvent, useFullWindow } from './hooks'
@@ -21,6 +21,7 @@ import { Blog } from './pages'
 import { request } from './request'
 import { getHash, parseTree, queryRootFirstChildMemo, whenInDEV } from './utils'
 import nProgress from 'nprogress'
+import { BottomLinks } from './components/bottom-links'
 
 nProgress.configure({
   showSpinner: false,
@@ -132,12 +133,7 @@ export const App = ({ blogTree }: App) => {
         />
       </main>
       <footer ref={footer_ref} className="footer">
-        <div>
-          <span className="footer-info">
-            Copyright © 2019 - {new Date().getFullYear()} Saber2pr
-            <Uv />
-          </span>
-        </div>
+        <BottomLinks />
       </footer>
     </>
   )

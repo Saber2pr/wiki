@@ -11,20 +11,14 @@ import {
 } from '@saber2pr/react-router'
 
 import { pushIV } from './api/pushIV'
-import {
-  Bagua,
-  HeaderMessage,
-  PreImg,
-  SearchInput,
-  Themer,
-  Uv,
-} from './components'
+import { Bagua, HeaderMessage, PreImg, SearchInput, Themer } from './components'
 import { origin, Routes as RS } from './config'
 import { useBlogMenu, useEvent, useFullWindow, useIsMob } from './hooks'
 import { useShowMusic } from './hooks/useShowMusic'
 import { Icon } from './iconfont'
 import { Blog, Datav, NotFound, PageV, SearchResult, Secret } from './pages'
 import { getHash, queryRootFirstChildMemo } from './utils'
+import { BottomLinks } from './components/bottom-links'
 
 export interface App {
   blogTree: Blog['tree']
@@ -131,10 +125,7 @@ export const App = ({ blogTree }: App) => {
         </Switch>
       </main>
       <footer ref={footer_ref} className="footer">
-        <span className="footer-info">
-          Copyright © 2019-{new Date().getFullYear()} {origin.userId}
-          <Uv />
-        </span>
+        <BottomLinks />
       </footer>
     </Router>
   )
