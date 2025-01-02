@@ -19,14 +19,15 @@ type LinkData = {
 }
 
 const getLinkData = async () => {
-  try {
-    const res = await axios.get<LinkData>(
-      `${window.__basename}/links.json?ts=${Date.now()}`
-    )
-    return res.data
-  } catch (error) {
-    return {}
+  if (window.__buttomlinksUri) {
+    try {
+      const res = await axios.get<LinkData>(window.__buttomlinksUri)
+      return res.data
+    } catch (error) {
+      return {}
+    }
   }
+  return {}
 }
 
 export const BottomLinks: React.FC<BottomLinksProps> = ({}) => {

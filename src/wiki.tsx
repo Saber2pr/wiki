@@ -149,6 +149,7 @@ declare global {
     __backgroundImage
     __i18nConfig
     __expandAllMenu
+    __buttomlinksUri
   }
 }
 
