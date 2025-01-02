@@ -18,7 +18,9 @@ type LinkData = {
 
 const getLinkData = async () => {
   try {
-    const res = await axios.get<LinkData>(`./links.json?ts=${Date.now()}`)
+    const res = await axios.get<LinkData>(
+      `${window.__basename}/links.json?ts=${Date.now()}`
+    )
     return res.data
   } catch (error) {
     return {}
@@ -54,7 +56,9 @@ export const BottomLinks: React.FC<BottomLinksProps> = ({}) => {
                         key={item.name}
                       >
                         <a
+                          referrerPolicy="no-referrer"
                           href={item.href}
+                          target="_blank"
                           className="sitebottom-block-list-item-link"
                         >
                           {item.name}
