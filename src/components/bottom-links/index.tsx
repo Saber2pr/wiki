@@ -1,9 +1,11 @@
-import React from 'react'
 import './style.less'
-import { useAsync } from '../../hooks'
+
+import React from 'react'
+
 import { origin } from '../../config'
-import { getArray } from '../../utils'
 import { axios } from '../../request'
+import { checkIsMob, getArray } from '../../utils'
+import { useAsync } from '../../hooks'
 
 export interface BottomLinksProps {}
 
@@ -37,7 +39,13 @@ export const BottomLinks: React.FC<BottomLinksProps> = ({}) => {
       <div className="sitebottom-links_content">
         <div
           className="sitebottom-links-head"
-          style={{ width: categoryList.length > 0 ? 'calc(100% / 3)' : '100%' }}
+          style={{
+            width: checkIsMob()
+              ? '100%'
+              : categoryList.length > 0
+              ? 'calc(100% / 3)'
+              : '100%',
+          }}
         >
           <span>
             Copyright © {new Date().getFullYear()} {origin.userId}

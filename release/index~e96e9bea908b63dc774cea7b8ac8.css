@@ -2069,6 +2069,8 @@ body {
 @media screen and (max-width: 740px) {
   .sitebottom-links_content {
     flex-direction: column;
+    padding-right: 40px;
+    padding-left: 40px;
   }
   .sitebottom-links-head {
     width: 100%;
