@@ -583,6 +583,7 @@ body {
   overflow: hidden;
   min-height: calc(100vh - 19.5rem);
   font-size: 14px;
+  line-height: 1.5em;
 }
 .main-bg {
   background: url(https://saber2pr.top/static/image/bg-pc.webp);
@@ -1567,7 +1568,7 @@ body {
 .Blog-Main-Content {
   margin: 1rem;
   padding: 1rem;
-  line-height: 1.5rem;
+  line-height: 1.5em;
   border-radius: 10px;
   background: white;
   position: relative;
