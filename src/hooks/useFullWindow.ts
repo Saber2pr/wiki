@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { i18n } from '../i18n'
+import { useEvent } from './useEvent'
 
 const isFullWinBtnEnabled_ref = { current: false }
 
@@ -68,6 +69,34 @@ export const useFullWindow = ({
           className: enableClassName,
           title: i18n.format('entryFull'),
         }
+
+  function adjustFontSize(key) {
+    const domNode = main_ref.current
+    const bodyStyle = domNode.style
+    const currentSize = parseFloat(getComputedStyle(domNode).fontSize)
+
+    if (key === '+' || key === '=') {
+      bodyStyle.fontSize = currentSize + 1 + 'px'
+    } else if (key === '-' || key === '_') {
+      bodyStyle.fontSize = currentSize - 1 + 'px'
+    }
+  }
+
+  useEvent('keydown', function (event) {
+    // Check if the Command key (Meta key) is pressed
+    if (event.ctrlKey) {
+      // Check if "+" or "-" key is pressed
+      if (
+        event.key === '+' ||
+        event.key === '-' ||
+        event.key === '_' ||
+        event.key === '='
+      ) {
+        event.preventDefault()
+        adjustFontSize(event.key)
+      }
+    }
+  })
 
   return [
     header_ref,
