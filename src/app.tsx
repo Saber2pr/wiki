@@ -127,6 +127,7 @@ export const App = ({ blogTree }: App) => {
       <footer ref={footer_ref} className="footer">
         <BottomLinks />
       </footer>
+      <div id="top-toast" className="top-toast" />
     </Router>
   )
 }

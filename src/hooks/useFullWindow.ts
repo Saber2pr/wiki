@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { i18n } from '../i18n'
 import { useEvent } from './useEvent'
+import { showTopToast } from '../utils/showTopToast'
 
 const isFullWinBtnEnabled_ref = { current: false }
 
@@ -56,6 +57,10 @@ export const useFullWindow = ({
     } else {
       enable()
       isFullWinBtnEnabled_ref.current = true
+      showTopToast({
+        text: '快捷键 Ctrl + 加减号 可以缩放文字大小',
+        once: true,
+      })
     }
   }
 
