@@ -58,7 +58,7 @@ export const useFullWindow = ({
       enable()
       isFullWinBtnEnabled_ref.current = true
       showTopToast({
-        text: '快捷键 Ctrl + 加减号 可以缩放文字大小',
+        text: i18n.format('top_toast_shotcut'),
         once: true,
       })
     }

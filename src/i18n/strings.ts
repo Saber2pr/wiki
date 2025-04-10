@@ -20,6 +20,7 @@ export default {
     searchRes: '共找到 {count} 个结果',
     try: '尝试以下方式：',
     more: '更多',
+    top_toast_shotcut: "快捷键 Ctrl + 加减号 可以缩放文字大小",
   },
   en: {
     searchOnGithub: 'Search on github',
@@ -42,5 +43,6 @@ export default {
     searchRes: 'Find {count} result',
     try: 'Try the following methods:',
     more: 'More',
+    top_toast_shotcut: "Shortcut Ctrl + Plus/Minus keys can zoom text size",
   },
 }
