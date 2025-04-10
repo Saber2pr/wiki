@@ -13,7 +13,7 @@ import ReactDOM from 'react-dom'
 import { NavLink } from '@saber2pr/react-router'
 
 import { ErrorBoundary, SearchInput, Themer } from './components'
-import { I18nSelect } from './components/i18n-select'
+import { getCurrentLang, I18nSelect } from './components/i18n-select'
 import { origin } from './config'
 import { useBlogMenu, useEvent, useFullWindow } from './hooks'
 import { i18n } from './i18n'
@@ -157,7 +157,9 @@ declare global {
 const createWiki = (repo: string) => {
   origin.repo = repo
   origin.isWiki = true
-  i18n.setLocal('en')
+  const current = getCurrentLang()
+  i18n.setLocal(current.lang || 'en')
+
   const host = location.host || ''
   const result = host.match(/^([\s\S]*?)\.github\.io$/)
   if (result && result[1]) {

@@ -4,8 +4,7 @@ import { getArray } from '../../utils'
 
 export interface I18nSelectProps {}
 
-export const I18nSelect: React.FC<I18nSelectProps> = ({}) => {
-  if (!window.__i18nConfig) return <></>
+export const getCurrentLang = () => {
   const config: Array<{
     name: string
     key: string
@@ -21,6 +20,19 @@ export const I18nSelect: React.FC<I18nSelectProps> = ({}) => {
   ]
 
   const current = getArray(config)[0]
+
+  const langMap = {
+    '/zh': 'zh',
+    '/': 'en',
+  }
+
+  return { config, current, lang: langMap[current?.key] }
+}
+
+export const I18nSelect: React.FC<I18nSelectProps> = ({}) => {
+  if (!window.__i18nConfig) return <></>
+
+  const { current, config } = getCurrentLang()
 
   return (
     <div className="rn-i18n-select">
