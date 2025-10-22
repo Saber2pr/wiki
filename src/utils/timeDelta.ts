@@ -10,7 +10,7 @@ export const timeDelta = (time1: string | number, time2: string | number) => {
 
   if (years >= 1) return `${Math.round(years)} ${i18n.format('yearAgo')}`
   if (months >= 1) return `${Math.round(months)} ${i18n.format('monthsAgo')}`
-  if (days >= 1) return `${Math.round(days)} ${i18n.format('daysAgo')}}`
+  if (days >= 1) return `${Math.round(days)} ${i18n.format('daysAgo')}`
   if (hours >= 1) return `${Math.round(hours)} ${i18n.format('hoursAgo')}`
   if (minutes >= 1) return `${Math.round(minutes)} ${i18n.format('minutesAgo')}`
   if (seconds >= 1) return `${Math.round(minutes)} ${i18n.format('secondsAgo')}`
