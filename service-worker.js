@@ -5,7 +5,7 @@
  * @Last Modified time: 2021-10-07 18:09:02
  */
 const staticAssets = [
-  /** CODE START **/"/build/[name]0b59221690201916e326.min.js","/build/[name]0b59221690201916e326.min.js.LICENSE.txt","/build/index~31743c5a0b59221690201916e326.css","/build/index~31743c5a0b59221690201916e326.min.js","/build/index~bde52cb30b59221690201916e326.min.js","/build/index~bde52cb30b59221690201916e326.min.js.LICENSE.txt","/build/index~e96e9bea0b59221690201916e326.css"/** CODE END **/,
+  /** CODE START **/"/build/8221eca18425f704e000958.min.js","/build/[name]~0bc0478e1eca18425f704e000958.min.js","/build/[name]~0bc0478e1eca18425f704e000958.min.js.LICENSE.txt","/build/[name]~0e5d714b1eca18425f704e000958.min.js","/build/[name]~10451da61eca18425f704e000958.min.js","/build/[name]~275453681eca18425f704e000958.min.js","/build/[name]~275453681eca18425f704e000958.min.js.LICENSE.txt","/build/[name]~49d0a2931eca18425f704e000958.min.js","/build/[name]~49d0a2931eca18425f704e000958.min.js.LICENSE.txt","/build/[name]~e5bca7e41eca18425f704e000958.min.js","/build/[name]~e5bca7e41eca18425f704e000958.min.js.LICENSE.txt","/build/index~31743c5a1eca18425f704e000958.css","/build/index~31743c5a1eca18425f704e000958.min.js","/build/index~bde52cb31eca18425f704e000958.min.js","/build/index~bde52cb31eca18425f704e000958.min.js.LICENSE.txt","/build/index~e96e9bea1eca18425f704e000958.css"/** CODE END **/,
   '/',
   // icon
   '/static/icon/saber2pr-144x144.png',

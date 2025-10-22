@@ -222,6 +222,12 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                 <h1 className="Blog-Main-Title">{window.__title}</h1>
                 <div className="Blog-Main-Content">
                   <Markdown>{decodeURIComponent(window.__blog)}</Markdown>
+                  {window.__updateTime && (
+                    <p className="Blog-Main-Content-Date">
+                      {i18n.format('lastUpdate')}{' '}
+                      {timeDeltaFromNow(window.__updateTime * 1000)}
+                    </p>
+                  )}
                   {is404 && <Content404 />}
                 </div>
                 {window.__adsSlotHtml && (

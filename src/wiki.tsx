@@ -144,6 +144,7 @@ declare global {
   interface Window {
     __wiki
     __blog
+    __updateTime
     __title
     __basename
     __adsSlotHtml
