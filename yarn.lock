@@ -2063,10 +2063,10 @@
     "@rc-component/util" "^1.4.0"
     clsx "^2.1.1"
 
-"@saber2pr/ai-assistant@^0.0.10":
-  version "0.0.10"
-  resolved "https://registry.npmjs.org/@saber2pr/ai-assistant/-/ai-assistant-0.0.10.tgz#f37af48ef859182408fa83fdcdd3f5a6780d0806"
-  integrity sha512-xXfVXZQDV7GBILVXkjkSXNA6+y0e5Zbb3/9lGXabLOdYfLUrmtX9QB3IMkoa7RkgarxlmBMjh40PY5cJ0GsO+g==
+"@saber2pr/ai-assistant@^0.0.12":
+  version "0.0.12"
+  resolved "https://registry.npmjs.org/@saber2pr/ai-assistant/-/ai-assistant-0.0.12.tgz#67707f1359956473221e5d4bed713ff67f0e3c5e"
+  integrity sha512-iAoc3dp/jokPaNzrLgijrhFfpOKiLpkIV3q0WHAL/1lA2/CKcT6q+3XEs0fcy0zXzthue5YneRZIn0IZgBuLkA==
   dependencies:
     "@assistant-ui/react" "^0.8.6"
     "@assistant-ui/react-ai-sdk" "^0.8.0"

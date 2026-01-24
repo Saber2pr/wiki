@@ -19,7 +19,7 @@ import { useBlogMenu, useEvent, useFullWindow } from './hooks'
 import { i18n } from './i18n'
 import { Blog } from './pages'
 import { request } from './request'
-import { getHash, parseTree, queryRootFirstChildMemo, whenInDEV } from './utils'
+import { checkIsMob, getHash, parseTree, queryRootFirstChildMemo, whenInDEV } from './utils'
 import nProgress from 'nprogress'
 import { BottomLinks } from './components/bottom-links'
 import { getCurrentThemeType } from './theme'
@@ -162,29 +162,31 @@ const createWiki = (repo: string) => {
   const current = getCurrentLang()
   i18n.setLocal(current.lang || 'en')
 
-  import('@saber2pr/ai-assistant').then(({ initAIAssistant }) => {
-    initAIAssistant({
-      locale: current?.lang === 'zh' ? 'zh-CN' : 'en-US',
-      initialPosition: {
-        x: window.innerWidth - 80,
-        y: window.innerHeight - 180
-      },
-      theme() {
-        return getCurrentThemeType()
-      },
-      async onBeforeChat(messages) {
-        if (!window.__blog) return messages
-        if (!window.__title) return messages
-        return [
-          {
-            role: "system",
-            content: `${i18n.format('aiPrompt')} : ${decodeURIComponent(window.__title)} \n${decodeURIComponent(window.__blog)}`
-          },
-          ...messages
-        ]
-      },
+  if (!checkIsMob()) {
+    import('@saber2pr/ai-assistant').then(({ initAIAssistant }) => {
+      initAIAssistant({
+        locale: current?.lang === 'zh' ? 'zh-CN' : 'en-US',
+        initialPosition: {
+          x: window.innerWidth - 80,
+          y: window.innerHeight - 180
+        },
+        theme() {
+          return getCurrentThemeType()
+        },
+        async onBeforeChat(messages) {
+          if (!window.__blog) return messages
+          if (!window.__title) return messages
+          return [
+            {
+              role: "system",
+              content: `${i18n.format('aiPrompt')} : ${decodeURIComponent(window.__title)} \n${decodeURIComponent(window.__blog)}`
+            },
+            ...messages
+          ]
+        },
+      })
     })
-  })
+  }
 
   const host = location.host || ''
   const result = host.match(/^([\s\S]*?)\.github\.io$/)
