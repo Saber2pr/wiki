@@ -11,7 +11,6 @@ import ReactDOM from 'react-dom'
 
 // /
 import { NavLink } from '@saber2pr/react-router'
-import { initAIAssistant } from '@saber2pr/ai-assistant'
 
 import { ErrorBoundary, SearchInput, Themer } from './components'
 import { getCurrentLang, I18nSelect } from './components/i18n-select'
@@ -47,26 +46,6 @@ const AppNavLink = ({
     }}
   />
 )
-
-
-// 默认执行初始化
-initAIAssistant({
-  locale: 'en-US'
-  // welcomeMessage: '有什么可以帮忙的？',
-  // suggestions: ['如何用 Typescript 实现 Helloworld？', '物联网是什么？'],
-  // placeholder: '给 GPT 发送消息',
-  // emptyMessage: '我是AI，可以回答你的问题，请在下方输入框输入你的需求～',
-  // async onBeforeChat(messages) {
-  //   const knowledgeContent = await fetch('http://localhost:5001/HTML超文本标记语言/移动端禁用双指放大.md').then(res => res.text())
-  //   return [
-  //     {
-  //       role: "system",
-  //       content: `你是我的博客助手，根据我博客内容回答：移动端禁用双指放大的方法：\n${knowledgeContent}`
-  //     },
-  //     ...messages
-  //   ]
-  // },
-});
 
 export const App = ({ blogTree }: App) => {
   const firstBlog = queryRootFirstChildMemo(blogTree)
@@ -182,8 +161,21 @@ const createWiki = (repo: string) => {
   const current = getCurrentLang()
   i18n.setLocal(current.lang || 'en')
 
-  initAIAssistant({
-    locale: current?.lang === 'zh' ? 'zh-CN' : 'en-US'
+  import('@saber2pr/ai-assistant').then(({ initAIAssistant }) => {
+    initAIAssistant({
+      locale: current?.lang === 'zh' ? 'zh-CN' : 'en-US',
+      async onBeforeChat(messages) {
+        if (!window.__blog) return messages
+        if (!window.__title) return messages
+        return [
+          {
+            role: "system",
+            content: `${i18n.format('aiPrompt')} : ${decodeURIComponent(window.__title)} \n${decodeURIComponent(window.__blog)}`
+          },
+          ...messages
+        ]
+      },
+    })
   })
 
   const host = location.host || ''

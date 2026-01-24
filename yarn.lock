@@ -1649,10 +1649,10 @@
     classnames "^2.3.2"
     rc-util "^5.24.4"
 
-"@saber2pr/ai-assistant@^0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@saber2pr/ai-assistant/-/ai-assistant-0.0.5.tgz#8938a3d7e34160e2d3531e076112b4fb4d1160ce"
-  integrity sha512-baPWrqqhZqmRHPDHb9u6RD4vOfchvTo6sSelNnD01B+xL3lQG4kJoCJmsV9eLinPPwUDDttRqJU13LSqc9Gl2A==
+"@saber2pr/ai-assistant@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.npmjs.org/@saber2pr/ai-assistant/-/ai-assistant-0.0.8.tgz#314f23d66ab095eda8b4085bf3343b834054b702"
+  integrity sha512-f1zOQoTa8LVCX8fyXw2Y22L1JlgxJ1apmP5jDLtGrBDJQL5anO3iqeo/NAVRYa5t3hgwVtS4DamYDSpEG5mqzA==
   dependencies:
     "@assistant-ui/react" "^0.8.6"
     "@assistant-ui/react-ai-sdk" "^0.8.0"

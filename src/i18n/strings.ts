@@ -1,5 +1,6 @@
 export default {
   zh: {
+    aiPrompt: "你是我的博客助手，根据我博客内容回答",
     searchOnGithub: '在Github上搜索',
     searchOnMdn: '在MDN上搜索',
     searchNote: '搜索笔记',
@@ -30,6 +31,7 @@ export default {
     secondsAgo: '秒前.',
   },
   en: {
+    aiPrompt: "You are my blog assistant. Please answer according to the content of my blog",
     searchOnGithub: 'Search on github',
     searchOnMdn: 'Search on MDN',
     searchNote: 'Search notes',
