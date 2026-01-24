@@ -22,6 +22,7 @@ import { request } from './request'
 import { getHash, parseTree, queryRootFirstChildMemo, whenInDEV } from './utils'
 import nProgress from 'nprogress'
 import { BottomLinks } from './components/bottom-links'
+import { getCurrentThemeType } from './theme'
 
 nProgress.configure({
   showSpinner: false,
@@ -164,6 +165,13 @@ const createWiki = (repo: string) => {
   import('@saber2pr/ai-assistant').then(({ initAIAssistant }) => {
     initAIAssistant({
       locale: current?.lang === 'zh' ? 'zh-CN' : 'en-US',
+      initialPosition: {
+        x: window.innerWidth - 80,
+        y: window.innerHeight - 180
+      },
+      theme() {
+        return getCurrentThemeType()
+      },
       async onBeforeChat(messages) {
         if (!window.__blog) return messages
         if (!window.__title) return messages
