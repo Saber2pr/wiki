@@ -1,0 +1,24 @@
+src/utils/parseWikiLeaf.ts
+  s_05f7bf0100220a::t_2fc8a97496a2c7 8-49
+src/wiki.tsx
+  s_05f7bf0100220a::t_ec12c4ad67352f 119
+  s_05f7bf0100220a::t_0861f9b4b4a50d 23
+  s_05f7bf0100220a::t_924ecdad1c1477 145
+  s_05f7bf0100220a::t_86c6186a51c1e9 54-58
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "7f1148ee86d51b3d94749d8ff686b5d3d35036d7",
+  "prompts": {},
+  "sessions": {
+    "s_05f7bf0100220a": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "e29bc8c5-04be-4d0f-8b6b-049c976a7328",
+        "model": "default"
+      },
+      "human_author": "muhai <muhai.li@tuya.com>"
+    }
+  }
+}
