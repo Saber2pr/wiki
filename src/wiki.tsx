@@ -172,6 +172,7 @@ declare global {
     __navlist?: string[]
     __navFirst?: Record<string, string>
     __nav?: string
+    __copyrightName?: string
   }
 }
 

@@ -49,7 +49,7 @@ export const BottomLinks: React.FC<BottomLinksProps> = ({}) => {
           }}
         >
           <span>
-            Copyright © {new Date().getFullYear()} {origin.userId}
+            Copyright © {new Date().getFullYear()} {window.__copyrightName || origin.userId}
           </span>
         </div>
         <div className="sitebottom-block">
