@@ -20,6 +20,7 @@ import { i18n } from './i18n'
 import { Blog } from './pages'
 import { request } from './request'
 import { checkIsMob, getHash, parseTree, queryRootFirstChildMemo, whenInDEV } from './utils'
+import { createWikiPostPath } from './utils/parseWikiLeaf'
 import nProgress from 'nprogress'
 import { BottomLinks } from './components/bottom-links'
 import { getCurrentThemeType } from './theme'
@@ -99,6 +100,16 @@ export const App = ({ blogTree }: App) => {
                 {firstBlog.title.split(':')[0]}
               </AppNavLink>
             </li>
+            {(window.__navlist || []).map(nav => (
+              <li key={nav}>
+                <AppNavLink
+                  to={createWikiPostPath(window.__navFirst?.[nav] || '', nav)}
+                  isActive={() => window.__nav === nav}
+                >
+                  {nav}
+                </AppNavLink>
+              </li>
+            ))}
             <li className="nav-block" />
             <li>
               <SearchInput blog={blogTree} />
@@ -153,6 +164,9 @@ declare global {
     __i18nConfig
     __expandAllMenu
     __buttomlinksUri
+    __navlist?: string[]
+    __navFirst?: Record<string, string>
+    __nav?: string
   }
 }
 

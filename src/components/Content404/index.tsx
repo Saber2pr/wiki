@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { createWikiPostPath, parseWikiLeaf } from '../../utils/parseWikiLeaf'
 
 export interface Content404Props {}
 
@@ -20,10 +21,10 @@ export const Content404: React.FC<Content404Props> = ({}) => {
           .filter(item => item && item.includes(targetName))
           .map(item => {
             const str = item.trim()
-            const [title, path] = str.split(':')
+            const { name: title, href: path, nav } = parseWikiLeaf(str)
             return {
               title,
-              path: `${window.__basename}/posts/${path}/`,
+              path: createWikiPostPath(path, nav),
             }
           })
         if (list.length > 0) {

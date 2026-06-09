@@ -14,6 +14,7 @@ export * from './getHash';
 export * from './log';
 export * from './Lyric';
 export * from './parseTree';
+export * from './parseWikiLeaf';
 export * from './parseUpdateStr';
 export * from './parseUrlParam';
 export * from './pwa-installer';

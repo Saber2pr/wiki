@@ -8,6 +8,7 @@ import { Icon } from '../../iconfont'
 import { Blog } from '../../pages'
 import { store } from '../../store'
 import { checkIsMob, collect, debounce } from '../../utils'
+import { createWikiPostPath, parseWikiLeaf } from '../../utils/parseWikiLeaf'
 import { handleKeyInput } from '../../utils/handleKeyInput'
 import { HighLightHTML } from '../highLight-html'
 
@@ -31,10 +32,10 @@ const useSearch = (blog: Blog['tree']): [Item[], Search, string] => {
       const acc: Item[] = []
       for (const item of list) {
         if (item.title) {
-          const [name, href] = item.title.split(':')
+          const { name, href, nav } = parseWikiLeaf(item.title)
           if (name.toLowerCase().includes(query.toLowerCase())) {
             acc.push({
-              path: `${window.__basename}/posts/${href}/`,
+              path: createWikiPostPath(href, nav),
               searchMeta: query,
               title: name,
             })

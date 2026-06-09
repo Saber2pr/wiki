@@ -34,6 +34,7 @@ import {
   TextTree,
   timeDeltaFromNow,
 } from '../../utils'
+import { createWikiPostPath, parseWikiLeaf } from '../../utils/parseWikiLeaf'
 import { getQuery } from '../../utils/getQuery'
 import { NotFound } from '../not-found'
 import { Markdown } from '../../components/markdown'
@@ -273,11 +274,11 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                 map={({ path: href, title, children }) => {
                   if (href === firstBlog.path) return <></>
                   if (origin.isWiki) {
-                    const [name, href] = title.split(':')
+                    const { name, href, nav } = parseWikiLeaf(title)
                     if (children) return <span>{parseTitle(name)}</span>
                     return (
                       <BLink
-                        to={`${window.__basename}/posts/${href}/`}
+                        to={createWikiPostPath(href, nav)}
                         onClick={() => {
                           nprogress.start()
                           if (!isMobile()) return
