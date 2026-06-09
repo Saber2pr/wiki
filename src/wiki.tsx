@@ -20,7 +20,7 @@ import { i18n } from './i18n'
 import { Blog } from './pages'
 import { request } from './request'
 import { checkIsMob, getHash, parseTree, queryRootFirstChildMemo, whenInDEV } from './utils'
-import { createWikiPostPath } from './utils/parseWikiLeaf'
+import { createWikiPostPath, filterTreeByNav } from './utils/parseWikiLeaf'
 import nProgress from 'nprogress'
 import { BottomLinks } from './components/bottom-links'
 import { getCurrentThemeType } from './theme'
@@ -51,7 +51,11 @@ const AppNavLink = ({
 
 export const App = ({ blogTree }: App) => {
   const firstBlog = queryRootFirstChildMemo(blogTree)
-  const expand = useBlogMenu(blogTree)
+  const navFilteredTree = useMemo(
+    () => (origin.isWiki ? filterTreeByNav(blogTree) : blogTree),
+    [blogTree]
+  )
+  const expand = useBlogMenu(navFilteredTree)
 
   const title = useMemo(() => document.title, [])
 
@@ -112,7 +116,7 @@ export const App = ({ blogTree }: App) => {
             ))}
             <li className="nav-block" />
             <li>
-              <SearchInput blog={blogTree} />
+              <SearchInput blog={navFilteredTree} />
             </li>
             {/* <li className="nav-last">
               <a href="https://github.com/Saber2pr">GitHub</a>
@@ -138,7 +142,7 @@ export const App = ({ blogTree }: App) => {
         <Blog
           ref={btn_ref}
           fullWinBtnAPI={fullWinBtnAPI}
-          tree={blogTree}
+          tree={navFilteredTree}
           showOp={{
             latest: false,
           }}
