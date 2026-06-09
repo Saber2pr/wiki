@@ -267,18 +267,20 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
               {Icon.TreeBtn(isShow, '-90deg', '90deg', 'rotate')}
             </div>
             <section className="Blog-Aside-Content">
+              {tree.children?.length ? (
               <Tree
                 expandAll={window.__expandAllMenu === 'on'}
                 from={tree}
                 selectBtn={Icon.TreeBtn}
                 map={({ path: href, title, children }) => {
-                  if (href === firstBlog.path) return <></>
+                  if (!href) return <></>
+                  if (firstBlog && href === firstBlog.path) return <></>
                   if (origin.isWiki) {
-                    const { name, href, nav } = parseWikiLeaf(title)
+                    const { name, href: md5Path, nav } = parseWikiLeaf(title)
                     if (children) return <span>{parseTitle(name)}</span>
                     return (
                       <BLink
-                        to={createWikiPostPath(href, nav)}
+                        to={createWikiPostPath(md5Path, nav)}
                         onClick={() => {
                           nprogress.start()
                           if (!isMobile()) return
@@ -305,6 +307,7 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                   )
                 }}
               />
+              ) : null}
             </section>
           </aside>
         </TwoSide>

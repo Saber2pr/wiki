@@ -13,9 +13,7 @@ export const filterTreeByNav = <T extends { title: string; children?: T[] }>(
   nav = getCurrentWikiNav()
 ): T => {
   const filterNode = (node: T): T | null => {
-    const hasChildren = Array.isArray(node.children) && node.children.length > 0
-
-    if (!hasChildren) {
+    if (!node.children) {
       const { nav: leafNav } = parseWikiLeaf(node.title)
       if (leafNav !== nav) {
         return null
@@ -33,7 +31,7 @@ export const filterTreeByNav = <T extends { title: string; children?: T[] }>(
 
     return {
       ...node,
-      children: filteredChildren,
+      children: filteredChildren.filter(child => child?.path),
     }
   }
 

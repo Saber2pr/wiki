@@ -30,10 +30,20 @@ export const findNodeByPath = (path: string, entry: Node) => {
   }
 }
 
-export const queryRootFirstChild = (entry: Node) => {
+export const queryRootFirstChild = (entry: Node): Node | undefined => {
   const children = entry.children
+  if (!children) {
+    return undefined
+  }
+
   for (const ch of children) {
-    if (!ch.children) return ch
+    if (!ch.children) {
+      return ch
+    }
+    const found = queryRootFirstChild(ch)
+    if (found) {
+      return found
+    }
   }
 }
 

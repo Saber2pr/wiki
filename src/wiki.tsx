@@ -62,7 +62,7 @@ export const App = ({ blogTree }: App) => {
   const setTitle = () => {
     const hash = getHash()
 
-    if (hash === '/') {
+    if (hash === '/' && firstBlog?.path) {
       location.hash = '#' + firstBlog.path
     }
 
@@ -101,7 +101,7 @@ export const App = ({ blogTree }: App) => {
           <ul className="nav-ul">
             <li>
               <AppNavLink to={window.__basename + '/'}>
-                {firstBlog.title.split(':')[0]}
+                {firstBlog?.title?.split(':')[0] || window.__title || 'Home'}
               </AppNavLink>
             </li>
             {(window.__navlist || []).map(nav => (
