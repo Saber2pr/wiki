@@ -1,0 +1,35 @@
+src/utils/parseTree.ts
+  s_05f7bf0100220a::t_7f7a024cb88ea4 28-36
+src/utils/parseWikiLeaf.ts
+  s_05f7bf0100220a::t_9ac39968bf3a8e 11,15-16,18-22,36,44
+  s_05f7bf0100220a::t_cf2616afee4720 23
+  s_05f7bf0100220a::t_a0e56f5cf87fda 17,24-26,34-35,48-50,54
+src/hooks/useBlogMenu.ts
+  s_05f7bf0100220a::t_591db46fb65fd2 11-13
+src/wiki.tsx
+  s_05f7bf0100220a::t_02f5f0d057310f 146
+src/utils/collect.ts
+  s_05f7bf0100220a::t_2f553761c92516 15-17,19-21
+src/pages/blog/index.tsx
+  s_05f7bf0100220a::t_e02da1bfbe3216 112
+  s_05f7bf0100220a::t_f745e4184ffd25 74
+  s_05f7bf0100220a::t_1f153c3b458e5d 97,103
+  s_05f7bf0100220a::t_0a26199207a026 281-285
+  s_05f7bf0100220a::t_029438b67e3931 133-137
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "14698d50537925a7e7d44c8dc27900abe88940df",
+  "prompts": {},
+  "sessions": {
+    "s_05f7bf0100220a": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "e29bc8c5-04be-4d0f-8b6b-049c976a7328",
+        "model": "default"
+      },
+      "human_author": "muhai <muhai.li@tuya.com>"
+    }
+  }
+}
