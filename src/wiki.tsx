@@ -143,6 +143,7 @@ export const App = ({ blogTree }: App) => {
           ref={btn_ref}
           fullWinBtnAPI={fullWinBtnAPI}
           tree={navFilteredTree}
+          firstBlog={firstBlog}
           showOp={{
             latest: false,
           }}

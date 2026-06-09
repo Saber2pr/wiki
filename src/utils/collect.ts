@@ -12,8 +12,13 @@ export function collect(tree: TextTree, stack = [tree]) {
   const result: Array<TextTree> = []
   while (stack.length) {
     const node = stack.shift()
+    if (!node) {
+      continue
+    }
     node === tree || result.push(node)
-    node.children && stack.push(...node.children)
+    if (node.children) {
+      stack.push(...node.children.filter(Boolean))
+    }
   }
 
   whenInDEV(() => {

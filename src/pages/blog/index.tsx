@@ -71,6 +71,7 @@ const BLink = (props: Link) => {
 
 export interface Blog {
   tree: TextTree
+  firstBlog?: TextTree
   fullWinBtnAPI: fullWinBtnAPI
   showOp?: {
     latest?: boolean
@@ -93,12 +94,13 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
   (
     {
       tree,
+      firstBlog: firstBlogProp,
       fullWinBtnAPI: { select, selectProps, re: isFullWin },
       showOp = { latest: true, musicBox: true },
     }: Blog,
     fullwinBtn_ref
   ) => {
-    const firstBlog = queryRootFirstChildMemo(tree)
+    const firstBlog = firstBlogProp ?? queryRootFirstChildMemo(tree)
     const links = collect(tree)
 
     const isOpen = useRef(false)
@@ -107,7 +109,7 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
     const isMobile = useIsMobile(close, open)
 
     const getLastModified = (href: string): string =>
-      findNodeByPath(href, tree)['LastModified']
+      findNodeByPath(href, tree)?.['LastModified'] || ''
 
     useLayoutEffect(() => {
       window.scroll(0, 0)
@@ -128,7 +130,11 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
       }
     }
 
-    const Routes = links.reduce((acc, { title, path: href, children }, i) => {
+    const Routes = links.reduce((acc, node, i) => {
+      if (!node?.path) {
+        return acc
+      }
+      const { title, path: href, children } = node
       if (!children) {
         acc.push(
           <Route
@@ -272,8 +278,11 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                 expandAll={window.__expandAllMenu === 'on'}
                 from={tree}
                 selectBtn={Icon.TreeBtn}
-                map={({ path: href, title, children }) => {
-                  if (!href) return <></>
+                map={(node: TextTree) => {
+                  if (!node?.path) {
+                    return <></>
+                  }
+                  const { path: href, title, children } = node
                   if (firstBlog && href === firstBlog.path) return <></>
                   if (origin.isWiki) {
                     const { name, href: md5Path, nav } = parseWikiLeaf(title)

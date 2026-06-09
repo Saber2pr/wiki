@@ -8,6 +8,9 @@ export const useBlogMenu = (blogRoot: Blog["tree"]) => {
 
   const expandTarget = (target: string) => {
     nodes.forEach(n => {
+      if (!n?.path) {
+        return
+      }
       if (target.startsWith(n.path)) {
         n.expand = true
       } else {

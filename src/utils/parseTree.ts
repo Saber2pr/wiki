@@ -25,8 +25,15 @@ export const findNodeByPath = (path: string, entry: Node) => {
   const stack = [entry]
   while (stack.length) {
     const node = stack.pop()
-    if (node.path === path) return node
-    node.children && stack.push(...node.children)
+    if (!node) {
+      continue
+    }
+    if (node.path === path) {
+      return node
+    }
+    if (node.children) {
+      stack.push(...node.children.filter(Boolean))
+    }
   }
 }
 
@@ -35,14 +42,9 @@ export const queryRootFirstChild = (entry: Node): Node | undefined => {
   if (!children) {
     return undefined
   }
-
   for (const ch of children) {
     if (!ch.children) {
       return ch
-    }
-    const found = queryRootFirstChild(ch)
-    if (found) {
-      return found
     }
   }
 }
