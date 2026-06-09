@@ -1,0 +1,16 @@
+src/wiki.tsx
+  h_eabc34dcaf7833 175
+src/components/bottom-links/index.tsx
+  h_eabc34dcaf7833 52
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "8164bc855faf59ef0aa75bc4c3d12bb19ff22966",
+  "prompts": {},
+  "humans": {
+    "h_eabc34dcaf7833": {
+      "author": "muhai <muhai.li@tuya.com>"
+    }
+  }
+}
