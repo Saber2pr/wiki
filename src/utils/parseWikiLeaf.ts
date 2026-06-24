@@ -3,8 +3,10 @@ export const parseWikiLeaf = (title = '') => {
   return { name, href, nav }
 }
 
+const clearSlash = (str: string) => str.replace(/^\/+/g, '').replace(/\/+$/g, '')
+
 export const createWikiPostPath = (href: string, nav = 'posts') =>
-  `${window.__basename}/${nav}/${href}/`
+  `${window.__basename}/${clearSlash(nav)}/${clearSlash(href)}/`
 
 export const getCurrentWikiNav = () => window.__nav || 'posts'
 
