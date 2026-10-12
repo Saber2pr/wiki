@@ -1,0 +1,14 @@
+.github/workflows/main.yml
+  h_eabc34dcaf7833 3-4
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "7bd33d43f78e08488581f7d73cc32622f16bee9d",
+  "prompts": {},
+  "humans": {
+    "h_eabc34dcaf7833": {
+      "author": "muhai <muhai.li@tuya.com>"
+    }
+  }
+}
