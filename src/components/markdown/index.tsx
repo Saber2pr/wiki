@@ -47,6 +47,14 @@ export const Markdown: React.FC<MarkdownProps> = ({ children }) => {
           const { node, ...rest } = props
           return <img loading="lazy" {...rest} />
         },
+        a: props => {
+          const { node, href, ...rest } = props
+          const newRest = { ...rest }
+          if (/\.md$/.test(href)) {
+            newRest.href = href.replace(/\.md$/, '')
+          }
+          return <a {...newRest} />
+        }
       }}
     >
       {String(children).trim()}
