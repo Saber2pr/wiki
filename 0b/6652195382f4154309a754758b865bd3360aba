@@ -1,0 +1,19 @@
+.github/workflows/build-wiki.yml
+  s_16450dc1e8ac9f::t_3cedac92955a9b 1-46
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "0b6652195382f4154309a754758b865bd3360aba",
+  "prompts": {},
+  "sessions": {
+    "s_16450dc1e8ac9f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a12e51-f422-79c3-942d-d12d03f30f3e",
+        "model": "gpt-5.6-terra"
+      },
+      "human_author": "muhai <muhai.li@tuya.com>"
+    }
+  }
+}
