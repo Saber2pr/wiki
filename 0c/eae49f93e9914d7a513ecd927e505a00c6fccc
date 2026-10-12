@@ -1,0 +1,14 @@
+src/components/markdown/index.tsx
+  h_eabc34dcaf7833 50-57
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "0ceae49f93e9914d7a513ecd927e505a00c6fccc",
+  "prompts": {},
+  "humans": {
+    "h_eabc34dcaf7833": {
+      "author": "muhai <muhai.li@tuya.com>"
+    }
+  }
+}
