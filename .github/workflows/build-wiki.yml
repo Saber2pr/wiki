@@ -1,0 +1,46 @@
+name: Build Wiki
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-wiki-master
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build wiki
+        run: yarn build:wiki
+
+      - name: Commit generated wiki files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add --all release build/wiki-release.tar.gz
+
+          if git diff --cached --quiet; then
+            echo "No generated wiki changes to commit."
+            exit 0
+          fi
+
+          git commit -m "chore: build wiki"
+          git push origin HEAD:master
