@@ -1,8 +1,7 @@
 name: Update
 on:
-  push:
-    branches:
-      - master
+  workflow_dispatch:
+
 jobs:
   Update-Data:
     runs-on: ubuntu-20.04
