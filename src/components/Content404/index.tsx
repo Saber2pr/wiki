@@ -1,48 +1,52 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { createWikiPostPath, parseWikiLeaf } from '../../utils/parseWikiLeaf'
+import { Loading } from '../loading'
 
-export interface Content404Props {}
+export interface Content404Item {
+  title: string
+  path: string
+}
+
+export interface Content404Props {
+  list: Content404Item[]
+}
 
 export const is404 = window.__title === '404'
 
-export const Content404: React.FC<Content404Props> = ({}) => {
-  const [list, setList] = useState<{ title: string; path: string }[]>([])
+export const getContent404List = (): Content404Item[] => {
+  if (!is404) return []
 
-  useEffect(() => {
-    if (is404) {
-      const pathname = decodeURIComponent(window.location.pathname)
-      const targetName = pathname
-        .split('/')
-        .filter(i => !!i)
-        .pop()
-      if (targetName && window.__wiki) {
-        const list = decodeURIComponent(window.__wiki)
-          .split('\n')
-          .filter(item => item && item.includes(targetName))
-          .map(item => {
-            const str = item.trim()
-            const { name: title, href: path, nav } = parseWikiLeaf(str)
-            return {
-              title,
-              path: createWikiPostPath(path, nav),
-            }
-          })
-        if (list.length > 0) {
-          if (list.length > 1) {
-            // >=2
-            setList(list)
-          } else {
-            // ==1
-            if (list[0]) {
-              location.href = list[0].path
-            }
-          }
-        }
+  const pathname = decodeURIComponent(window.location.pathname)
+  const targetName = pathname
+    .split('/')
+    .filter(i => !!i)
+    .pop()
+
+  if (!targetName || !window.__wiki) return []
+
+  return decodeURIComponent(window.__wiki)
+    .split('\n')
+    .filter(item => item && item.includes(targetName))
+    .map(item => {
+      const str = item.trim()
+      const { name: title, href: path, nav } = parseWikiLeaf(str)
+      return {
+        title,
+        path: createWikiPostPath(path, nav),
       }
-    }
-  }, [])
+    })
+}
 
-  if (list.length === 0) return <></>
+export const Content404: React.FC<Content404Props> = ({ list }) => {
+  useEffect(() => {
+    if (list.length === 1 && list[0]) {
+      location.href = list[0].path
+    }
+  }, [list])
+
+  if (list.length === 1) return <Loading type="line" />
+
+  if (list.length === 0) return null
 
   return (
     <div className="Content404">

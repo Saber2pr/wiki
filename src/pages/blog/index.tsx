@@ -14,7 +14,7 @@ import {
   ScrollToTop,
   TwoSide,
 } from '../../components'
-import { Content404, is404 } from '../../components/Content404'
+import { Content404, getContent404List } from '../../components/Content404'
 import { origin } from '../../config'
 import {
   fullWinBtnAPI,
@@ -102,6 +102,7 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
   ) => {
     const firstBlog = firstBlogProp ?? queryRootFirstChildMemo(tree)
     const links = collect(tree)
+    const content404List = getContent404List()
 
     const isOpen = useRef(false)
     const aniBtnRef = useRef<{ close: Function }>()
@@ -226,17 +227,24 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
           <main className="Blog-Main" ref={main_ref}>
             {origin.isWiki ? (
               <>
-                <h1 className="Blog-Main-Title">{window.__title}</h1>
-                <div className="Blog-Main-Content">
-                  <Markdown>{decodeURIComponent(window.__blog)}</Markdown>
-                  {window.__updateTime && (
-                    <p className="Blog-Main-Content-Date">
-                      {i18n.format('lastUpdate')}{' '}
-                      {timeDeltaFromNow(window.__updateTime * 1000)}
-                    </p>
-                  )}
-                  {is404 && <Content404 />}
-                </div>
+                {content404List.length > 0 ? (
+                  <div className="Blog-Main-Content">
+                    <Content404 list={content404List} />
+                  </div>
+                ) : (
+                  <>
+                    <h1 className="Blog-Main-Title">{window.__title}</h1>
+                    <div className="Blog-Main-Content">
+                      <Markdown>{decodeURIComponent(window.__blog)}</Markdown>
+                      {window.__updateTime && (
+                        <p className="Blog-Main-Content-Date">
+                          {i18n.format('lastUpdate')}{' '}
+                          {timeDeltaFromNow(window.__updateTime * 1000)}
+                        </p>
+                      )}
+                    </div>
+                  </>
+                )}
                 {window.__adsSlotHtml && (
                   <div
                     className="Blog-Main-Content"
