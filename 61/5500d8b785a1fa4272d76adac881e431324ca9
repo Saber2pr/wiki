@@ -1,0 +1,23 @@
+src/components/Content404/index.tsx
+  s_65b02e48ea2303::t_5e9bddc15bfa04 1,3,5-12
+  s_65b02e48ea2303::t_451a2fd851f890 16-17,19-35,37-43,45-47,49
+src/pages/blog/index.tsx
+  s_65b02e48ea2303::t_81df84db59bb47 230-247
+  s_65b02e48ea2303::t_1c1981ea941714 17,105
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "615500d8b785a1fa4272d76adac881e431324ca9",
+  "prompts": {},
+  "sessions": {
+    "s_65b02e48ea2303": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a12e60-e9c4-7d31-be39-9e9655857e71",
+        "model": "gpt-5.6-terra"
+      },
+      "human_author": "muhai <muhai.li@tuya.com>"
+    }
+  }
+}
