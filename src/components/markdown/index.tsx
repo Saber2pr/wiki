@@ -49,11 +49,8 @@ export const Markdown: React.FC<MarkdownProps> = ({ children }) => {
         },
         a: props => {
           const { node, href, ...rest } = props
-          const newRest = { ...rest }
-          if (/\.md$/.test(href)) {
-            newRest.href = href.replace(/\.md$/, '')
-          }
-          return <a {...newRest} />
+          const linkHref = href?.replace(/\.md$/, '')
+          return <a {...rest} href={linkHref} />
         }
       }}
     >
